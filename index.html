@@ -228,7 +228,8 @@
         <div>
           <span id="nav-name" class="font-display font-bold text-white tracking-tight block leading-none">AJITH
             ELUMALAI</span>
-          <span class="font-mono text-[11px] text-emerald-400 tracking-wider">FULL STACK & AI ENGINEER</span>
+          <span id="nav-role-tag" class="font-mono text-[11px] text-emerald-400 tracking-wider">FULL STACK & AI
+            ENGINEER</span>
         </div>
       </a>
 
@@ -306,8 +307,10 @@
             <span id="hero-badge">Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles</span>
           </div>
 
-          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-            Engineering <span class="gradient-text">Real-Time Systems</span> & Applied AI.
+          <h1 id="hero-main-heading"
+            class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+            <span id="hero-title-prefix">Engineering</span> <span id="hero-title-gradient"
+              class="gradient-text">Real-Time Systems</span> <span id="hero-title-suffix">&amp; Applied AI.</span>
           </h1>
 
           <p id="hero-summary" class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
@@ -353,19 +356,15 @@
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
             <div class="glass-card p-4 rounded-xl">
               <div id="metric-exp" class="font-display text-2xl sm:text-3xl font-bold text-emerald-400">3+ Yrs</div>
-              <div class="text-xs text-slate-400 mt-1">Production Full Stack</div>
-            </div>
-            <div class="glass-card p-4 rounded-xl">
-              <div id="metric-ai" class="font-display text-2xl sm:text-3xl font-bold text-cyan-400">99%</div>
-              <div class="text-xs text-slate-400 mt-1">AI Classifier Accuracy</div>
+              <div id="metric-exp-label" class="text-xs text-slate-400 mt-1">Production Full Stack</div>
             </div>
             <div class="glass-card p-4 rounded-xl">
               <div id="metric-projects" class="font-display text-2xl sm:text-3xl font-bold text-indigo-400">6+</div>
-              <div class="text-xs text-slate-400 mt-1">Enterprise Platforms</div>
+              <div id="metric-projects-label" class="text-xs text-slate-400 mt-1">Enterprise Platforms</div>
             </div>
             <div class="glass-card p-4 rounded-xl">
               <div id="metric-cgpa" class="font-display text-2xl sm:text-3xl font-bold text-emerald-300">8.0</div>
-              <div class="text-xs text-slate-400 mt-1">B.E. CSE CGPA (2023)</div>
+              <div id="metric-cgpa-label" class="text-xs text-slate-400 mt-1">B.E. CSE CGPA (2023)</div>
             </div>
           </div>
         </div>
@@ -378,7 +377,7 @@
                 <span class="w-3 h-3 rounded-full bg-rose-500"></span>
                 <span class="w-3 h-3 rounded-full bg-amber-500"></span>
                 <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                <span class="ml-2 font-mono text-xs text-slate-400">Ajith_E_Resume_2026.pdf</span>
+                <span class="ml-2 font-mono text-xs text-slate-400">Ajith_E_Resume.pdf</span>
               </div>
               <span id="resume-mode-pill"
                 class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px]">VERIFIED
@@ -392,12 +391,13 @@
                   <span id="live-tenure-badge" class="text-emerald-400">Active</span>
                 </div>
                 <div id="card-current-role" class="text-white font-semibold">Senior Officer — Switch Mobility EV</div>
-                <div class="text-emerald-400 text-xs mt-0.5">Python Full Stack (Real-Time Telematics & AI)</div>
+                <div id="card-role-domain" class="text-emerald-400 text-xs mt-0.5">Python Full Stack (Real-Time
+                  Telematics & AI)</div>
               </div>
 
               <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/5">
                 <div class="text-slate-400 text-xs mb-1">// MULTI-DATABASE ARCHITECTURE</div>
-                <div class="flex flex-wrap gap-1.5 mt-1.5">
+                <div id="card-db-badges" class="flex flex-wrap gap-1.5 mt-1.5">
                   <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">PostgreSQL</span>
                   <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">AWS Redshift</span>
                   <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">AWS HBase</span>
@@ -410,7 +410,7 @@
                 <div class="text-slate-400 text-xs mb-1">// ATTACHED RESUME PACKAGE</div>
                 <div class="flex items-center justify-between gap-2 mt-2">
                   <div>
-                    <div id="card-resume-filename" class="text-white font-semibold text-xs">Ajith_E_Resume_2026.pdf
+                    <div id="card-resume-filename" class="text-white font-semibold text-xs">Ajith_E_Resume.pdf
                     </div>
                     <div id="card-resume-sub" class="text-[11px] text-slate-400">ATS-Verified • Official 2026 Edition
                     </div>
@@ -418,7 +418,7 @@
                   <button onclick="downloadDynamicResumePDF()"
                     class="px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/20">
                     <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                    <span>Download Resume</span>
+                    <span>Download</span>
                   </button>
                 </div>
               </div>
@@ -428,7 +428,7 @@
                   <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
                   <span id="card-location">Chennai, India</span>
                 </span>
-                <span class="text-emerald-400 font-semibold">Immediate Impact Ready</span>
+                <span id="card-availability-status" class="text-emerald-400 font-semibold">Immediate Impact Ready</span>
               </div>
             </div>
           </div>
@@ -437,59 +437,23 @@
       </div>
     </section>
 
-    <!-- WHY HIRE AJITH (HR / RECRUITER PITCH SECTION) -->
+    <!-- WHY HIRE AJITH (HR / RECRUITER PITCH SECTION - DYNAMICALLY CUSTOMIZABLE) -->
     <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="reveal">
         <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
-          <span>Why HR & Engineering Leaders Hire Me</span>
+          <span id="pitch-eyebrow">Why HR & Engineering Leaders Hire Me</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Built for Production Speed, Scale & Ownership
-        </h2>
-        <p class="text-slate-400 mt-2 max-w-2xl">
+        <h2 id="pitch-heading" class="font-display text-3xl sm:text-4xl font-bold text-white">Built for Production
+          Speed, Scale & Ownership</h2>
+        <p id="pitch-subtitle" class="text-slate-400 mt-2 max-w-2xl">
           Instead of only writing isolated components, I own complete systems—from SQL/NoSQL schema optimization and
           high-concurrency Python APIs to responsive React.js dashboards.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mt-10">
-        <div class="glass-card rounded-2xl p-6 reveal">
-          <div
-            class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5">
-            <i data-lucide="cpu" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">Applied AI That Ships</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Built an enterprise AI Co-Worker achieving <strong class="text-emerald-400">99% routing accuracy</strong>
-            across Microsoft Entra ID, ManageEngine IT Helpdesk, and live-search LLMs—complete with zero-downtime
-            background model retraining.
-          </p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6 reveal">
-          <div
-            class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5">
-            <i data-lucide="activity" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">Real-Time Telematics & WebSockets</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Currently architecting connected-vehicle telemetry and fleet monitoring platforms at <strong
-              class="text-cyan-400">Switch Mobility EV</strong> using Django Channels, WebSockets, FastAPI, Redis
-            caching, and React.js.
-          </p>
-        </div>
-
-        <div class="glass-card rounded-2xl p-6 reveal">
-          <div
-            class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-5">
-            <i data-lucide="database" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">Multi-Database & AWS Mastery</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Proven ability to select and optimize the right storage layer (<strong class="text-indigo-300">PostgreSQL,
-              MySQL, AWS Redshift, AWS HBase, Redis, Valkey</strong>) paired with AWS S3, Lambda, and SES.
-          </p>
-        </div>
+      <div id="pitch-cards-grid" class="grid md:grid-cols-3 gap-6 mt-10">
+        <!-- Populated dynamically by renderPortfolioPage() -->
       </div>
     </section>
 
@@ -501,7 +465,8 @@
             <i data-lucide="layers" class="w-4 h-4"></i>
             <span>Technical Arsenal</span>
           </div>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Full-Stack & Cloud Capabilities</h2>
+          <h2 id="section-skills-heading" class="font-display text-3xl sm:text-4xl font-bold text-white">Full-Stack &
+            Cloud Capabilities</h2>
         </div>
       </div>
 
@@ -518,7 +483,8 @@
             <i data-lucide="briefcase" class="w-4 h-4"></i>
             <span>Career Progression</span>
           </div>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">3+ Years of Enterprise Impact</h2>
+          <h2 id="section-exp-heading" class="font-display text-3xl sm:text-4xl font-bold text-white">3+ Years of
+            Enterprise Impact</h2>
         </div>
         <button onclick="downloadDynamicResumePDF()"
           class="self-start sm:self-auto px-4 py-2 rounded-xl glass-card text-xs font-mono text-emerald-300 hover:text-white flex items-center gap-1.5">
@@ -541,7 +507,8 @@
             <i data-lucide="rocket" class="w-4 h-4"></i>
             <span>Flagship Engineering Systems</span>
           </div>
-          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Production Projects Portfolio</h2>
+          <h2 id="section-projects-heading" class="font-display text-3xl sm:text-4xl font-bold text-white">Production
+            Projects Portfolio</h2>
         </div>
 
         <!-- Filter Buttons -->
@@ -581,8 +548,8 @@
           <i data-lucide="graduation-cap" class="w-4 h-4"></i>
           <span>Academic Foundation & Early AI Research</span>
         </div>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Engineering Degree & College Capstone
-          Projects</h2>
+        <h2 id="section-edu-heading" class="font-display text-3xl sm:text-4xl font-bold text-white">Engineering Degree &
+          College Capstone Projects</h2>
         <p class="text-slate-400 mt-2 max-w-2xl">
           Strong computer science fundamentals combined with hands-on machine learning and medical computer vision
           research during undergraduate studies.
@@ -683,9 +650,9 @@
         <!-- Terminal Output -->
         <div id="terminal-output"
           class="p-5 font-mono text-xs sm:text-sm space-y-3 h-72 overflow-y-auto bg-slate-950/85">
-          <div class="text-emerald-400">Welcome to AjithOS v2026.3.0 (Dynamic Resume & Telematics Kernel)</div>
-          <div class="text-slate-400">Type <span class="text-white font-semibold">resume</span> to preview or download
-            Ajith's latest CV, or click any command chip above.</div>
+          <div class="text-emerald-400">Welcome to AjithOS v2026.4.0 (Dynamic Resume & Telematics Kernel)</div>
+          <div class="text-slate-400">Type <span class="text-white font-semibold">resume</span> to download Ajith's
+            latest CV, or click any command chip above.</div>
         </div>
 
         <!-- Terminal Input -->
@@ -698,7 +665,6 @@
         </form>
       </div>
     </section>
-
 
     <!-- DIRECT HIRE / SMART EMAIL LAUNCHER & RESUME DOWNLOAD SECTION -->
     <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
@@ -713,17 +679,16 @@
                 <i data-lucide="send" class="w-4 h-4"></i>
                 <span>Direct Recruiter Connect</span>
               </div>
-              <h3 class="font-display text-2xl sm:text-4xl font-bold text-white leading-tight">
+              <h3 id="contact-cta-heading" class="font-display text-2xl sm:text-4xl font-bold text-white leading-tight">
                 Ready to Build Your Next High-Scale Platform?
               </h3>
-              <p class="text-slate-300 text-sm sm:text-base mt-3">
+              <p id="contact-cta-sub" class="text-slate-300 text-sm sm:text-base mt-3">
                 Download <strong class="text-white">Ajith Elumalai's</strong> dynamically updated ATS resume or reach
-                out in
-                one click via Gmail, Outlook 365, Default Mail, or WhatsApp.
+                out in one click via Gmail, Outlook 365, Default Mail, or WhatsApp.
               </p>
             </div>
 
-            <!-- Resume Download & Dynamic Customizer Box -->
+            <!-- Resume Download Box (Public Landing Page - Only Download Resume Button) -->
             <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
               <div class="flex items-center justify-between">
                 <span class="text-xs font-mono text-emerald-300 font-semibold flex items-center gap-1.5">
@@ -732,13 +697,11 @@
                 </span>
                 <span class="text-[11px] font-mono text-slate-400">ATS-Ready PDF</span>
               </div>
-              <div class="grid sm:grid-cols-2 gap-2">
-                <button onclick="downloadDynamicResumePDF()"
-                  class="px-3.5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
-                  <i data-lucide="download" class="w-4 h-4"></i>
-                  <span>Download PDF CV</span>
-                </button>
-              </div>
+              <button onclick="downloadDynamicResumePDF()"
+                class="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span>Download Resume (PDF)</span>
+              </button>
             </div>
 
             <div class="space-y-3">
@@ -761,8 +724,7 @@
                     class="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
                 </div>
                 <div id="contact-phone-display" class="text-sm sm:text-base font-semibold text-white mt-1">+91
-                  9080946720
-                </div>
+                  9080946720</div>
               </button>
             </div>
           </div>
@@ -799,13 +761,13 @@
                 (EDITABLE)</label>
               <textarea id="inline-email-body" rows="4"
                 class="w-full p-3.5 rounded-lg bg-slate-950 border border-white/15 focus:border-emerald-400 text-slate-200 text-xs sm:text-sm leading-relaxed focus:outline-none">Hi Ajith,
-    
-    We reviewed your portfolio and resume and were impressed by your experience in Python Full Stack (FastAPI/Django), React.js, Real-Time Telematics, and Applied AI at Switch Mobility EV.
-    
-    We would like to schedule an interview with you. Please share your availability.
-    
-    Best regards,
-    Hiring Team</textarea>
+
+We reviewed your portfolio and resume and were impressed by your experience in Python Full Stack (FastAPI/Django), React.js, Real-Time Telematics, and Applied AI at Switch Mobility EV.
+
+We would like to schedule an interview with you. Please share your availability.
+
+Best regards,
+Hiring Team</textarea>
             </div>
 
             <!-- Multi-Channel Launch Buttons -->
@@ -873,13 +835,12 @@
               <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[11px]">OWNER
                 ONLY</span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-400">Preview your CV, update roles/projects/skills, and export your
-              updated site anytime.</p>
+            <p class="text-xs sm:text-sm text-slate-400">Customize landing page sections, reorder project cards, preview
+              your CV, and export your updated site.</p>
           </div>
         </div>
 
         <div id="admin-top-actions" class="hidden flex-wrap items-center gap-2.5">
-          <!-- Preview CV Button Inside Admin Page Only -->
           <button onclick="openResumeModal('preview')"
             class="px-4 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-200 font-semibold text-xs sm:text-sm flex items-center gap-1.5 transition-all">
             <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
@@ -903,7 +864,7 @@
         </div>
       </div>
 
-      <!-- STRICT OWNER LOGIN GATE (No pre-filled password, no public hints) -->
+      <!-- STRICT OWNER LOGIN GATE -->
       <div id="admin-login-gate"
         class="max-w-md mx-auto my-12 glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/40 text-center space-y-5">
         <div
@@ -946,35 +907,40 @@
             <i data-lucide="user-check" class="w-4 h-4"></i>
             <span>1. Profile & Hero Stats</span>
           </button>
+          <button onclick="switchAdminSection('landing')" id="adm-nav-landing"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="layout-template" class="w-4 h-4 text-emerald-400"></i>
+            <span>2. Landing Page Content</span>
+          </button>
           <button onclick="switchAdminSection('skills')" id="adm-nav-skills"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
-            <span>2. Technical Skills CRUD</span>
+            <span>3. Technical Skills CRUD</span>
           </button>
           <button onclick="switchAdminSection('experience')" id="adm-nav-experience"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="briefcase" class="w-4 h-4 text-emerald-400"></i>
-            <span>3. Work Experience CRUD</span>
+            <span>4. Work Experience CRUD</span>
           </button>
           <button onclick="switchAdminSection('projects')" id="adm-nav-projects"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="rocket" class="w-4 h-4 text-indigo-400"></i>
-            <span>4. Projects Manager CRUD</span>
+            <span>5. Projects & Order</span>
           </button>
           <button onclick="switchAdminSection('education')" id="adm-nav-education"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="graduation-cap" class="w-4 h-4 text-cyan-400"></i>
-            <span>5. Education & Capstones</span>
+            <span>6. Education & Capstones</span>
           </button>
           <button onclick="switchAdminSection('resume')" id="adm-nav-resume"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
-            <span>6. Preview CV & PDF Studio</span>
+            <span>7. Preview CV & PDF Studio</span>
           </button>
           <button onclick="switchAdminSection('deploy')" id="adm-nav-deploy"
             class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
             <i data-lucide="cloud-upload" class="w-4 h-4 text-amber-400"></i>
-            <span>7. Export & Security PIN</span>
+            <span>8. Export & Security PIN</span>
           </button>
 
           <div class="pt-4 mt-4 border-t border-white/10 space-y-2">
@@ -1055,42 +1021,203 @@
             <!-- Hero Stats -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
               <div>
-                <label class="block text-[11px] font-mono text-emerald-400 mb-1">STAT 1: EXPERIENCE</label>
+                <label class="block text-[11px] font-mono text-emerald-400 mb-1">STAT 1: VALUE & LABEL</label>
                 <input id="adm-stat-exp" type="text" placeholder="3+ Yrs"
-                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono mb-1.5" />
+                <input id="adm-stat-exp-label" type="text" placeholder="Production Full Stack"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-white/10 text-slate-300 text-[11px]" />
               </div>
               <div>
-                <label class="block text-[11px] font-mono text-cyan-400 mb-1">STAT 2: AI ACCURACY</label>
+                <label class="block text-[11px] font-mono text-cyan-400 mb-1">STAT 2: VALUE & LABEL</label>
                 <input id="adm-stat-ai" type="text" placeholder="99%"
-                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono mb-1.5" />
+                <input id="adm-stat-ai-label" type="text" placeholder="AI Classifier Accuracy"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-white/10 text-slate-300 text-[11px]" />
               </div>
               <div>
-                <label class="block text-[11px] font-mono text-indigo-400 mb-1">STAT 3: PLATFORMS</label>
+                <label class="block text-[11px] font-mono text-indigo-400 mb-1">STAT 3: VALUE & LABEL</label>
                 <input id="adm-stat-proj" type="text" placeholder="6+"
-                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono mb-1.5" />
+                <input id="adm-stat-proj-label" type="text" placeholder="Enterprise Platforms"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-white/10 text-slate-300 text-[11px]" />
               </div>
               <div>
-                <label class="block text-[11px] font-mono text-emerald-300 mb-1">STAT 4: B.E. CGPA</label>
+                <label class="block text-[11px] font-mono text-emerald-300 mb-1">STAT 4: VALUE & LABEL</label>
                 <input id="adm-stat-cgpa" type="text" placeholder="8.0"
-                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono mb-1.5" />
+                <input id="adm-stat-cgpa-label" type="text" placeholder="B.E. CSE CGPA (2023)"
+                  class="w-full px-3 py-1.5 rounded-lg bg-slate-950 border border-white/10 text-slate-300 text-[11px]" />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-slate-400 mb-1">PROFESSIONAL SUMMARY (USED ON RESUME PDF &
-                PORTFOLIO)</label>
+              <label class="block text-xs font-mono text-slate-400 mb-1">PROFESSIONAL SUMMARY (USED ON RESUME
+                PDF)</label>
               <textarea id="adm-summary" rows="4"
                 class="w-full p-3.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm leading-relaxed focus:border-emerald-400 focus:outline-none"></textarea>
             </div>
           </div>
 
-          <!-- MODULE 2: TECHNICAL SKILLS CRUD -->
+          <!-- MODULE 2: LANDING PAGE CONTENT CUSTOMIZATION -->
+          <div id="adm-sec-landing"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">2. Landing Page Content Customization</h2>
+                <p class="text-xs text-slate-400">Customize your Hero main heading, Hero bio paragraph, Recruiter Pitch
+                  section, System Card badges, and Section headings.</p>
+              </div>
+              <button onclick="saveAllAdminChanges()"
+                class="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+                <span>Save Landing Content</span>
+              </button>
+            </div>
+
+            <!-- Hero Section Text Customization -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-4">
+              <div class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">Hero Banner &
+                Navigation Customization</div>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">NAVBAR SUBTITLE TAG</label>
+                  <input id="adm-lp-nav-tag" type="text" placeholder="FULL STACK & AI ENGINEER"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">HERO TITLE (START)</label>
+                  <input id="adm-lp-hero-prefix" type="text" placeholder="Engineering"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">HERO TITLE (GRADIENT HIGHLIGHT)</label>
+                  <input id="adm-lp-hero-gradient" type="text" placeholder="Real-Time Systems"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-semibold text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">HERO TITLE (END)</label>
+                  <input id="adm-lp-hero-suffix" type="text" placeholder="& Applied AI."
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">HERO LANDING BIO PARAGRAPH (SUPPORTS HTML
+                  OR PLAIN TEXT)</label>
+                <textarea id="adm-lp-hero-bio" rows="3"
+                  class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed"></textarea>
+              </div>
+
+              <div class="grid sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SYSTEM CARD ROLE DOMAIN</label>
+                  <input id="adm-lp-role-domain" type="text" placeholder="Python Full Stack (Real-Time Telematics & AI)"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SYSTEM CARD DB BADGES (COMMA
+                    SEPARATED)</label>
+                  <input id="adm-lp-db-badges" type="text"
+                    placeholder="PostgreSQL, AWS Redshift, AWS HBase, MySQL, Redis / Valkey"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">AVAILABILITY STATUS TEXT</label>
+                  <input id="adm-lp-availability" type="text" placeholder="Immediate Impact Ready"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-400 font-semibold text-xs" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Recruiter Pitch Section ("Why Hire Me") Customization -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">"Why HR &
+                  Engineering Leaders Hire Me" Section</span>
+                <button type="button" onclick="addAdminPitchCard()"
+                  class="px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-mono text-xs flex items-center gap-1">
+                  <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                  <span>Add Pitch Card</span>
+                </button>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SECTION EYEBROW TAG</label>
+                  <input id="adm-lp-pitch-eyebrow" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SECTION MAIN HEADING</label>
+                  <input id="adm-lp-pitch-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div class="sm:col-span-2">
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SECTION SUBTITLE DESCRIPTION</label>
+                  <input id="adm-lp-pitch-subtitle" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-300 text-xs" />
+                </div>
+              </div>
+
+              <div id="adm-pitch-cards-list" class="space-y-3">
+                <!-- Populated dynamically by renderAdminForms() -->
+              </div>
+            </div>
+
+            <!-- Section Headings & Contact CTA Customization -->
+            <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-4">
+              <div class="text-xs font-mono text-indigo-400 uppercase tracking-wider font-semibold">Section Titles &
+                Contact CTA Customization</div>
+              <div class="grid sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">SKILLS SECTION HEADING</label>
+                  <input id="adm-lp-skills-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">EXPERIENCE SECTION HEADING</label>
+                  <input id="adm-lp-exp-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECTS SECTION HEADING</label>
+                  <input id="adm-lp-projects-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">EDUCATION SECTION HEADING</label>
+                  <input id="adm-lp-edu-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">CONTACT CTA HEADING</label>
+                  <input id="adm-lp-contact-heading" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+                </div>
+                <div>
+                  <label class="block text-[10px] font-mono text-slate-400 mb-1">CONTACT CTA SUBTITLE</label>
+                  <input id="adm-lp-contact-sub" type="text"
+                    class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-300 text-xs" />
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+              <button onclick="saveAllAdminChanges()"
+                class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Save Landing Page Customization
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 3: TECHNICAL SKILLS CRUD -->
           <div id="adm-sec-skills"
             class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
-                <h2 class="font-display text-xl font-bold text-white">2. Technical Skills Manager</h2>
-                <p class="text-xs text-slate-400">Add, edit, or remove skill categories and comma-separated skills.</p>
+                <h2 class="font-display text-xl font-bold text-white">3. Technical Skills Manager</h2>
+                <p class="text-xs text-slate-400">Add, reorder, edit, or remove skill categories and comma-separated
+                  skills.</p>
               </div>
               <button onclick="addAdminSkillRow()"
                 class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5">
@@ -1111,12 +1238,12 @@
             </div>
           </div>
 
-          <!-- MODULE 3: WORK EXPERIENCE CRUD -->
+          <!-- MODULE 4: WORK EXPERIENCE CRUD -->
           <div id="adm-sec-experience"
             class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
-                <h2 class="font-display text-xl font-bold text-white">3. Work Experience Manager (Full CRUD)</h2>
+                <h2 class="font-display text-xl font-bold text-white">4. Work Experience Manager (Full CRUD)</h2>
                 <p class="text-xs text-slate-400">Edit your current roles or add new companies/promotions in the future.
                 </p>
               </div>
@@ -1139,20 +1266,36 @@
             </div>
           </div>
 
-          <!-- MODULE 4: PROJECTS MANAGER CRUD -->
+          <!-- MODULE 5: PROJECTS MANAGER CRUD & CARD ORDER ARRANGEMENT -->
           <div id="adm-sec-projects"
-            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/30 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
-                <h2 class="font-display text-xl font-bold text-white">4. Production Projects Manager (Full CRUD)</h2>
-                <p class="text-xs text-slate-400">Manage all enterprise systems, tech stacks, categories, and
-                  achievement bullets.</p>
+                <h2 class="font-display text-xl font-bold text-white">5. Production Projects Manager & Card Order
+                  Arrangement</h2>
+                <p class="text-xs text-slate-400">Use <strong class="text-emerald-300">Move Up / Move Down / Pin Top /
+                    Position Selector</strong> to arrange the exact order of project cards on your landing page and PDF
+                  resume.</p>
               </div>
               <button onclick="addAdminProjectCard()"
                 class="px-3.5 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs flex items-center gap-1.5">
                 <i data-lucide="plus" class="w-4 h-4"></i>
                 <span>Add New Project</span>
               </button>
+            </div>
+
+            <!-- Visual Quick-Order Strip -->
+            <div class="p-4 rounded-xl bg-slate-900/95 border border-indigo-500/30 space-y-2.5">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-indigo-300 font-semibold flex items-center gap-1.5">
+                  <i data-lucide="arrow-up-down" class="w-4 h-4 text-emerald-400"></i>
+                  <span>LIVE PROJECT CARD DISPLAY ORDER (TOP TO BOTTOM)</span>
+                </span>
+                <span class="text-slate-400 text-[11px]">Updates Landing Page Grid & Resume PDF</span>
+              </div>
+              <div id="adm-projects-order-strip" class="flex flex-wrap gap-2">
+                <!-- Populated dynamically by renderAdminForms() -->
+              </div>
             </div>
 
             <div id="adm-projects-list" class="space-y-5">
@@ -1162,24 +1305,24 @@
             <div class="pt-4 border-t border-white/10 flex justify-end">
               <button onclick="saveAllAdminChanges()"
                 class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
-                Save Projects & Update PDF
+                Save Projects Order & Update PDF
               </button>
             </div>
           </div>
 
-          <!-- MODULE 5: EDUCATION & ACADEMIC CAPSTONE PROJECTS CRUD -->
+          <!-- MODULE 6: EDUCATION & ACADEMIC CAPSTONES CRUD -->
           <div id="adm-sec-education"
             class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
-                <h2 class="font-display text-xl font-bold text-white">5. Academic Foundation & College Projects</h2>
-                <p class="text-xs text-slate-400">Edit your degree details and manage your college capstone projects
-                  (Brain Tumor MRI & Car Resale Value Prediction).</p>
+                <h2 class="font-display text-xl font-bold text-white">6. Education & Academic Capstones Manager</h2>
+                <p class="text-xs text-slate-400">Edit your degree, institution, CGPA, and undergraduate research
+                  projects.</p>
               </div>
               <button onclick="addAdminCollegeProject()"
                 class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5">
                 <i data-lucide="plus" class="w-4 h-4"></i>
-                <span>Add College Project</span>
+                <span>Add Capstone Project</span>
               </button>
             </div>
 
@@ -1187,140 +1330,174 @@
               <div class="sm:col-span-2">
                 <label class="block text-xs font-mono text-slate-400 mb-1">DEGREE TITLE</label>
                 <input id="adm-edu-degree" type="text"
-                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
               </div>
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1">GRADUATION YEAR</label>
                 <input id="adm-edu-year" type="text"
-                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
               </div>
               <div>
                 <label class="block text-xs font-mono text-slate-400 mb-1">CGPA</label>
                 <input id="adm-edu-cgpa" type="text"
-                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-emerald-300 font-mono text-sm" />
               </div>
               <div class="sm:col-span-4">
                 <label class="block text-xs font-mono text-slate-400 mb-1">COLLEGE / UNIVERSITY</label>
                 <input id="adm-edu-college" type="text"
-                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
               </div>
             </div>
 
-            <div class="pt-2">
-              <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-3">Academic Capstone Projects
-              </div>
-              <div id="adm-college-projects-list" class="space-y-4">
-                <!-- Populated dynamically by renderAdminForms() -->
-              </div>
+            <div id="adm-college-projects-list" class="space-y-4">
+              <!-- Populated dynamically by renderAdminForms() -->
             </div>
 
             <div class="pt-4 border-t border-white/10 flex justify-end">
-              <!-- MODULE 6: PREVIEW CV & DYNAMIC PDF RESUME STUDIO -->
-              <div id="adm-sec-resume"
-                class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 space-y-6">
-                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
-                  <div>
-                    <h2 class="font-display text-xl font-bold text-white">6. Preview CV & Dynamic PDF Resume Studio</h2>
-                    <p class="text-xs text-slate-400">Preview your formatted A4 resume, switch role presets, or upload a
-                      custom PDF file.</p>
-                  </div>
-                  <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="openResumeModal('preview')"
-                      class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
-                      <i data-lucide="eye" class="w-4 h-4"></i>
-                      <span>Preview CV (A4 Sheet)</span>
-                    </button>
-                    <button onclick="downloadDynamicResumePDF()"
-                      class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
-                      <i data-lucide="download" class="w-4 h-4"></i>
-                      <span>Test Download PDF</span>
-                    </button>
-                  </div>
+              <button onclick="saveAllAdminChanges()"
+                class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Save Education & Update PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 7: PREVIEW CV & DYNAMIC PDF RESUME STUDIO -->
+          <div id="adm-sec-resume"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">7. Preview CV & Dynamic PDF Resume Studio</h2>
+                <p class="text-xs text-slate-400">Preview your formatted A4 resume, switch role presets, or upload a
+                  custom PDF file.</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button onclick="openResumeModal('preview')"
+                  class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="eye" class="w-4 h-4"></i>
+                  <span>Preview CV (A4 Sheet)</span>
+                </button>
+                <button onclick="downloadDynamicResumePDF()"
+                  class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  <span>Test Download PDF</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Option A vs Option B -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="p-5 rounded-xl bg-slate-900/90 border border-emerald-500/40 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-semibold">MODE
+                    A: AUTO-GENERATED VECTOR PDF</span>
+                  <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
                 </div>
-
-                <!-- Option A vs Option B -->
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div class="p-5 rounded-xl bg-slate-900/90 border border-emerald-500/40 space-y-3">
-                    <div class="flex items-center justify-between">
-                      <span
-                        class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-semibold">MODE
-                        A: AUTO-GENERATED VECTOR PDF</span>
-                      <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
-                    </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                      Automatically builds a crisp, multi-page ATS-compliant PDF (`Ajith_E_Resume_2026.pdf`) directly
-                      from your Admin CMS fields using the `jsPDF` vector engine.
-                    </p>
-                    <button onclick="clearCustomUploadedPDF()"
-                      class="px-3.5 py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-mono text-xs">
-                      Use Dynamic Auto-Generated PDF (Recommended)
-                    </button>
-                  </div>
-
-                  <!-- MODULE 7: EXPORT UPDATED HTML FOR FREE HOSTING & OWNER PIN -->
-                  <div id="adm-sec-deploy"
-                    class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/30 space-y-6">
-                    <div class="border-b border-white/10 pb-4">
-                      <h2 class="font-display text-xl font-bold text-white">7. Permanent Export for Free Hosting & Owner
-                        Passcode</h2>
-                      <p class="text-xs text-slate-400 mt-1">
-                        When you edit in the browser, changes save immediately to your browser's `localStorage`. To
-                        publish your updates permanently to the world on Netlify, Vercel, or GitHub Pages, click
-                        **"Export Updated index.html"** below and drag-and-drop that file to your host!
-                      </p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-3 gap-4">
-                      <button onclick="exportUpdatedIndexHTML()"
-                        class="p-5 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 hover:from-emerald-500/30 hover:to-cyan-500/30 border border-emerald-500/40 text-left space-y-2 transition-all">
-                        <i data-lucide="file-code" class="w-6 h-6 text-emerald-400"></i>
-                        <div class="font-display font-bold text-white text-sm">1. Export Updated index.html</div>
-                        <p class="text-xs text-slate-300">Downloads this complete single-file website with your latest
-                          Admin edits permanently baked in.</p>
-                      </button>
-
-                      <button onclick="exportResumeJSON()"
-                        class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all">
-                        <i data-lucide="download-cloud" class="w-6 h-6 text-cyan-400"></i>
-                        <div class="font-display font-bold text-white text-sm">2. Backup Data (.JSON)</div>
-                        <p class="text-xs text-slate-300">Save a lightweight JSON backup of all your portfolio & resume
-                          data.</p>
-                      </button>
-
-                      <label
-                        class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all cursor-pointer block">
-                        <i data-lucide="upload-cloud" class="w-6 h-6 text-indigo-400"></i>
-                        <div class="font-display font-bold text-white text-sm">3. Restore from .JSON</div>
-                        <p class="text-xs text-slate-300">Import a previously saved JSON backup file to restore all
-                          fields.</p>
-                        <input type="file" accept=".json" onchange="importResumeJSON(event)" class="hidden" />
-                      </label>
-                    </div>
-
-                    <!-- Change Secret Owner Passcode -->
-                    <div class="p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
-                      <div class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Change Secret Owner
-                        Passcode</div>
-                      <div class="flex flex-wrap items-center gap-3">
-                        <input id="adm-new-pin" type="password" placeholder="New Secret Passcode"
-                          class="px-3.5 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs font-mono" />
-                        <button type="button" onclick="updateOwnerPin()"
-                          class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-xs">
-                          Update Passcode
-                        </button>
-                      </div>
-                      <p class="text-[11px] text-slate-400 font-mono">
-                        How to open this private Admin page anytime: Press <strong class="text-emerald-300">Ctrl + Shift
-                          + A</strong>, or add <strong class="text-emerald-300">#admin</strong> to your site URL, or
-                        click the top-left <strong class="text-emerald-300">AE</strong> logo 5 times.
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  Automatically builds a crisp, multi-page ATS-compliant PDF (<code
+                    class="text-emerald-300">Ajith_E_Resume.pdf</code>) directly from your Admin CMS fields using
+                  the <code class="text-emerald-300">jsPDF</code> vector engine.
+                </p>
+                <button type="button" onclick="clearCustomUploadedPDF()"
+                  class="px-3.5 py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-mono text-xs">
+                  Use Dynamic Auto-Generated PDF (Recommended)
+                </button>
               </div>
 
+              <div class="p-5 rounded-xl bg-slate-900/90 border border-indigo-500/40 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-xs font-semibold">MODE
+                    B: CUSTOM UPLOADED PDF OVERRIDE</span>
+                  <i data-lucide="file-badge" class="w-5 h-5 text-indigo-400"></i>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">
+                  If you prefer to upload your own custom compiled <code class="text-indigo-300">.pdf</code> file,
+                  select it here. All download buttons on the site will then serve your uploaded PDF file.
+                </p>
+                <label
+                  class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-xs cursor-pointer">
+                  <i data-lucide="upload" class="w-4 h-4"></i>
+                  <span>Upload Custom PDF Resume</span>
+                  <input type="file" accept=".pdf" onchange="handleCustomPDFUpload(event)" class="hidden" />
+                </label>
+              </div>
             </div>
+
+            <!-- Active Mode Status Banner -->
+            <div
+              class="p-4 rounded-xl bg-slate-900 border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+              <span id="custom-pdf-status" class="text-emerald-300">Active Mode: Dynamic Auto-Generated Vector
+                PDF</span>
+              <button type="button" onclick="openResumeModal('edit')" class="text-cyan-400 hover:underline">
+                Open Live A4 Resume Editor &rarr;
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 8: EXPORT UPDATED HTML FOR FREE HOSTING & OWNER PIN -->
+          <div id="adm-sec-deploy"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/30 space-y-6">
+            <div class="border-b border-white/10 pb-4">
+              <h2 class="font-display text-xl font-bold text-white">8. Permanent Export for Free Hosting & Owner
+                Passcode</h2>
+              <p class="text-xs text-slate-400 mt-1">
+                When you edit in the browser, changes save immediately to your browser's <code
+                  class="text-emerald-300">localStorage</code>. To publish your updates permanently to the world on
+                Netlify, Vercel, or GitHub Pages, click <strong class="text-white">"Export Updated index.html"</strong>
+                below and drag-and-drop that file to your host!
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+              <button type="button" onclick="exportUpdatedIndexHTML()"
+                class="p-5 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 hover:from-emerald-500/30 hover:to-cyan-500/30 border border-emerald-500/40 text-left space-y-2 transition-all">
+                <i data-lucide="file-code" class="w-6 h-6 text-emerald-400"></i>
+                <div class="font-display font-bold text-white text-sm">1. Export Updated index.html</div>
+                <p class="text-xs text-slate-300">Downloads this complete single-file website with your latest Admin
+                  edits permanently baked in.</p>
+              </button>
+
+              <button type="button" onclick="exportResumeJSON()"
+                class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all">
+                <i data-lucide="download-cloud" class="w-6 h-6 text-cyan-400"></i>
+                <div class="font-display font-bold text-white text-sm">2. Backup Data (.JSON)</div>
+                <p class="text-xs text-slate-300">Save a lightweight JSON backup of all your portfolio & resume data.
+                </p>
+              </button>
+
+              <label
+                class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all cursor-pointer block">
+                <i data-lucide="upload-cloud" class="w-6 h-6 text-indigo-400"></i>
+                <div class="font-display font-bold text-white text-sm">3. Restore from .JSON</div>
+                <p class="text-xs text-slate-300">Import a previously saved JSON backup file to restore all fields.</p>
+                <input type="file" accept=".json" onchange="importResumeJSON(event)" class="hidden" />
+              </label>
+            </div>
+
+            <!-- Change Secret Owner Passcode -->
+            <div class="p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+              <div class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Change Secret Owner Passcode</div>
+              <div class="flex flex-wrap items-center gap-3">
+                <input id="adm-new-pin" type="password" placeholder="New Secret Passcode"
+                  class="px-3.5 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs font-mono" />
+                <button type="button" onclick="updateOwnerPin()"
+                  class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-xs">
+                  Update Passcode
+                </button>
+              </div>
+              <p class="text-[11px] text-slate-400 font-mono">
+                How to open this private Admin page anytime: Press <strong class="text-emerald-300">Ctrl + Shift +
+                  A</strong>, or add <strong class="text-emerald-300">#admin</strong> to your site URL, or click the
+                top-left <strong class="text-emerald-300">AE</strong> logo 5 times.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- ============================================================================
@@ -1339,7 +1516,7 @@
           <div class="flex items-center gap-2">
             <h3 class="font-display font-bold text-white text-sm sm:text-base">Dynamic Resume Studio</h3>
             <span
-              class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px]">Ajith_E_Resume_2026.pdf</span>
+              class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px]">Ajith_E_Resume.pdf</span>
           </div>
           <p class="text-[11px] text-slate-400 hidden sm:block">Single source of truth — edits update both this ATS PDF
             resume and the live portfolio.</p>
@@ -1637,9 +1814,52 @@ Hiring Team</textarea>
       currentRoleCard: 'Senior Officer — Switch Mobility EV',
       stats: {
         exp: '3+ Yrs',
+        expLabel: 'Production Full Stack',
         ai: '99%',
+        aiLabel: 'AI Classifier Accuracy',
         projects: '6+',
-        cgpa: '8.0'
+        projectsLabel: 'Enterprise Platforms',
+        cgpa: '8.0',
+        cgpaLabel: 'B.E. CSE CGPA (2023)'
+      },
+      landingPage: {
+        navRoleTag: 'FULL STACK & AI ENGINEER',
+        heroTitlePrefix: 'Engineering',
+        heroTitleGradient: 'Real-Time Systems',
+        heroTitleSuffix: '& Applied AI.',
+        heroBioHtml: 'Hi, I\'m <strong class="text-white">Ajith Elumalai</strong> — a Software Engineer, IT Analyst, and Python Full Stack Developer with <strong class="text-emerald-400">3+ years of experience</strong> building high-throughput connected-vehicle telematics, enterprise DLP security, and self-improving AI assistants using <span class="text-cyan-300 font-mono text-sm">Python, FastAPI, Django, React.js, AWS, and SQL</span>.',
+        cardRoleDomain: 'Python Full Stack (Real-Time Telematics & AI)',
+        cardDbBadges: 'PostgreSQL, AWS Redshift, AWS HBase, MySQL, Redis / Valkey',
+        cardAvailability: 'Immediate Impact Ready',
+        pitchEyebrow: 'Why HR & Engineering Leaders Hire Me',
+        pitchHeading: 'Built for Production Speed, Scale & Ownership',
+        pitchSubtitle: 'Instead of only writing isolated components, I own complete systems—from SQL/NoSQL schema optimization and high-concurrency Python APIs to responsive React.js dashboards.',
+        pitchCards: [
+          {
+            title: 'Applied AI That Ships',
+            icon: 'cpu',
+            accent: 'emerald',
+            description: 'Built an enterprise AI Co-Worker achieving 99% routing accuracy across Microsoft Entra ID, ManageEngine IT Helpdesk, and live-search LLMs—complete with zero-downtime background model retraining.'
+          },
+          {
+            title: 'Real-Time Telematics & WebSockets',
+            icon: 'activity',
+            accent: 'cyan',
+            description: 'Currently architecting connected-vehicle telemetry and fleet monitoring platforms at Switch Mobility EV using Django Channels, WebSockets, FastAPI, Redis caching, and React.js.'
+          },
+          {
+            title: 'Multi-Database & AWS Mastery',
+            icon: 'database',
+            accent: 'indigo',
+            description: 'Proven ability to select and optimize the right storage layer (PostgreSQL, MySQL, AWS Redshift, AWS HBase, Redis, Valkey) paired with AWS S3, Lambda, and SES.'
+          }
+        ],
+        skillsHeading: 'Full-Stack & Cloud Capabilities',
+        expHeading: '3+ Years of Enterprise Impact',
+        projectsHeading: 'Production Projects Portfolio',
+        eduHeading: 'Engineering Degree & College Capstone Projects',
+        contactHeading: 'Ready to Build Your Next High-Scale Platform?',
+        contactSub: 'Download Ajith Elumalai\'s dynamically updated ATS resume or reach out in one click via Gmail, Outlook 365, Default Mail, or WhatsApp.'
       },
       careerStartDate: '2023-05-01',
       currentRoleStartDate: '2025-06-01',
@@ -1654,8 +1874,8 @@ Hiring Team</textarea>
         { category: 'Caching', items: 'Redis, Memcached, Valkey' },
         { category: 'Cloud (AWS)', items: 'S3, Lambda, SES' },
         { category: 'Real-Time Systems', items: 'WebSockets, Django Channels, REST APIs' },
-        { category: 'AI & Machine Learning', items: 'LLM-based AI assistants, ML classification and intelligent routing' },
-        { category: 'Tools & DevOps', items: 'Git/GitHub, Docker, Postman, Django Test Framework, LDAP' }
+        { category: 'AI & Machine Learning', items: 'LLM-based AI assistants, RAG model, ML classification and intelligent routing' },
+        { category: 'Tools & DevOps', items: 'VS Code, Git/GitHub, Docker, Postman' }
       ],
       experience: [
         {
@@ -1817,6 +2037,20 @@ Hiring Team</textarea>
       if (saved) {
         const parsed = JSON.parse(saved);
         PORTFOLIO_DATA = Object.assign({}, DEFAULT_PORTFOLIO_DATA, parsed);
+        if (!PORTFOLIO_DATA.education) {
+          PORTFOLIO_DATA.education = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA.education));
+        }
+        if (!PORTFOLIO_DATA.landingPage) {
+          PORTFOLIO_DATA.landingPage = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA.landingPage));
+        } else {
+          PORTFOLIO_DATA.landingPage = Object.assign({}, DEFAULT_PORTFOLIO_DATA.landingPage, PORTFOLIO_DATA.landingPage);
+          if (!PORTFOLIO_DATA.landingPage.pitchCards) {
+            PORTFOLIO_DATA.landingPage.pitchCards = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA.landingPage.pitchCards));
+          }
+        }
+        if (!PORTFOLIO_DATA.stats) {
+          PORTFOLIO_DATA.stats = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA.stats));
+        }
       }
     } catch (e) {
       PORTFOLIO_DATA = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
@@ -1844,8 +2078,13 @@ Hiring Team</textarea>
 
     // Render Live Portfolio Page Sections from PORTFOLIO_DATA
     function renderPortfolioPage() {
+      const lp = PORTFOLIO_DATA.landingPage || DEFAULT_PORTFOLIO_DATA.landingPage;
+
       // Top Nav & Hero
       document.getElementById('nav-name').textContent = PORTFOLIO_DATA.name;
+      const navRoleTag = document.getElementById('nav-role-tag');
+      if (navRoleTag) navRoleTag.textContent = lp.navRoleTag || 'FULL STACK & AI ENGINEER';
+
       document.getElementById('hero-email-text').textContent = PORTFOLIO_DATA.email;
       document.getElementById('contact-email-display').textContent = PORTFOLIO_DATA.email;
       document.getElementById('contact-phone-display').textContent = '+91 ' + PORTFOLIO_DATA.phone;
@@ -1858,6 +2097,70 @@ Hiring Team</textarea>
       }
       if (PORTFOLIO_DATA.currentRoleCard) {
         document.getElementById('card-current-role').textContent = PORTFOLIO_DATA.currentRoleCard;
+      }
+
+      // Hero Custom Titles & Bio
+      const prefixEl = document.getElementById('hero-title-prefix');
+      const gradEl = document.getElementById('hero-title-gradient');
+      const suffixEl = document.getElementById('hero-title-suffix');
+      if (prefixEl) prefixEl.textContent = lp.heroTitlePrefix || 'Engineering';
+      if (gradEl) gradEl.textContent = lp.heroTitleGradient || 'Real-Time Systems';
+      if (suffixEl) suffixEl.textContent = lp.heroTitleSuffix || '& Applied AI.';
+
+      const heroSummaryEl = document.getElementById('hero-summary');
+      if (heroSummaryEl && lp.heroBioHtml) {
+        heroSummaryEl.innerHTML = lp.heroBioHtml;
+      }
+
+      // System Verification Card Custom Fields
+      const roleDomainEl = document.getElementById('card-role-domain');
+      if (roleDomainEl) roleDomainEl.textContent = lp.cardRoleDomain || 'Python Full Stack (Real-Time Telematics & AI)';
+
+      const availEl = document.getElementById('card-availability-status');
+      if (availEl) availEl.textContent = lp.cardAvailability || 'Immediate Impact Ready';
+
+      const dbBadgesEl = document.getElementById('card-db-badges');
+      if (dbBadgesEl && lp.cardDbBadges) {
+        const dbs = lp.cardDbBadges.split(',').map(s => s.trim()).filter(Boolean);
+        dbBadgesEl.innerHTML = dbs.map((db, i) => {
+          const badgeColor = i === dbs.length - 1 ? 'emerald' : 'cyan';
+          return `<span class="px-2 py-0.5 rounded bg-${badgeColor}-500/15 text-${badgeColor}-300 text-xs">${db}</span>`;
+        }).join('');
+      }
+
+      // Section Headings & Contact CTA
+      const setTxt = (id, val) => {
+        const el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+      };
+      setTxt('pitch-eyebrow', lp.pitchEyebrow);
+      setTxt('pitch-heading', lp.pitchHeading);
+      setTxt('pitch-subtitle', lp.pitchSubtitle);
+      setTxt('section-skills-heading', lp.skillsHeading);
+      setTxt('section-exp-heading', lp.expHeading);
+      setTxt('section-projects-heading', lp.projectsHeading);
+      setTxt('section-edu-heading', lp.eduHeading);
+      setTxt('contact-cta-heading', lp.contactHeading);
+      setTxt('contact-cta-sub', lp.contactSub);
+
+      // Render Recruiter Pitch Cards ("Why Hire Me")
+      const pitchGrid = document.getElementById('pitch-cards-grid');
+      if (pitchGrid && lp.pitchCards) {
+        const colors = ['emerald', 'cyan', 'indigo'];
+        const icons = ['cpu', 'activity', 'database', 'shield-check', 'zap', 'sparkles'];
+        pitchGrid.innerHTML = lp.pitchCards.map((pc, idx) => {
+          const color = pc.accent || colors[idx % colors.length];
+          const icon = pc.icon || icons[idx % icons.length];
+          return `
+            <div class="glass-card rounded-2xl p-6">
+              <div class="w-12 h-12 rounded-xl bg-${color}-500/15 border border-${color}-500/30 flex items-center justify-center text-${color}-400 mb-5">
+                <i data-lucide="${icon}" class="w-6 h-6"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white mb-2">${pc.title}</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">${pc.description}</p>
+            </div>
+          `;
+        }).join('');
       }
 
       // Resume Card Status
@@ -1876,13 +2179,20 @@ Hiring Team</textarea>
       const liveTenureEl = document.getElementById('live-tenure-badge');
       if (liveTenureEl) liveTenureEl.textContent = `Tenure: ${switchTenure}`;
 
-      // Metrics
-      const stats = PORTFOLIO_DATA.stats || { exp: '3+ Yrs', ai: '99%', projects: PORTFOLIO_DATA.projects.length + '+', cgpa: PORTFOLIO_DATA.education.cgpa };
+      // Metrics & Labels
+      const stats = PORTFOLIO_DATA.stats || DEFAULT_PORTFOLIO_DATA.stats;
       document.getElementById('metric-exp').textContent = stats.exp || '3+ Yrs';
+      setTxt('metric-exp-label', stats.expLabel || 'Production Full Stack');
+
       const metricAi = document.getElementById('metric-ai');
       if (metricAi) metricAi.textContent = stats.ai || '99%';
+      setTxt('metric-ai-label', stats.aiLabel || 'AI Classifier Accuracy');
+
       document.getElementById('metric-projects').textContent = stats.projects || (PORTFOLIO_DATA.projects.length + '+');
+      setTxt('metric-projects-label', stats.projectsLabel || 'Enterprise Platforms');
+
       document.getElementById('metric-cgpa').textContent = PORTFOLIO_DATA.education.cgpa || stats.cgpa || '8.0';
+      setTxt('metric-cgpa-label', stats.cgpaLabel || 'B.E. CSE CGPA (2023)');
 
       // Education card updates
       document.getElementById('edu-year-badge').textContent = 'Class of ' + PORTFOLIO_DATA.education.year;
@@ -1977,10 +2287,10 @@ Hiring Team</textarea>
         }).join('');
       }
 
-      // Render Projects Grid
+      // Render Projects Grid (Respects Admin Project Order Arrangement)
       const projectsGrid = document.getElementById('projects-grid');
       if (projectsGrid && PORTFOLIO_DATA.projects) {
-        projectsGrid.innerHTML = PORTFOLIO_DATA.projects.map((proj, idx) => {
+        projectsGrid.innerHTML = PORTFOLIO_DATA.projects.map((proj) => {
           const color = proj.category === 'ai' ? 'emerald' : proj.category === 'telematics' ? 'cyan' : 'indigo';
           const icon = proj.icon || 'layers';
           return `
@@ -2040,7 +2350,7 @@ Hiring Team</textarea>
             ${proj.title} <span class="font-normal text-slate-600">(${proj.tech})</span>
           </div>
           <ul class="list-disc list-inside space-y-0.5 text-xs sm:text-[12.5px] text-slate-800 mt-0.5">
-            ${(proj.bullets || []).map(b => `<li>${b}</li>`).join('')}
+            ${(expBulletsSafe(proj.bullets)).map(b => `<li>${b}</li>`).join('')}
           </ul>
         </div>
       `).join('');
@@ -2092,6 +2402,10 @@ Hiring Team</textarea>
           ${collegeProjHtml}
         </div>
       `;
+    }
+
+    function expBulletsSafe(arr) {
+      return Array.isArray(arr) ? arr : [];
     }
 
     function populateEditorForm() {
@@ -2271,11 +2585,11 @@ Hiring Team</textarea>
       if (PORTFOLIO_DATA.customPdfDataUrl) {
         const a = document.createElement('a');
         a.href = PORTFOLIO_DATA.customPdfDataUrl;
-        a.download = PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume_2026.pdf';
+        a.download = PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        showToast('Downloaded Custom PDF Resume (' + (PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume_2026.pdf') + ')!');
+        showToast('Downloaded Custom PDF Resume (' + (PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume.pdf') + ')!');
         return;
       }
 
@@ -2361,7 +2675,6 @@ Hiring Team</textarea>
             const wrapped = doc.splitTextToSize(prefix + sk.items, contentW);
             checkPageBreak(wrapped.length * 4.1 + 1);
 
-            // Render category bold + items normal
             doc.setFont('helvetica', 'bold');
             doc.setTextColor(15, 23, 42);
             doc.text(prefix, margin, y);
@@ -2413,7 +2726,7 @@ Hiring Team</textarea>
             y += 2.2;
           });
 
-          // 4. Projects
+          // 4. Projects (Rendered in exact custom card order)
           drawSectionHeader('Projects');
           PORTFOLIO_DATA.projects.forEach(proj => {
             checkPageBreak(12);
@@ -2472,32 +2785,29 @@ Hiring Team</textarea>
             });
           }
 
-          // Save PDF cleanly with fallback Blob download
           try {
-            doc.save('Ajith_E_Resume_2026.pdf');
+            doc.save('Ajith_E_Resume.pdf');
           } catch (saveErr) {
             const blob = doc.output('blob');
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Ajith_E_Resume_2026.pdf';
+            a.download = 'Ajith_E_Resume.pdf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
           }
-          showToast('Downloaded Ajith_E_Resume_2026.pdf (Updated Live PDF)!');
+          showToast('Downloaded Ajith_E_Resume.pdf (Updated Live PDF)!');
           return;
         } catch (err) {
           console.error('jsPDF generation error:', err);
         }
       }
 
-      // Fallback if CDN blocked
       downloadStandaloneHTMLResume();
     }
 
-    // Alias for backward compatibility
     function downloadResumePDF() {
       downloadDynamicResumePDF();
     }
@@ -2647,147 +2957,281 @@ Hiring Team</textarea>
     }
 
     function renderAdminForms() {
+      const setVal = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+      };
+
       // 1. Profile & Hero Stats
-      document.getElementById('adm-name').value = PORTFOLIO_DATA.name || '';
-      document.getElementById('adm-headline').value = PORTFOLIO_DATA.headline || '';
-      document.getElementById('adm-location').value = PORTFOLIO_DATA.location || '';
-      document.getElementById('adm-phone').value = PORTFOLIO_DATA.phone || '';
-      document.getElementById('adm-email').value = PORTFOLIO_DATA.email || '';
-      document.getElementById('adm-badge').value = PORTFOLIO_DATA.heroBadge || 'Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles';
-      document.getElementById('adm-current-role').value = PORTFOLIO_DATA.currentRoleCard || 'Senior Officer — Switch Mobility EV';
-      document.getElementById('adm-summary').value = PORTFOLIO_DATA.summary || '';
+      setVal('adm-name', PORTFOLIO_DATA.name || '');
+      setVal('adm-headline', PORTFOLIO_DATA.headline || '');
+      setVal('adm-location', PORTFOLIO_DATA.location || '');
+      setVal('adm-phone', PORTFOLIO_DATA.phone || '');
+      setVal('adm-email', PORTFOLIO_DATA.email || '');
+      setVal('adm-badge', PORTFOLIO_DATA.heroBadge || 'Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles');
+      setVal('adm-current-role', PORTFOLIO_DATA.currentRoleCard || 'Senior Officer — Switch Mobility EV');
+      setVal('adm-summary', PORTFOLIO_DATA.summary || '');
 
-      const stats = PORTFOLIO_DATA.stats || { exp: '3+ Yrs', ai: '99%', projects: PORTFOLIO_DATA.projects.length + '+', cgpa: PORTFOLIO_DATA.education.cgpa };
-      document.getElementById('adm-stat-exp').value = stats.exp || '3+ Yrs';
-      document.getElementById('adm-stat-ai').value = stats.ai || '99%';
-      document.getElementById('adm-stat-proj').value = stats.projects || '6+';
-      document.getElementById('adm-stat-cgpa').value = stats.cgpa || PORTFOLIO_DATA.education.cgpa || '8.0';
+      const stats = PORTFOLIO_DATA.stats || DEFAULT_PORTFOLIO_DATA.stats;
+      setVal('adm-stat-exp', stats.exp || '3+ Yrs');
+      setVal('adm-stat-exp-label', stats.expLabel || 'Production Full Stack');
+      setVal('adm-stat-ai', stats.ai || '99%');
+      setVal('adm-stat-ai-label', stats.aiLabel || 'AI Classifier Accuracy');
+      setVal('adm-stat-proj', stats.projects || '6+');
+      setVal('adm-stat-proj-label', stats.projectsLabel || 'Enterprise Platforms');
+      setVal('adm-stat-cgpa', stats.cgpa || PORTFOLIO_DATA.education.cgpa || '8.0');
+      setVal('adm-stat-cgpa-label', stats.cgpaLabel || 'B.E. CSE CGPA (2023)');
 
-      // 2. Skills List
+      // 2. Landing Page Content Customization
+      const lp = PORTFOLIO_DATA.landingPage || DEFAULT_PORTFOLIO_DATA.landingPage;
+      setVal('adm-lp-nav-tag', lp.navRoleTag || 'FULL STACK & AI ENGINEER');
+      setVal('adm-lp-hero-prefix', lp.heroTitlePrefix || 'Engineering');
+      setVal('adm-lp-hero-gradient', lp.heroTitleGradient || 'Real-Time Systems');
+      setVal('adm-lp-hero-suffix', lp.heroTitleSuffix || '& Applied AI.');
+      setVal('adm-lp-hero-bio', lp.heroBioHtml || '');
+      setVal('adm-lp-role-domain', lp.cardRoleDomain || 'Python Full Stack (Real-Time Telematics & AI)');
+      setVal('adm-lp-db-badges', lp.cardDbBadges || 'PostgreSQL, AWS Redshift, AWS HBase, MySQL, Redis / Valkey');
+      setVal('adm-lp-availability', lp.cardAvailability || 'Immediate Impact Ready');
+      setVal('adm-lp-pitch-eyebrow', lp.pitchEyebrow || 'Why HR & Engineering Leaders Hire Me');
+      setVal('adm-lp-pitch-heading', lp.pitchHeading || 'Built for Production Speed, Scale & Ownership');
+      setVal('adm-lp-pitch-subtitle', lp.pitchSubtitle || '');
+      setVal('adm-lp-skills-heading', lp.skillsHeading || 'Full-Stack & Cloud Capabilities');
+      setVal('adm-lp-exp-heading', lp.expHeading || '3+ Years of Enterprise Impact');
+      setVal('adm-lp-projects-heading', lp.projectsHeading || 'Production Projects Portfolio');
+      setVal('adm-lp-edu-heading', lp.eduHeading || 'Engineering Degree & College Capstone Projects');
+      setVal('adm-lp-contact-heading', lp.contactHeading || 'Ready to Build Your Next High-Scale Platform?');
+      setVal('adm-lp-contact-sub', lp.contactSub || '');
+
+      const pitchList = document.getElementById('adm-pitch-cards-list');
+      if (pitchList) {
+        pitchList.innerHTML = (lp.pitchCards || []).map((pc, idx) => `
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-white/10 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-emerald-400 font-semibold">PITCH CARD #${idx + 1}</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="moveAdminPitchCard(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↑</button>
+                <button type="button" onclick="moveAdminPitchCard(${idx}, 1)" ${idx === (lp.pitchCards.length - 1) ? 'disabled' : ''} class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↓</button>
+                <button type="button" onclick="deleteAdminPitchCard(${idx})" class="px-2 py-1 rounded bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono">Delete</button>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-2.5">
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">CARD TITLE</label>
+                <input type="text" data-pc-title="${idx}" value="${(pc.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-white/15 text-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">LUCIDE ICON NAME</label>
+                <input type="text" data-pc-icon="${idx}" value="${(pc.icon || 'cpu').replace(/"/g, '&quot;')}" class="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-white/15 text-cyan-300 font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">ACCENT COLOR</label>
+                <select data-pc-accent="${idx}" class="w-full px-3 py-1.5 rounded-lg bg-slate-900 border border-white/15 text-white text-xs">
+                  <option value="emerald" ${pc.accent === 'emerald' ? 'selected' : ''}>Emerald</option>
+                  <option value="cyan" ${pc.accent === 'cyan' ? 'selected' : ''}>Cyan</option>
+                  <option value="indigo" ${pc.accent === 'indigo' ? 'selected' : ''}>Indigo</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">CARD DESCRIPTION</label>
+              <textarea rows="2" data-pc-desc="${idx}" class="w-full p-2.5 rounded-lg bg-slate-900 border border-white/15 text-slate-200 text-xs">${pc.description || ''}</textarea>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 3. Skills List
       const skillsList = document.getElementById('adm-skills-list');
-      skillsList.innerHTML = PORTFOLIO_DATA.resumeSkills.map((sk, idx) => `
-        <div class="grid sm:grid-cols-12 gap-2.5 items-center p-3 rounded-xl bg-slate-900/90 border border-white/10">
-          <div class="sm:col-span-4">
-            <input type="text" data-sk-cat="${idx}" value="${sk.category.replace(/"/g, '&quot;')}" placeholder="Category Name" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+      if (skillsList) {
+        skillsList.innerHTML = (PORTFOLIO_DATA.resumeSkills || []).map((sk, idx) => `
+          <div class="grid sm:grid-cols-12 gap-2.5 items-center p-3 rounded-xl bg-slate-900/90 border border-white/10">
+            <div class="sm:col-span-3">
+              <input type="text" data-sk-cat="${idx}" value="${(sk.category || '').replace(/"/g, '&quot;')}" placeholder="Category Name" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+            </div>
+            <div class="sm:col-span-7">
+              <input type="text" data-sk-items="${idx}" value="${(sk.items || '').replace(/"/g, '&quot;')}" placeholder="Comma-separated skills" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+            </div>
+            <div class="sm:col-span-2 flex justify-end gap-1">
+              <button type="button" onclick="moveAdminSkillRow(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="p-2 rounded-lg bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono" title="Move Up">↑</button>
+              <button type="button" onclick="moveAdminSkillRow(${idx}, 1)" ${idx === (PORTFOLIO_DATA.resumeSkills.length - 1) ? 'disabled' : ''} class="p-2 rounded-lg bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono" title="Move Down">↓</button>
+              <button type="button" onclick="deleteAdminSkillRow(${idx})" class="p-2 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300" title="Delete">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </div>
           </div>
-          <div class="sm:col-span-7">
-            <input type="text" data-sk-items="${idx}" value="${sk.items.replace(/"/g, '&quot;')}" placeholder="Comma-separated skills" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
-          </div>
-          <div class="sm:col-span-1 flex justify-end">
-            <button type="button" onclick="deleteAdminSkillRow(${idx})" class="p-2 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300">
-              <i data-lucide="trash-2" class="w-4 h-4"></i>
-            </button>
-          </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
 
-      // 3. Experience List
+      // 4. Experience List
       const expList = document.getElementById('adm-experience-list');
-      expList.innerHTML = PORTFOLIO_DATA.experience.map((exp, idx) => `
-        <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
-          <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
-            <span class="font-mono text-xs text-emerald-400 font-semibold">ROLE #${idx + 1}: ${exp.company}</span>
-            <button type="button" onclick="deleteAdminExperienceCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-              <span>Delete Role</span>
-            </button>
+      if (expList) {
+        expList.innerHTML = (PORTFOLIO_DATA.experience || []).map((exp, idx) => `
+          <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+              <span class="font-mono text-xs text-emerald-400 font-semibold">ROLE #${idx + 1}: ${exp.company}</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="moveAdminExperienceCard(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↑ Move Up</button>
+                <button type="button" onclick="moveAdminExperienceCard(${idx}, 1)" ${idx === (PORTFOLIO_DATA.experience.length - 1) ? 'disabled' : ''} class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↓ Move Down</button>
+                <button type="button" onclick="deleteAdminExperienceCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">JOB TITLE</label>
+                <input type="text" data-exp-title="${idx}" value="${(exp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">COMPANY NAME</label>
+                <input type="text" data-exp-company="${idx}" value="${(exp.company || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">DATE PERIOD</label>
+                <input type="text" data-exp-period="${idx}" value="${(exp.period || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">ROLE SUBTITLE</label>
+                <input type="text" data-exp-sub="${idx}" value="${(exp.roleSubtitle || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">ACHIEVEMENT BULLETS (ONE PER LINE)</label>
+              <textarea rows="4" data-exp-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(exp.bullets || []).join('\n')}</textarea>
+            </div>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">JOB TITLE</label>
-              <input type="text" data-exp-title="${idx}" value="${(exp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
-            </div>
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">COMPANY NAME</label>
-              <input type="text" data-exp-company="${idx}" value="${(exp.company || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
-            </div>
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">DATE PERIOD</label>
-              <input type="text" data-exp-period="${idx}" value="${(exp.period || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">ROLE SUBTITLE</label>
-              <input type="text" data-exp-sub="${idx}" value="${(exp.roleSubtitle || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs" />
-            </div>
-          </div>
-          <div>
-            <label class="block text-[10px] font-mono text-slate-400 mb-1">ACHIEVEMENT BULLETS (ONE PER LINE)</label>
-            <textarea rows="4" data-exp-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(exp.bullets || []).join('\n')}</textarea>
-          </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
 
-      // 4. Projects List
+      // 5. Projects List & Card Order Arrangement Controls
+      const orderStrip = document.getElementById('adm-projects-order-strip');
+      if (orderStrip) {
+        orderStrip.innerHTML = (PORTFOLIO_DATA.projects || []).map((proj, idx) => `
+          <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-white/10 flex items-center gap-2 text-xs font-mono">
+            <span class="w-5 h-5 rounded bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold">${idx + 1}</span>
+            <span class="text-slate-200 truncate max-w-[160px]">${proj.title.split('|')[0].trim()}</span>
+            <div class="flex items-center gap-0.5 ml-1">
+              <button type="button" onclick="moveAdminProjectCard(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="px-1.5 py-0.5 rounded bg-white/5 hover:bg-emerald-500/20 disabled:opacity-25 text-emerald-300" title="Move Earlier">←</button>
+              <button type="button" onclick="moveAdminProjectCard(${idx}, 1)" ${idx === (PORTFOLIO_DATA.projects.length - 1) ? 'disabled' : ''} class="px-1.5 py-0.5 rounded bg-white/5 hover:bg-emerald-500/20 disabled:opacity-25 text-emerald-300" title="Move Later">→</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
       const projList = document.getElementById('adm-projects-list');
-      projList.innerHTML = PORTFOLIO_DATA.projects.map((proj, idx) => `
-        <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
-          <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
-            <span class="font-mono text-xs text-cyan-400 font-semibold">PROJECT #${idx + 1}: ${proj.title}</span>
-            <button type="button" onclick="deleteAdminProjectCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-              <span>Delete</span>
-            </button>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <div class="sm:col-span-2">
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
-              <input type="text" data-proj-title="${idx}" value="${(proj.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
-            </div>
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">HIGHLIGHT BADGE</label>
-              <input type="text" data-proj-badge="${idx}" value="${(proj.badge || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
-            </div>
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">FILTER CATEGORY</label>
-              <select data-proj-cat="${idx}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs">
-                <option value="ai" ${proj.category === 'ai' ? 'selected' : ''}>AI & Automation</option>
-                <option value="telematics" ${proj.category === 'telematics' ? 'selected' : ''}>Telematics & Real-Time</option>
-                <option value="security" ${proj.category === 'security' ? 'selected' : ''}>Security & Enterprise</option>
-              </select>
-            </div>
-            <div class="sm:col-span-4">
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
-              <input type="text" data-proj-tech="${idx}" value="${(proj.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
-            </div>
-          </div>
-          <div>
-            <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT BULLETS (ONE PER LINE)</label>
-            <textarea rows="3" data-proj-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(proj.bullets || []).join('\n')}</textarea>
-          </div>
-        </div>
-      `).join('');
+      if (projList) {
+        const totalProj = (PORTFOLIO_DATA.projects || []).length;
+        projList.innerHTML = (PORTFOLIO_DATA.projects || []).map((proj, idx) => {
+          const positionOptions = Array.from({ length: totalProj }, (_, i) =>
+            `<option value="${i}" ${i === idx ? 'selected' : ''}>Position #${i + 1}</option>`
+          ).join('');
 
-      // 5. Education & College Capstone Projects
-      document.getElementById('adm-edu-degree').value = PORTFOLIO_DATA.education.degree || '';
-      document.getElementById('adm-edu-year').value = PORTFOLIO_DATA.education.year || '';
-      document.getElementById('adm-edu-cgpa').value = PORTFOLIO_DATA.education.cgpa || '';
-      document.getElementById('adm-edu-college').value = PORTFOLIO_DATA.education.college || '';
+          return `
+          <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 font-mono text-xs text-emerald-300 font-bold">#${idx + 1}</span>
+                <span class="font-mono text-xs text-cyan-400 font-semibold">${proj.title}</span>
+              </div>
+
+              <!-- Project Card Order Arrangement Toolbar -->
+              <div class="flex flex-wrap items-center gap-1.5">
+                <select onchange="jumpAdminProjectToPosition(${idx}, this.value)" class="px-2.5 py-1 rounded-lg bg-slate-950 border border-indigo-500/40 text-indigo-300 font-mono text-xs focus:outline-none" title="Jump to exact card position">
+                  ${positionOptions}
+                </select>
+                <button type="button" onclick="pinAdminProjectToTop(${idx})" ${idx === 0 ? 'disabled' : ''} class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 disabled:opacity-30 text-emerald-300 text-xs font-mono" title="Pin to #1 Spot">
+                  Pin #1
+                </button>
+                <button type="button" onclick="moveAdminProjectCard(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 disabled:opacity-30 text-white text-xs font-mono flex items-center gap-1" title="Move Card Up">
+                  <span>↑ Up</span>
+                </button>
+                <button type="button" onclick="moveAdminProjectCard(${idx}, 1)" ${idx === totalProj - 1 ? 'disabled' : ''} class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 disabled:opacity-30 text-white text-xs font-mono flex items-center gap-1" title="Move Card Down">
+                  <span>↓ Down</span>
+                </button>
+                <button type="button" onclick="deleteAdminProjectCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
+                <input type="text" data-proj-title="${idx}" value="${(proj.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">HIGHLIGHT BADGE</label>
+                <input type="text" data-proj-badge="${idx}" value="${(proj.badge || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">FILTER CATEGORY</label>
+                <select data-proj-cat="${idx}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs">
+                  <option value="ai" ${proj.category === 'ai' ? 'selected' : ''}>AI & Automation</option>
+                  <option value="telematics" ${proj.category === 'telematics' ? 'selected' : ''}>Telematics & Real-Time</option>
+                  <option value="security" ${proj.category === 'security' ? 'selected' : ''}>Security & Enterprise</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
+                <input type="text" data-proj-tech="${idx}" value="${(proj.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">FOOTER LEFT TAG</label>
+                <input type="text" data-proj-fleft="${idx}" value="${(proj.footerLeft || 'Enterprise System').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-300 font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">FOOTER RIGHT TAG</label>
+                <input type="text" data-proj-fright="${idx}" value="${(proj.footerRight || 'Full Stack').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-300 font-mono text-xs" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT BULLETS (ONE PER LINE)</label>
+              <textarea rows="3" data-proj-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(proj.bullets || []).join('\n')}</textarea>
+            </div>
+          </div>
+        `;
+        }).join('');
+      }
+
+      // 6. Education & College Capstone Projects
+      setVal('adm-edu-degree', PORTFOLIO_DATA.education?.degree || '');
+      setVal('adm-edu-year', PORTFOLIO_DATA.education?.year || '');
+      setVal('adm-edu-cgpa', PORTFOLIO_DATA.education?.cgpa || '');
+      setVal('adm-edu-college', PORTFOLIO_DATA.education?.college || '');
 
       const cpList = document.getElementById('adm-college-projects-list');
-      cpList.innerHTML = (PORTFOLIO_DATA.education.collegeProjects || []).map((cp, idx) => `
-        <div class="p-4 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs text-emerald-400">CAPSTONE PROJECT #${idx + 1}</span>
-            <button type="button" onclick="deleteAdminCollegeProject(${idx})" class="px-2 py-1 rounded bg-rose-500/15 text-rose-300 text-xs font-mono">Remove</button>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
-              <input type="text" data-cp-title="${idx}" value="${(cp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+      if (cpList) {
+        cpList.innerHTML = (PORTFOLIO_DATA.education?.collegeProjects || []).map((cp, idx) => `
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-emerald-400">CAPSTONE PROJECT #${idx + 1}</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="moveAdminCollegeProject(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↑</button>
+                <button type="button" onclick="moveAdminCollegeProject(${idx}, 1)" ${idx === (PORTFOLIO_DATA.education.collegeProjects.length - 1) ? 'disabled' : ''} class="px-2 py-1 rounded bg-white/5 hover:bg-white/10 disabled:opacity-30 text-slate-300 text-xs font-mono">↓</button>
+                <button type="button" onclick="deleteAdminCollegeProject(${idx})" class="px-2 py-1 rounded bg-rose-500/15 text-rose-300 text-xs font-mono">Remove</button>
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
+                <input type="text" data-cp-title="${idx}" value="${(cp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
+                <input type="text" data-cp-tech="${idx}" value="${(cp.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+              </div>
             </div>
             <div>
-              <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
-              <input type="text" data-cp-tech="${idx}" value="${(cp.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT SUMMARY</label>
+              <textarea rows="2" data-cp-summary="${idx}" class="w-full p-2.5 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs">${cp.summary || ''}</textarea>
             </div>
           </div>
-          <div>
-            <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT SUMMARY</label>
-            <textarea rows="2" data-cp-summary="${idx}" class="w-full p-2.5 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs">${cp.summary || ''}</textarea>
-          </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
 
-      // 6. Custom PDF Upload Status
+      // 7. Custom PDF Upload Status
       const statusEl = document.getElementById('custom-pdf-status');
       if (statusEl) {
         statusEl.textContent = PORTFOLIO_DATA.customPdfDataUrl
@@ -2799,7 +3243,7 @@ Hiring Team</textarea>
     }
 
     function syncAdminDOMToData() {
-      // Profile
+      // 1. Profile & Hero Stats
       const nameVal = document.getElementById('adm-name')?.value.trim();
       if (nameVal) PORTFOLIO_DATA.name = nameVal;
       PORTFOLIO_DATA.headline = document.getElementById('adm-headline')?.value.trim() || PORTFOLIO_DATA.headline;
@@ -2812,12 +3256,57 @@ Hiring Team</textarea>
 
       PORTFOLIO_DATA.stats = {
         exp: document.getElementById('adm-stat-exp')?.value.trim() || '3+ Yrs',
+        expLabel: document.getElementById('adm-stat-exp-label')?.value.trim() || 'Production Full Stack',
         ai: document.getElementById('adm-stat-ai')?.value.trim() || '99%',
+        aiLabel: document.getElementById('adm-stat-ai-label')?.value.trim() || 'AI Classifier Accuracy',
         projects: document.getElementById('adm-stat-proj')?.value.trim() || (PORTFOLIO_DATA.projects.length + '+'),
-        cgpa: document.getElementById('adm-stat-cgpa')?.value.trim() || '8.0'
+        projectsLabel: document.getElementById('adm-stat-proj-label')?.value.trim() || 'Enterprise Platforms',
+        cgpa: document.getElementById('adm-stat-cgpa')?.value.trim() || '8.0',
+        cgpaLabel: document.getElementById('adm-stat-cgpa-label')?.value.trim() || 'B.E. CSE CGPA (2023)'
       };
 
-      // Skills
+      // 2. Landing Page Content Customization
+      if (!PORTFOLIO_DATA.landingPage) {
+        PORTFOLIO_DATA.landingPage = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA.landingPage));
+      }
+      const lp = PORTFOLIO_DATA.landingPage;
+      lp.navRoleTag = document.getElementById('adm-lp-nav-tag')?.value.trim() || lp.navRoleTag;
+      lp.heroTitlePrefix = document.getElementById('adm-lp-hero-prefix')?.value.trim() || lp.heroTitlePrefix;
+      lp.heroTitleGradient = document.getElementById('adm-lp-hero-gradient')?.value.trim() || lp.heroTitleGradient;
+      lp.heroTitleSuffix = document.getElementById('adm-lp-hero-suffix')?.value.trim() || lp.heroTitleSuffix;
+      lp.heroBioHtml = document.getElementById('adm-lp-hero-bio')?.value.trim() || lp.heroBioHtml;
+      lp.cardRoleDomain = document.getElementById('adm-lp-role-domain')?.value.trim() || lp.cardRoleDomain;
+      lp.cardDbBadges = document.getElementById('adm-lp-db-badges')?.value.trim() || lp.cardDbBadges;
+      lp.cardAvailability = document.getElementById('adm-lp-availability')?.value.trim() || lp.cardAvailability;
+      lp.pitchEyebrow = document.getElementById('adm-lp-pitch-eyebrow')?.value.trim() || lp.pitchEyebrow;
+      lp.pitchHeading = document.getElementById('adm-lp-pitch-heading')?.value.trim() || lp.pitchHeading;
+      lp.pitchSubtitle = document.getElementById('adm-lp-pitch-subtitle')?.value.trim() || lp.pitchSubtitle;
+      lp.skillsHeading = document.getElementById('adm-lp-skills-heading')?.value.trim() || lp.skillsHeading;
+      lp.expHeading = document.getElementById('adm-lp-exp-heading')?.value.trim() || lp.expHeading;
+      lp.projectsHeading = document.getElementById('adm-lp-projects-heading')?.value.trim() || lp.projectsHeading;
+      lp.eduHeading = document.getElementById('adm-lp-edu-heading')?.value.trim() || lp.eduHeading;
+      lp.contactHeading = document.getElementById('adm-lp-contact-heading')?.value.trim() || lp.contactHeading;
+      lp.contactSub = document.getElementById('adm-lp-contact-sub')?.value.trim() || lp.contactSub;
+
+      const pcTitles = document.querySelectorAll('[data-pc-title]');
+      if (pcTitles.length > 0) {
+        const updatedPitchCards = [];
+        pcTitles.forEach(tInput => {
+          const idx = tInput.getAttribute('data-pc-title');
+          const icon = document.querySelector(`[data-pc-icon="${idx}"]`)?.value.trim() || 'cpu';
+          const accent = document.querySelector(`[data-pc-accent="${idx}"]`)?.value || 'emerald';
+          const desc = document.querySelector(`[data-pc-desc="${idx}"]`)?.value.trim() || '';
+          updatedPitchCards.push({
+            title: tInput.value.trim() || 'Key Strength',
+            icon,
+            accent,
+            description: desc
+          });
+        });
+        lp.pitchCards = updatedPitchCards;
+      }
+
+      // 3. Skills
       const skCats = document.querySelectorAll('[data-sk-cat]');
       if (skCats.length > 0) {
         const updatedSkills = [];
@@ -2834,7 +3323,7 @@ Hiring Team</textarea>
         PORTFOLIO_DATA.resumeSkills = updatedSkills;
       }
 
-      // Experience
+      // 4. Experience
       const expTitles = document.querySelectorAll('[data-exp-title]');
       if (expTitles.length > 0) {
         const accents = ['emerald', 'cyan', 'indigo'];
@@ -2858,7 +3347,7 @@ Hiring Team</textarea>
         PORTFOLIO_DATA.experience = updatedExp;
       }
 
-      // Projects
+      // 5. Projects
       const projTitles = document.querySelectorAll('[data-proj-title]');
       if (projTitles.length > 0) {
         const updatedProj = [];
@@ -2868,6 +3357,8 @@ Hiring Team</textarea>
           const badge = document.querySelector(`[data-proj-badge="${idx}"]`)?.value.trim() || 'Production System';
           const cat = document.querySelector(`[data-proj-cat="${idx}"]`)?.value || 'ai';
           const tech = document.querySelector(`[data-proj-tech="${idx}"]`)?.value.trim() || '';
+          const fleft = document.querySelector(`[data-proj-fleft="${idx}"]`)?.value.trim() || 'Enterprise System';
+          const fright = document.querySelector(`[data-proj-fright="${idx}"]`)?.value.trim() || 'Full Stack';
           const bulletsRaw = document.querySelector(`[data-proj-bullets="${idx}"]`)?.value || '';
           const bullets = bulletsRaw.split('\n').map(b => b.trim()).filter(Boolean);
           updatedProj.push({
@@ -2876,15 +3367,15 @@ Hiring Team</textarea>
             badge: badge,
             icon: existing.icon || 'code',
             category: cat,
-            footerLeft: existing.footerLeft || 'Enterprise System',
-            footerRight: existing.footerRight || 'Full Stack',
+            footerLeft: fleft,
+            footerRight: fright,
             bullets: bullets
           });
         });
         PORTFOLIO_DATA.projects = updatedProj;
       }
 
-      // Education & Capstones
+      // 6. Education & Capstones
       PORTFOLIO_DATA.education.degree = document.getElementById('adm-edu-degree')?.value.trim() || PORTFOLIO_DATA.education.degree;
       PORTFOLIO_DATA.education.year = document.getElementById('adm-edu-year')?.value.trim() || PORTFOLIO_DATA.education.year;
       PORTFOLIO_DATA.education.cgpa = document.getElementById('adm-edu-cgpa')?.value.trim() || PORTFOLIO_DATA.education.cgpa;
@@ -2918,9 +3409,58 @@ Hiring Team</textarea>
       showToast('All Admin CMS changes saved! Live Portfolio & PDF Resume updated.');
     }
 
+    // Reordering & CRUD Helpers for Pitch Cards, Skills, Experience, Projects & Capstones
+    function addAdminPitchCard() {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.landingPage.pitchCards.push({
+        title: 'New Engineering Advantage',
+        icon: 'sparkles',
+        accent: 'emerald',
+        description: 'Delivering scalable full-stack architecture and high-reliability production systems.'
+      });
+      persistData();
+      renderPortfolioPage();
+      renderAdminForms();
+      showToast('Added new Recruiter Pitch card!');
+    }
+
+    function moveAdminPitchCard(idx, dir) {
+      syncAdminDOMToData();
+      const arr = PORTFOLIO_DATA.landingPage.pitchCards;
+      const target = idx + dir;
+      if (target < 0 || target >= arr.length) return;
+      const temp = arr[idx];
+      arr[idx] = arr[target];
+      arr[target] = temp;
+      persistData();
+      renderPortfolioPage();
+      renderAdminForms();
+    }
+
+    function deleteAdminPitchCard(idx) {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.landingPage.pitchCards.splice(idx, 1);
+      persistData();
+      renderPortfolioPage();
+      renderAdminForms();
+    }
+
     function addAdminSkillRow() {
       syncAdminDOMToData();
       PORTFOLIO_DATA.resumeSkills.push({ category: 'New Category', items: 'Skill 1, Skill 2, Skill 3' });
+      renderAdminForms();
+    }
+
+    function moveAdminSkillRow(idx, dir) {
+      syncAdminDOMToData();
+      const arr = PORTFOLIO_DATA.resumeSkills;
+      const target = idx + dir;
+      if (target < 0 || target >= arr.length) return;
+      const temp = arr[idx];
+      arr[idx] = arr[target];
+      arr[target] = temp;
+      persistData();
+      renderPortfolioPage();
       renderAdminForms();
     }
 
@@ -2948,11 +3488,65 @@ Hiring Team</textarea>
       showToast('Added new role at top of Experience list!');
     }
 
+    function moveAdminExperienceCard(idx, dir) {
+      syncAdminDOMToData();
+      const arr = PORTFOLIO_DATA.experience;
+      const target = idx + dir;
+      if (target < 0 || target >= arr.length) return;
+      const temp = arr[idx];
+      arr[idx] = arr[target];
+      arr[target] = temp;
+      persistData();
+      renderPortfolioPage();
+      renderAdminForms();
+    }
+
     function deleteAdminExperienceCard(idx) {
       syncAdminDOMToData();
       PORTFOLIO_DATA.experience.splice(idx, 1);
       persistData();
       renderAdminForms();
+    }
+
+    // Project Card Order Arrangement Functions
+    function moveAdminProjectCard(idx, dir) {
+      syncAdminDOMToData();
+      const arr = PORTFOLIO_DATA.projects;
+      const target = idx + dir;
+      if (target < 0 || target >= arr.length) return;
+      const temp = arr[idx];
+      arr[idx] = arr[target];
+      arr[target] = temp;
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      renderAdminForms();
+      showToast(`Moved project card to Position #${target + 1}!`);
+    }
+
+    function pinAdminProjectToTop(idx) {
+      syncAdminDOMToData();
+      if (idx <= 0 || idx >= PORTFOLIO_DATA.projects.length) return;
+      const [item] = PORTFOLIO_DATA.projects.splice(idx, 1);
+      PORTFOLIO_DATA.projects.unshift(item);
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      renderAdminForms();
+      showToast(`Pinned "${item.title.split('|')[0].trim()}" to Position #1!`);
+    }
+
+    function jumpAdminProjectToPosition(fromIdx, toIdxStr) {
+      syncAdminDOMToData();
+      const toIdx = parseInt(toIdxStr, 10);
+      if (isNaN(toIdx) || fromIdx === toIdx || toIdx < 0 || toIdx >= PORTFOLIO_DATA.projects.length) return;
+      const [item] = PORTFOLIO_DATA.projects.splice(fromIdx, 1);
+      PORTFOLIO_DATA.projects.splice(toIdx, 0, item);
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      renderAdminForms();
+      showToast(`Moved "${item.title.split('|')[0].trim()}" to Position #${toIdx + 1}!`);
     }
 
     function addAdminProjectCard() {
@@ -2970,13 +3564,14 @@ Hiring Team</textarea>
         ]
       });
       renderAdminForms();
-      showToast('Added new project card!');
+      showToast('Added new project card at Position #1!');
     }
 
     function deleteAdminProjectCard(idx) {
       syncAdminDOMToData();
       PORTFOLIO_DATA.projects.splice(idx, 1);
       persistData();
+      renderPortfolioPage();
       renderAdminForms();
     }
 
@@ -2988,6 +3583,19 @@ Hiring Team</textarea>
         tech: 'Python • Machine Learning • Data Science',
         summary: 'Designed and trained predictive machine learning models for automated analysis.'
       });
+      renderAdminForms();
+    }
+
+    function moveAdminCollegeProject(idx, dir) {
+      syncAdminDOMToData();
+      const arr = PORTFOLIO_DATA.education.collegeProjects;
+      const target = idx + dir;
+      if (target < 0 || target >= arr.length) return;
+      const temp = arr[idx];
+      arr[idx] = arr[target];
+      arr[target] = temp;
+      persistData();
+      renderPortfolioPage();
       renderAdminForms();
     }
 
@@ -3097,12 +3705,12 @@ Hiring Team</textarea>
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Ajith_E_Resume_2026.html';
+      a.download = 'Ajith_E_Resume.html';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showToast('Downloaded Ajith_E_Resume_2026.html!');
+      showToast('Downloaded Ajith_E_Resume.html!');
     }
 
     // Mobile Menu Toggle
@@ -3238,14 +3846,14 @@ Hiring Team</textarea>
     function getCommandResponses() {
       return {
         help: `Available commands:
-  • <span class="text-emerald-400">resume</span>     — Download Ajith's official PDF resume (Ajith_E_Resume_2026.pdf)
+  • <span class="text-emerald-400">resume</span>     — Download Ajith's official PDF resume (Ajith_E_Resume.pdf)
   • <span class="text-emerald-400">skills</span>     — View full-stack, DB, cloud & AI capabilities
   • <span class="text-cyan-400">projects</span>   — Inspect ${PORTFOLIO_DATA.projects.length} enterprise production systems
   • <span class="text-emerald-200">education</span>  — View B.E. CSE degree & college ML/AI projects
   • <span class="text-indigo-400">hire</span>       — Why Ajith is a top-1% engineering hire
   • <span class="text-amber-400">contact</span>    — Get direct phone & email details
   • <span class="text-rose-400">clear</span>      — Clear terminal buffer`,
-        resume: `[DOWNLOADING RESUME: Ajith_E_Resume_2026.pdf]
+        resume: `[DOWNLOADING RESUME: Ajith_E_Resume.pdf]
   • Candidate: ${PORTFOLIO_DATA.name} (${PORTFOLIO_DATA.headline})
   • Format: ATS-Verified Multi-Page PDF
   • Action: Triggering instant PDF download...`,
