@@ -1,0 +1,3396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajith Elumalai | Python Full Stack & Applied AI Engineer</title>
+  <meta name="description"
+    content="Portfolio & Dynamic Resume of Ajith Elumalai — Software Engineer, IT Analyst, and Python Full Stack Developer specializing in React.js, FastAPI, Django, Real-Time Telematics, and Applied AI." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- jsPDF Vector Engine + html2pdf.js for Instant Client-Side PDF Resume Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            slate: {
+              950: '#040711',
+            },
+            accent: {
+              emerald: '#10b981',
+              cyan: '#06b6d4',
+              indigo: '#6366f1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #040711;
+      --accent-emerald: #10b981;
+      --accent-cyan: #06b6d4;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Mesh Glow */
+    .ambient-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 9999px;
+      filter: blur(130px);
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 20px 45px -15px rgba(16, 185, 129, 0.16),
+        0 0 25px -5px rgba(6, 182, 212, 0.12);
+      transform: translateY(-4px);
+    }
+
+    /* Scroll Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animated Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #34d399 0%, #22d3ee 50%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* Pulse Ring */
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+
+    .status-dot {
+      animation: pulseRing 2s infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #040711;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #10b981;
+    }
+
+    /* A4 ATS Resume Sheet Styling */
+    .resume-sheet {
+      background: #ffffff;
+      color: #0f172a;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.42;
+    }
+
+    /* Print Media Query so Ctrl+P / Vector PDF prints only the crisp A4 Resume */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+
+      #resume-print-container,
+      #resume-print-container * {
+        visibility: visible !important;
+      }
+
+      #resume-print-container {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- Interactive Particle Network Canvas -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-glow bg-emerald-500 -top-40 -left-40"></div>
+  <div class="ambient-glow bg-cyan-500 top-1/3 -right-40"></div>
+  <div class="ambient-glow bg-indigo-500 bottom-0 left-1/4"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast"
+    class="fixed bottom-6 right-6 z-[60] translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="glass-card px-5 py-3.5 rounded-xl border border-emerald-500/50 flex items-center gap-3 shadow-2xl">
+      <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+      <span id="toast-message" class="text-sm font-medium text-white">Copied to clipboard!</span>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation Header -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#hero" onclick="handleSecretLogoTap(event)" class="flex items-center gap-2.5 group"
+        title="Ajith Elumalai">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-slate-950 font-display font-bold text-lg shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+          AE
+        </div>
+        <div>
+          <span id="nav-name" class="font-display font-bold text-white tracking-tight block leading-none">AJITH
+            ELUMALAI</span>
+          <span class="font-mono text-[11px] text-emerald-400 tracking-wider">FULL STACK & AI ENGINEER</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav (Public Recruiter View - Only Download Resume Button) -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" onclick="switchViewMode('public')" class="hover:text-emerald-400 transition-colors">Recruiter
+          Pitch</a>
+        <a href="#skills" onclick="switchViewMode('public')" class="hover:text-emerald-400 transition-colors">Tech
+          Stack</a>
+        <a href="#experience" onclick="switchViewMode('public')"
+          class="hover:text-emerald-400 transition-colors">Experience</a>
+        <a href="#projects" onclick="switchViewMode('public')"
+          class="hover:text-emerald-400 transition-colors">Projects</a>
+        <a href="#education" onclick="switchViewMode('public')"
+          class="hover:text-emerald-400 transition-colors">Education</a>
+        <a href="#terminal-section" onclick="switchViewMode('public')"
+          class="hover:text-emerald-400 transition-colors">Live CLI</a>
+        <button onclick="downloadDynamicResumePDF()"
+          class="px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-semibold text-xs sm:text-sm flex items-center gap-1.5 shadow-lg shadow-emerald-500/20 transition-all">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Download Resume</span>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <button onclick="downloadDynamicResumePDF()"
+          class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-xs flex items-center gap-1">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Download Resume</span>
+        </button>
+        <button id="mobile-menu-btn" aria-label="Toggle Menu"
+          class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div id="mobile-menu"
+      class="hidden lg:hidden bg-slate-900/95 backdrop-blur-xl border-b border-white/10 px-6 py-5 space-y-3">
+      <a href="#about" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Recruiter Pitch</a>
+      <a href="#skills" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Tech Stack</a>
+      <a href="#experience" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Experience</a>
+      <a href="#projects" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Projects</a>
+      <a href="#education" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Academic Foundation</a>
+      <a href="#terminal-section" onclick="switchViewMode('public')"
+        class="mobile-link block py-2 text-slate-200 hover:text-emerald-400 font-medium">Interactive CLI</a>
+      <div class="pt-2">
+        <button onclick="downloadDynamicResumePDF()"
+          class="w-full py-2.5 px-4 text-center rounded-lg bg-emerald-500 text-slate-950 font-semibold text-xs flex items-center justify-center gap-1.5">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span>Download Resume (PDF)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="public-portfolio-view" class="relative z-10 pt-24 pb-20">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-20 lg:pt-14 lg:pb-24">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Left Column -->
+        <div class="lg:col-span-7 space-y-6 reveal active">
+          <div
+            class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot"></span>
+            <span id="hero-badge">Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+            Engineering <span class="gradient-text">Real-Time Systems</span> & Applied AI.
+          </h1>
+
+          <p id="hero-summary" class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Hi, I'm <strong class="text-white">Ajith Elumalai</strong> — a Software Engineer, IT Analyst, and Python
+            Full Stack Developer with <strong class="text-emerald-400">3+ years of experience</strong> building
+            high-throughput connected-vehicle telematics, enterprise DLP security, and self-improving AI assistants
+            using <span class="text-cyan-300 font-mono text-sm">Python, FastAPI, Django, React.js, AWS, and SQL</span>.
+          </p>
+
+          <!-- Primary CTA & Instant Resume Actions (Public Landing View) -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <!-- Instant Download PDF Button -->
+            <button onclick="downloadDynamicResumePDF()"
+              class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-sm flex items-center gap-2 shadow-xl shadow-emerald-500/25 transition-all">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              <span>Download Resume (PDF)</span>
+            </button>
+
+            <!-- Explore Production Projects -->
+            <a href="#projects"
+              class="px-5 py-3.5 rounded-xl glass-card text-slate-200 hover:text-white font-semibold text-sm flex items-center gap-2 transition-all">
+              <span>Explore Projects</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-emerald-400"></i>
+            </a>
+
+            <!-- Launch Email Client Button -->
+            <button onclick="openEmailModal()"
+              class="px-4 py-3.5 rounded-xl glass-card text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-cyan-400"></i>
+              <span>Launch Email Client</span>
+            </button>
+
+            <!-- Copy Email Pill -->
+            <button onclick="copyText(PORTFOLIO_DATA.email, 'Email copied: ' + PORTFOLIO_DATA.email)"
+              class="px-4 py-3.5 rounded-xl glass-card text-slate-200 hover:text-white text-sm font-medium flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+              <span id="hero-email-text">ajithelumalai486@gmail.com</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+          </div>
+
+          <!-- Key Impact Metrics -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
+            <div class="glass-card p-4 rounded-xl">
+              <div id="metric-exp" class="font-display text-2xl sm:text-3xl font-bold text-emerald-400">3+ Yrs</div>
+              <div class="text-xs text-slate-400 mt-1">Production Full Stack</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl">
+              <div id="metric-ai" class="font-display text-2xl sm:text-3xl font-bold text-cyan-400">99%</div>
+              <div class="text-xs text-slate-400 mt-1">AI Classifier Accuracy</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl">
+              <div id="metric-projects" class="font-display text-2xl sm:text-3xl font-bold text-indigo-400">6+</div>
+              <div class="text-xs text-slate-400 mt-1">Enterprise Platforms</div>
+            </div>
+            <div class="glass-card p-4 rounded-xl">
+              <div id="metric-cgpa" class="font-display text-2xl sm:text-3xl font-bold text-emerald-300">8.0</div>
+              <div class="text-xs text-slate-400 mt-1">B.E. CSE CGPA (2023)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Architecture + Resume Download Card -->
+        <div class="lg:col-span-5 reveal active">
+          <div class="glass-card rounded-2xl p-6 border border-emerald-500/30 relative overflow-hidden">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                <span class="ml-2 font-mono text-xs text-slate-400">Ajith_E_Resume_2026.pdf</span>
+              </div>
+              <span id="resume-mode-pill"
+                class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[11px]">VERIFIED
+                CV</span>
+            </div>
+
+            <div class="space-y-3.5 font-mono text-xs sm:text-sm">
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/5">
+                <div class="text-slate-400 text-xs mb-1 flex items-center justify-between">
+                  <span>// CURRENT ROLE & AUTO-TENURE</span>
+                  <span id="live-tenure-badge" class="text-emerald-400">Active</span>
+                </div>
+                <div id="card-current-role" class="text-white font-semibold">Senior Officer — Switch Mobility EV</div>
+                <div class="text-emerald-400 text-xs mt-0.5">Python Full Stack (Real-Time Telematics & AI)</div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/5">
+                <div class="text-slate-400 text-xs mb-1">// MULTI-DATABASE ARCHITECTURE</div>
+                <div class="flex flex-wrap gap-1.5 mt-1.5">
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">PostgreSQL</span>
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">AWS Redshift</span>
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">AWS HBase</span>
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 text-xs">MySQL</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 text-xs">Redis / Valkey</span>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/5">
+                <div class="text-slate-400 text-xs mb-1">// ATTACHED RESUME PACKAGE</div>
+                <div class="flex items-center justify-between gap-2 mt-2">
+                  <div>
+                    <div id="card-resume-filename" class="text-white font-semibold text-xs">Ajith_E_Resume_2026.pdf
+                    </div>
+                    <div id="card-resume-sub" class="text-[11px] text-slate-400">ATS-Verified • Official 2026 Edition
+                    </div>
+                  </div>
+                  <button onclick="downloadDynamicResumePDF()"
+                    class="px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/20">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                    <span>Download Resume</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2 text-xs text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+                  <span id="card-location">Chennai, India</span>
+                </span>
+                <span class="text-emerald-400 font-semibold">Immediate Impact Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY HIRE AJITH (HR / RECRUITER PITCH SECTION) -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Why HR & Engineering Leaders Hire Me</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Built for Production Speed, Scale & Ownership
+        </h2>
+        <p class="text-slate-400 mt-2 max-w-2xl">
+          Instead of only writing isolated components, I own complete systems—from SQL/NoSQL schema optimization and
+          high-concurrency Python APIs to responsive React.js dashboards.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-10">
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div
+            class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-2">Applied AI That Ships</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Built an enterprise AI Co-Worker achieving <strong class="text-emerald-400">99% routing accuracy</strong>
+            across Microsoft Entra ID, ManageEngine IT Helpdesk, and live-search LLMs—complete with zero-downtime
+            background model retraining.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div
+            class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-2">Real-Time Telematics & WebSockets</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Currently architecting connected-vehicle telemetry and fleet monitoring platforms at <strong
+              class="text-cyan-400">Switch Mobility EV</strong> using Django Channels, WebSockets, FastAPI, Redis
+            caching, and React.js.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 reveal">
+          <div
+            class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-5">
+            <i data-lucide="database" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-2">Multi-Database & AWS Mastery</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Proven ability to select and optimize the right storage layer (<strong class="text-indigo-300">PostgreSQL,
+              MySQL, AWS Redshift, AWS HBase, Redis, Valkey</strong>) paired with AWS S3, Lambda, and SES.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX (Dynamically Rendered from PORTFOLIO_DATA) -->
+    <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
+        <div>
+          <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Technical Arsenal</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Full-Stack & Cloud Capabilities</h2>
+        </div>
+      </div>
+
+      <div id="skills-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <!-- Populated dynamically by renderPortfolioPage() -->
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE TIMELINE (Dynamically Rendered from PORTFOLIO_DATA) -->
+    <section id="experience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 reveal">
+        <div>
+          <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
+            <i data-lucide="briefcase" class="w-4 h-4"></i>
+            <span>Career Progression</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">3+ Years of Enterprise Impact</h2>
+        </div>
+        <button onclick="downloadDynamicResumePDF()"
+          class="self-start sm:self-auto px-4 py-2 rounded-xl glass-card text-xs font-mono text-emerald-300 hover:text-white flex items-center gap-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Download Resume (PDF)</span>
+        </button>
+      </div>
+
+      <div id="experience-timeline"
+        class="mt-10 space-y-6 relative before:absolute before:top-4 before:bottom-4 before:left-4 sm:before:left-6 before:w-0.5 before:bg-gradient-to-b before:from-emerald-500 before:via-cyan-500 before:to-indigo-500">
+        <!-- Populated dynamically by renderPortfolioPage() -->
+      </div>
+    </section>
+
+    <!-- PRODUCTION PROJECTS SHOWCASE (Dynamically Rendered + Interactive Filter) -->
+    <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+        <div>
+          <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
+            <i data-lucide="rocket" class="w-4 h-4"></i>
+            <span>Flagship Engineering Systems</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Production Projects Portfolio</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterProjects('all')"
+            class="proj-filter active-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500 text-slate-950 transition-all"
+            data-filter="all">
+            All Systems
+          </button>
+          <button onclick="filterProjects('ai')"
+            class="proj-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold glass-card text-slate-300 hover:text-white transition-all"
+            data-filter="ai">
+            AI & Automation
+          </button>
+          <button onclick="filterProjects('telematics')"
+            class="proj-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold glass-card text-slate-300 hover:text-white transition-all"
+            data-filter="telematics">
+            Telematics & Real-Time
+          </button>
+          <button onclick="filterProjects('security')"
+            class="proj-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold glass-card text-slate-300 hover:text-white transition-all"
+            data-filter="security">
+            Security & Enterprise
+          </button>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <!-- Populated dynamically by renderPortfolioPage() -->
+      </div>
+    </section>
+
+    <!-- ACADEMIC FOUNDATION & COLLEGE R&D PROJECTS SECTION -->
+    <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
+          <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+          <span>Academic Foundation & Early AI Research</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Engineering Degree & College Capstone
+          Projects</h2>
+        <p class="text-slate-400 mt-2 max-w-2xl">
+          Strong computer science fundamentals combined with hands-on machine learning and medical computer vision
+          research during undergraduate studies.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 mt-10 items-stretch">
+        <!-- Degree Card -->
+        <div
+          class="lg:col-span-4 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-cyan-500/30 reveal">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-5">
+              <span id="edu-year-badge"
+                class="px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 font-mono text-xs">Class of 2023</span>
+              <div
+                class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 id="edu-degree-title" class="font-display text-2xl font-bold text-white">Bachelor of Engineering (B.E.)
+            </h3>
+            <p id="edu-degree-major" class="text-emerald-400 font-semibold text-base mt-1">Computer Science Engineering
+            </p>
+            <p class="text-slate-300 text-sm mt-2 flex items-center gap-2">
+              <i data-lucide="building-2" class="w-4 h-4 text-slate-400 shrink-0"></i>
+              <span id="edu-college-name">SKP Engineering College, Tiruvannamalai</span>
+            </p>
+
+            <div class="mt-6 p-4 rounded-xl bg-slate-900/80 border border-white/5 space-y-2 text-xs text-slate-300">
+              <div class="font-mono text-slate-400 uppercase tracking-wider">Core Focus Areas</div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 rounded bg-white/5 text-slate-200 font-mono">Data Structures</span>
+                <span class="px-2.5 py-1 rounded bg-white/5 text-slate-200 font-mono">Machine Learning</span>
+                <span class="px-2.5 py-1 rounded bg-white/5 text-slate-200 font-mono">DBMS & SQL</span>
+                <span class="px-2.5 py-1 rounded bg-white/5 text-slate-200 font-mono">Computer Vision</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between font-mono text-sm">
+            <span class="text-slate-400">First Class</span>
+            <span id="edu-cgpa-badge"
+              class="px-3.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold">CGPA:
+              8.0 / 10</span>
+          </div>
+        </div>
+
+        <!-- College Projects Column (Dynamically Rendered from PORTFOLIO_DATA) -->
+        <div id="college-projects-grid" class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+          <!-- Populated dynamically by renderPortfolioPage() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE RECRUITER TERMINAL -->
+    <section id="terminal-section" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="reveal">
+        <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span>Interactive Recruiter Console</span>
+        </div>
+        <h2 class="font-display text-3xl font-bold text-white">Query Ajith's Profile & Resume via CLI</h2>
+        <p class="text-slate-400 text-sm mt-1">Click any quick-command chip below or type a command (<code
+            class="text-emerald-300">resume</code>, <code class="text-emerald-300">skills</code>, <code
+            class="text-emerald-300">projects</code>, <code class="text-emerald-300">education</code>, <code
+            class="text-emerald-300">hire</code>, <code class="text-emerald-300">contact</code>, <code
+            class="text-emerald-300">clear</code>).</p>
+      </div>
+
+      <div class="mt-6 glass-card rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl reveal">
+        <!-- Terminal Header -->
+        <div
+          class="bg-slate-900/90 px-4 py-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+            <span class="ml-2 font-mono text-xs text-slate-400">ajith@switch-mobility-ev: ~/portfolio</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="runCommand('resume')"
+              class="px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-mono text-xs font-semibold transition-colors">resume</button>
+            <button onclick="runCommand('skills')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-emerald-500/20 text-emerald-300 font-mono text-xs transition-colors">skills</button>
+            <button onclick="runCommand('projects')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-emerald-500/20 text-cyan-300 font-mono text-xs transition-colors">projects</button>
+            <button onclick="runCommand('education')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-emerald-500/20 text-emerald-200 font-mono text-xs transition-colors">education</button>
+            <button onclick="runCommand('hire')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-emerald-500/20 text-indigo-300 font-mono text-xs transition-colors">hire</button>
+            <button onclick="runCommand('contact')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-emerald-500/20 text-amber-300 font-mono text-xs transition-colors">contact</button>
+            <button onclick="runCommand('clear')"
+              class="px-2.5 py-1 rounded bg-white/5 hover:bg-rose-500/20 text-rose-300 font-mono text-xs transition-colors">clear</button>
+          </div>
+        </div>
+
+        <!-- Terminal Output -->
+        <div id="terminal-output"
+          class="p-5 font-mono text-xs sm:text-sm space-y-3 h-72 overflow-y-auto bg-slate-950/85">
+          <div class="text-emerald-400">Welcome to AjithOS v2026.3.0 (Dynamic Resume & Telematics Kernel)</div>
+          <div class="text-slate-400">Type <span class="text-white font-semibold">resume</span> to preview or download
+            Ajith's latest CV, or click any command chip above.</div>
+        </div>
+
+        <!-- Terminal Input -->
+        <form id="terminal-form"
+          class="bg-slate-900/90 px-4 py-3 border-t border-white/10 flex items-center gap-2 font-mono text-sm">
+          <span class="text-emerald-400 font-semibold">ajith@dev:~$</span>
+          <input id="terminal-input" type="text"
+            placeholder="Type a command (e.g., resume, education, hire, skills, projects)..." autocomplete="off"
+            class="w-full bg-transparent text-white focus:outline-none placeholder:text-slate-600" />
+        </form>
+      </div>
+    </section>
+
+
+    <!-- DIRECT HIRE / SMART EMAIL LAUNCHER & RESUME DOWNLOAD SECTION -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+      <div class="glass-card rounded-2xl p-6 sm:p-10 border border-emerald-500/30 reveal">
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+          <!-- Left Column: Direct Contact Info & Instant Resume Actions -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <div
+                class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-3">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Direct Recruiter Connect</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold text-white leading-tight">
+                Ready to Build Your Next High-Scale Platform?
+              </h3>
+              <p class="text-slate-300 text-sm sm:text-base mt-3">
+                Download <strong class="text-white">Ajith Elumalai's</strong> dynamically updated ATS resume or reach
+                out in
+                one click via Gmail, Outlook 365, Default Mail, or WhatsApp.
+              </p>
+            </div>
+
+            <!-- Resume Download & Dynamic Customizer Box -->
+            <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-emerald-300 font-semibold flex items-center gap-1.5">
+                  <i data-lucide="file-badge" class="w-4 h-4"></i>
+                  <span>OFFICIAL RESUME ATTACHED</span>
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">ATS-Ready PDF</span>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-2">
+                <button onclick="downloadDynamicResumePDF()"
+                  class="px-3.5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="download" class="w-4 h-4"></i>
+                  <span>Download PDF CV</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <button onclick="copyText(PORTFOLIO_DATA.email, 'Email copied: ' + PORTFOLIO_DATA.email)"
+                class="w-full p-4 rounded-xl bg-white/5 hover:bg-emerald-500/15 border border-white/10 hover:border-emerald-500/40 text-left transition-all group">
+                <div class="text-xs font-mono text-slate-400 flex items-center justify-between">
+                  <span>DIRECT EMAIL (CLICK TO COPY)</span>
+                  <i data-lucide="copy"
+                    class="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div id="contact-email-display" class="text-sm sm:text-base font-semibold text-white mt-1 truncate">
+                  ajithelumalai486@gmail.com</div>
+              </button>
+
+              <button onclick="copyText(PORTFOLIO_DATA.phone, 'Phone number copied: ' + PORTFOLIO_DATA.phone)"
+                class="w-full p-4 rounded-xl bg-white/5 hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 text-left transition-all group">
+                <div class="text-xs font-mono text-slate-400 flex items-center justify-between">
+                  <span>DIRECT PHONE / WHATSAPP (CLICK TO COPY)</span>
+                  <i data-lucide="phone-call"
+                    class="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div id="contact-phone-display" class="text-sm sm:text-base font-semibold text-white mt-1">+91
+                  9080946720
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Built-in Smart Email & Multi-Client Launcher -->
+          <div class="lg:col-span-7 bg-slate-900/85 rounded-2xl p-5 sm:p-7 border border-white/10 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="mail-check" class="w-5 h-5 text-emerald-400"></i>
+                <span class="font-display font-bold text-white text-base">Smart Interview Email Launcher</span>
+              </div>
+              <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
+                Works with Webmail, OS Mail & Mobile
+              </span>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">TO RECIPIENT</label>
+                <input id="inline-email-to" type="text" value="ajithelumalai486@gmail.com" readonly
+                  class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-white/10 text-emerald-300 font-mono text-xs focus:outline-none" />
+              </div>
+              <div>
+                <label for="inline-email-subject" class="block text-xs font-mono text-slate-400 mb-1">SUBJECT LINE
+                  (EDITABLE)</label>
+                <input id="inline-email-subject" type="text"
+                  value="Interview Opportunity - Ajith Elumalai (Python Full Stack / AI Engineer)"
+                  class="w-full px-3.5 py-2 rounded-lg bg-slate-950 border border-white/15 focus:border-emerald-400 text-white text-xs focus:outline-none" />
+              </div>
+            </div>
+
+            <div>
+              <label for="inline-email-body" class="block text-xs font-mono text-slate-400 mb-1">INTERVIEW MESSAGE
+                (EDITABLE)</label>
+              <textarea id="inline-email-body" rows="4"
+                class="w-full p-3.5 rounded-lg bg-slate-950 border border-white/15 focus:border-emerald-400 text-slate-200 text-xs sm:text-sm leading-relaxed focus:outline-none">Hi Ajith,
+    
+    We reviewed your portfolio and resume and were impressed by your experience in Python Full Stack (FastAPI/Django), React.js, Real-Time Telematics, and Applied AI at Switch Mobility EV.
+    
+    We would like to schedule an interview with you. Please share your availability.
+    
+    Best regards,
+    Hiring Team</textarea>
+            </div>
+
+            <!-- Multi-Channel Launch Buttons -->
+            <div class="pt-1">
+              <div class="text-[11px] font-mono text-slate-400 mb-2.5 uppercase tracking-wider">
+                Choose Your Preferred Launch Method:
+              </div>
+              <div class="grid sm:grid-cols-2 gap-2.5">
+                <button type="button" onclick="launchEmailAction('gmail', 'inline')"
+                  class="px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <span>Open in Gmail (Web)</span>
+                </button>
+
+                <button type="button" onclick="launchEmailAction('outlook', 'inline')"
+                  class="px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all">
+                  <i data-lucide="globe" class="w-4 h-4"></i>
+                  <span>Open in Outlook / O365</span>
+                </button>
+
+                <button type="button" onclick="launchEmailAction('mailto', 'inline')"
+                  class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+                  <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+                  <span>Launch Default Mail App</span>
+                </button>
+
+                <button type="button" onclick="launchEmailAction('whatsapp', 'inline')"
+                  class="px-4 py-3 rounded-xl bg-white/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+                  <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                  <span>Send via WhatsApp Direct</span>
+                </button>
+              </div>
+
+              <button type="button" onclick="launchEmailAction('copy', 'inline')"
+                class="w-full mt-2.5 px-4 py-2.5 rounded-xl bg-slate-950 hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-mono text-xs flex items-center justify-center gap-2 transition-all">
+                <i data-lucide="clipboard-check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Copy Full Email + Subject + Message to Clipboard</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================================
+       FULL-SCREEN ADMIN CMS PORTAL (PRIVATE OWNER-ONLY ACCESS FOR AJITH)
+       ============================================================================ -->
+  <section id="admin-cms-view" class="hidden relative z-20 pt-20 pb-20 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Top Admin Banner -->
+      <div
+        class="glass-card rounded-2xl p-5 sm:p-6 border border-indigo-500/40 mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div
+            class="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-400 flex items-center justify-center text-slate-950 shadow-lg">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="font-display text-xl sm:text-2xl font-bold text-white">Ajith's Private Admin CMS</h1>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[11px]">OWNER
+                ONLY</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400">Preview your CV, update roles/projects/skills, and export your
+              updated site anytime.</p>
+          </div>
+        </div>
+
+        <div id="admin-top-actions" class="hidden flex-wrap items-center gap-2.5">
+          <!-- Preview CV Button Inside Admin Page Only -->
+          <button onclick="openResumeModal('preview')"
+            class="px-4 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-200 font-semibold text-xs sm:text-sm flex items-center gap-1.5 transition-all">
+            <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+            <span>Preview CV (A4 Sheet)</span>
+          </button>
+          <button onclick="downloadDynamicResumePDF()"
+            class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-lg shadow-emerald-500/20">
+            <i data-lucide="file-down" class="w-4 h-4"></i>
+            <span>Download Updated PDF</span>
+          </button>
+          <button onclick="exportUpdatedIndexHTML()"
+            class="px-4 py-2.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/40 text-indigo-200 font-mono text-xs flex items-center gap-1.5">
+            <i data-lucide="code" class="w-4 h-4 text-indigo-400"></i>
+            <span>Export Updated index.html</span>
+          </button>
+          <button onclick="lockAndExitAdmin()"
+            class="px-4 py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-200 font-semibold text-xs sm:text-sm flex items-center gap-1.5">
+            <i data-lucide="lock" class="w-4 h-4 text-rose-400"></i>
+            <span>Lock & Exit Admin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STRICT OWNER LOGIN GATE (No pre-filled password, no public hints) -->
+      <div id="admin-login-gate"
+        class="max-w-md mx-auto my-12 glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/40 text-center space-y-5">
+        <div
+          class="w-14 h-14 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mx-auto">
+          <i data-lucide="lock" class="w-7 h-7"></i>
+        </div>
+        <div>
+          <h2 class="font-display text-2xl font-bold text-white">Owner Authentication Required</h2>
+          <p class="text-xs text-slate-400 mt-1">This area is restricted to Ajith Elumalai. Enter your secret owner
+            passcode to continue.</p>
+        </div>
+
+        <form onsubmit="handleAdminPinSubmit(event)" class="space-y-3">
+          <input id="admin-pin-input" type="password" placeholder="Enter Secret Owner Passcode" autocomplete="off"
+            class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-white/15 text-center font-mono text-lg tracking-widest text-white focus:border-emerald-400 focus:outline-none" />
+          <div id="admin-pin-error" class="hidden text-xs font-mono text-rose-400">Access Denied: Incorrect owner
+            passcode.</div>
+          <button type="submit"
+            class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20">
+            Verify & Unlock Admin
+          </button>
+        </form>
+
+        <div class="pt-2 border-t border-white/10">
+          <button type="button" onclick="switchViewMode('public')"
+            class="text-xs font-mono text-slate-400 hover:text-white">
+            ← Return to Public Portfolio
+          </button>
+        </div>
+      </div>
+
+      <!-- ADMIN WORKSPACE (VISIBLE ONLY AFTER OWNER PASSCODE VERIFICATION) -->
+      <div id="admin-workspace" class="hidden grid lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left Sidebar Navigation -->
+        <div class="lg:col-span-3 glass-card rounded-2xl p-4 space-y-1.5 border border-white/10 sticky top-24">
+          <div class="px-3 py-2 text-[11px] font-mono uppercase tracking-wider text-slate-400">CMS Modules</div>
+          <button onclick="switchAdminSection('profile')" id="adm-nav-profile"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold flex items-center gap-2.5 bg-emerald-500 text-slate-950 transition-all">
+            <i data-lucide="user-check" class="w-4 h-4"></i>
+            <span>1. Profile & Hero Stats</span>
+          </button>
+          <button onclick="switchAdminSection('skills')" id="adm-nav-skills"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
+            <span>2. Technical Skills CRUD</span>
+          </button>
+          <button onclick="switchAdminSection('experience')" id="adm-nav-experience"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="briefcase" class="w-4 h-4 text-emerald-400"></i>
+            <span>3. Work Experience CRUD</span>
+          </button>
+          <button onclick="switchAdminSection('projects')" id="adm-nav-projects"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="rocket" class="w-4 h-4 text-indigo-400"></i>
+            <span>4. Projects Manager CRUD</span>
+          </button>
+          <button onclick="switchAdminSection('education')" id="adm-nav-education"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="graduation-cap" class="w-4 h-4 text-cyan-400"></i>
+            <span>5. Education & Capstones</span>
+          </button>
+          <button onclick="switchAdminSection('resume')" id="adm-nav-resume"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
+            <span>6. Preview CV & PDF Studio</span>
+          </button>
+          <button onclick="switchAdminSection('deploy')" id="adm-nav-deploy"
+            class="adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all">
+            <i data-lucide="cloud-upload" class="w-4 h-4 text-amber-400"></i>
+            <span>7. Export & Security PIN</span>
+          </button>
+
+          <div class="pt-4 mt-4 border-t border-white/10 space-y-2">
+            <button onclick="openResumeModal('preview')"
+              class="w-full py-2.5 px-3 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-semibold text-xs flex items-center justify-center gap-1.5">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span>Preview Live CV</span>
+            </button>
+            <button onclick="saveAllAdminChanges()"
+              class="w-full py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Save & Apply All Live</span>
+            </button>
+            <button onclick="resetPortfolioData()"
+              class="w-full py-2 px-3 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-rose-300 font-mono text-[11px] flex items-center justify-center gap-1.5">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Reset to Official 2026 CV</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Main Content Area -->
+        <div class="lg:col-span-9 space-y-6">
+
+          <!-- MODULE 1: PROFILE, CONTACT & HERO STATS -->
+          <div id="adm-sec-profile" class="adm-sec glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">1. Profile, Contact & Hero Metrics</h2>
+                <p class="text-xs text-slate-400">Edit your personal details, headline, summary, and key recruiter
+                  metrics.</p>
+              </div>
+              <button onclick="saveAllAdminChanges()"
+                class="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="check" class="w-4 h-4"></i>
+                <span>Save Profile</span>
+              </button>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">FULL NAME</label>
+                <input id="adm-name" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-mono text-slate-400 mb-1">RESUME HEADLINE / TARGET ROLES</label>
+                <input id="adm-headline" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">LOCATION</label>
+                <input id="adm-location" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">PHONE / WHATSAPP (10 DIGITS)</label>
+                <input id="adm-phone" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">EMAIL ADDRESS</label>
+                <input id="adm-email" type="email"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-mono text-slate-400 mb-1">HERO STATUS BADGE</label>
+                <input id="adm-badge" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">CURRENT ROLE CARD TITLE</label>
+                <input id="adm-current-role" type="text"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+              </div>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div>
+                <label class="block text-[11px] font-mono text-emerald-400 mb-1">STAT 1: EXPERIENCE</label>
+                <input id="adm-stat-exp" type="text" placeholder="3+ Yrs"
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono text-cyan-400 mb-1">STAT 2: AI ACCURACY</label>
+                <input id="adm-stat-ai" type="text" placeholder="99%"
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono text-indigo-400 mb-1">STAT 3: PLATFORMS</label>
+                <input id="adm-stat-proj" type="text" placeholder="6+"
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono text-emerald-300 mb-1">STAT 4: B.E. CGPA</label>
+                <input id="adm-stat-cgpa" type="text" placeholder="8.0"
+                  class="w-full px-3 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-xs font-mono" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">PROFESSIONAL SUMMARY (USED ON RESUME PDF &
+                PORTFOLIO)</label>
+              <textarea id="adm-summary" rows="4"
+                class="w-full p-3.5 rounded-xl bg-slate-900 border border-white/15 text-white text-sm leading-relaxed focus:border-emerald-400 focus:outline-none"></textarea>
+            </div>
+          </div>
+
+          <!-- MODULE 2: TECHNICAL SKILLS CRUD -->
+          <div id="adm-sec-skills"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">2. Technical Skills Manager</h2>
+                <p class="text-xs text-slate-400">Add, edit, or remove skill categories and comma-separated skills.</p>
+              </div>
+              <button onclick="addAdminSkillRow()"
+                class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Add Skill Category</span>
+              </button>
+            </div>
+
+            <div id="adm-skills-list" class="space-y-3">
+              <!-- Populated dynamically by renderAdminForms() -->
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+              <button onclick="saveAllAdminChanges()"
+                class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Save Skills & Update PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 3: WORK EXPERIENCE CRUD -->
+          <div id="adm-sec-experience"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">3. Work Experience Manager (Full CRUD)</h2>
+                <p class="text-xs text-slate-400">Edit your current roles or add new companies/promotions in the future.
+                </p>
+              </div>
+              <button onclick="addAdminExperienceCard()"
+                class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Add New Role / Company</span>
+              </button>
+            </div>
+
+            <div id="adm-experience-list" class="space-y-5">
+              <!-- Populated dynamically by renderAdminForms() -->
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+              <button onclick="saveAllAdminChanges()"
+                class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Save Experience & Update PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 4: PROJECTS MANAGER CRUD -->
+          <div id="adm-sec-projects"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">4. Production Projects Manager (Full CRUD)</h2>
+                <p class="text-xs text-slate-400">Manage all enterprise systems, tech stacks, categories, and
+                  achievement bullets.</p>
+              </div>
+              <button onclick="addAdminProjectCard()"
+                class="px-3.5 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Add New Project</span>
+              </button>
+            </div>
+
+            <div id="adm-projects-list" class="space-y-5">
+              <!-- Populated dynamically by renderAdminForms() -->
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+              <button onclick="saveAllAdminChanges()"
+                class="px-5 py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs">
+                Save Projects & Update PDF
+              </button>
+            </div>
+          </div>
+
+          <!-- MODULE 5: EDUCATION & ACADEMIC CAPSTONE PROJECTS CRUD -->
+          <div id="adm-sec-education"
+            class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-white/10 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <h2 class="font-display text-xl font-bold text-white">5. Academic Foundation & College Projects</h2>
+                <p class="text-xs text-slate-400">Edit your degree details and manage your college capstone projects
+                  (Brain Tumor MRI & Car Resale Value Prediction).</p>
+              </div>
+              <button onclick="addAdminCollegeProject()"
+                class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i>
+                <span>Add College Project</span>
+              </button>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-mono text-slate-400 mb-1">DEGREE TITLE</label>
+                <input id="adm-edu-degree" type="text"
+                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">GRADUATION YEAR</label>
+                <input id="adm-edu-year" type="text"
+                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">CGPA</label>
+                <input id="adm-edu-cgpa" type="text"
+                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+              </div>
+              <div class="sm:col-span-4">
+                <label class="block text-xs font-mono text-slate-400 mb-1">COLLEGE / UNIVERSITY</label>
+                <input id="adm-edu-college" type="text"
+                  class="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-sm" />
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-3">Academic Capstone Projects
+              </div>
+              <div id="adm-college-projects-list" class="space-y-4">
+                <!-- Populated dynamically by renderAdminForms() -->
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 flex justify-end">
+              <!-- MODULE 6: PREVIEW CV & DYNAMIC PDF RESUME STUDIO -->
+              <div id="adm-sec-resume"
+                class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+                  <div>
+                    <h2 class="font-display text-xl font-bold text-white">6. Preview CV & Dynamic PDF Resume Studio</h2>
+                    <p class="text-xs text-slate-400">Preview your formatted A4 resume, switch role presets, or upload a
+                      custom PDF file.</p>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="openResumeModal('preview')"
+                      class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
+                      <i data-lucide="eye" class="w-4 h-4"></i>
+                      <span>Preview CV (A4 Sheet)</span>
+                    </button>
+                    <button onclick="downloadDynamicResumePDF()"
+                      class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg">
+                      <i data-lucide="download" class="w-4 h-4"></i>
+                      <span>Test Download PDF</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Option A vs Option B -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div class="p-5 rounded-xl bg-slate-900/90 border border-emerald-500/40 space-y-3">
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-semibold">MODE
+                        A: AUTO-GENERATED VECTOR PDF</span>
+                      <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                      Automatically builds a crisp, multi-page ATS-compliant PDF (`Ajith_E_Resume_2026.pdf`) directly
+                      from your Admin CMS fields using the `jsPDF` vector engine.
+                    </p>
+                    <button onclick="clearCustomUploadedPDF()"
+                      class="px-3.5 py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-mono text-xs">
+                      Use Dynamic Auto-Generated PDF (Recommended)
+                    </button>
+                  </div>
+
+                  <!-- MODULE 7: EXPORT UPDATED HTML FOR FREE HOSTING & OWNER PIN -->
+                  <div id="adm-sec-deploy"
+                    class="adm-sec hidden glass-card rounded-2xl p-6 sm:p-8 border border-indigo-500/30 space-y-6">
+                    <div class="border-b border-white/10 pb-4">
+                      <h2 class="font-display text-xl font-bold text-white">7. Permanent Export for Free Hosting & Owner
+                        Passcode</h2>
+                      <p class="text-xs text-slate-400 mt-1">
+                        When you edit in the browser, changes save immediately to your browser's `localStorage`. To
+                        publish your updates permanently to the world on Netlify, Vercel, or GitHub Pages, click
+                        **"Export Updated index.html"** below and drag-and-drop that file to your host!
+                      </p>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-4">
+                      <button onclick="exportUpdatedIndexHTML()"
+                        class="p-5 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 hover:from-emerald-500/30 hover:to-cyan-500/30 border border-emerald-500/40 text-left space-y-2 transition-all">
+                        <i data-lucide="file-code" class="w-6 h-6 text-emerald-400"></i>
+                        <div class="font-display font-bold text-white text-sm">1. Export Updated index.html</div>
+                        <p class="text-xs text-slate-300">Downloads this complete single-file website with your latest
+                          Admin edits permanently baked in.</p>
+                      </button>
+
+                      <button onclick="exportResumeJSON()"
+                        class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all">
+                        <i data-lucide="download-cloud" class="w-6 h-6 text-cyan-400"></i>
+                        <div class="font-display font-bold text-white text-sm">2. Backup Data (.JSON)</div>
+                        <p class="text-xs text-slate-300">Save a lightweight JSON backup of all your portfolio & resume
+                          data.</p>
+                      </button>
+
+                      <label
+                        class="p-5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-left space-y-2 transition-all cursor-pointer block">
+                        <i data-lucide="upload-cloud" class="w-6 h-6 text-indigo-400"></i>
+                        <div class="font-display font-bold text-white text-sm">3. Restore from .JSON</div>
+                        <p class="text-xs text-slate-300">Import a previously saved JSON backup file to restore all
+                          fields.</p>
+                        <input type="file" accept=".json" onchange="importResumeJSON(event)" class="hidden" />
+                      </label>
+                    </div>
+
+                    <!-- Change Secret Owner Passcode -->
+                    <div class="p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+                      <div class="text-xs font-mono text-indigo-400 uppercase tracking-wider">Change Secret Owner
+                        Passcode</div>
+                      <div class="flex flex-wrap items-center gap-3">
+                        <input id="adm-new-pin" type="password" placeholder="New Secret Passcode"
+                          class="px-3.5 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs font-mono" />
+                        <button type="button" onclick="updateOwnerPin()"
+                          class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-xs">
+                          Update Passcode
+                        </button>
+                      </div>
+                      <p class="text-[11px] text-slate-400 font-mono">
+                        How to open this private Admin page anytime: Press <strong class="text-emerald-300">Ctrl + Shift
+                          + A</strong>, or add <strong class="text-emerald-300">#admin</strong> to your site URL, or
+                        click the top-left <strong class="text-emerald-300">AE</strong> logo 5 times.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+  </section>
+
+  <!-- ============================================================================
+       DYNAMIC RESUME STUDIO MODAL (LIVE A4 ATS RESUME PREVIEW + DYNAMIC EDITOR)
+       ============================================================================ -->
+  <div id="resume-modal" class="fixed inset-0 z-50 hidden flex-col bg-slate-950/90 backdrop-blur-xl">
+    <!-- Top Control Bar -->
+    <div
+      class="bg-slate-900 border-b border-white/10 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 shrink-0">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+          <i data-lucide="file-text" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="font-display font-bold text-white text-sm sm:text-base">Dynamic Resume Studio</h3>
+            <span
+              class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px]">Ajith_E_Resume_2026.pdf</span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Single source of truth — edits update both this ATS PDF
+            resume and the live portfolio.</p>
+        </div>
+      </div>
+
+      <!-- Mode Switcher Tabs -->
+      <div class="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-white/10">
+        <button id="tab-btn-preview" onclick="switchResumeTab('preview')"
+          class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500 text-slate-950 transition-all">
+          1. Live A4 Resume Preview
+        </button>
+        <button id="tab-btn-edit" onclick="switchResumeTab('edit')"
+          class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-300 hover:text-white transition-all">
+          2. Dynamic Editor (Update Live)
+        </button>
+      </div>
+
+      <!-- Download / Print / Close Actions -->
+      <div class="flex items-center gap-2">
+        <button id="btn-download-pdf" onclick="downloadDynamicResumePDF()"
+          class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-500/20 transition-all">
+          <i data-lucide="download" class="w-4 h-4"></i>
+          <span id="pdf-btn-label">Download PDF Resume</span>
+        </button>
+        <button onclick="closeResumeModal(); switchViewMode('admin');"
+          class="px-3 py-2 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/40 text-indigo-300 text-xs font-mono hidden sm:flex items-center gap-1.5 transition-all">
+          <i data-lucide="sliders" class="w-4 h-4"></i>
+          <span>Full Admin CMS</span>
+        </button>
+        <button onclick="printResumeSheet()"
+          class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs font-medium flex items-center gap-1.5 transition-all"
+          title="Print or Save as Vector PDF">
+          <i data-lucide="printer" class="w-4 h-4 text-cyan-400"></i>
+          <span class="hidden sm:inline">Print</span>
+        </button>
+        <button onclick="closeResumeModal()" aria-label="Close Resume Studio"
+          class="p-2 rounded-xl bg-white/5 hover:bg-rose-500/20 text-slate-400 hover:text-rose-300 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sub-Bar: Role Focus Presets & Academic Projects Toggle -->
+    <div
+      class="bg-slate-950/90 border-b border-white/10 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="font-mono text-slate-400">ROLE-TAILORED PRESET:</span>
+        <button onclick="applyResumePreset('default')" id="preset-default"
+          class="preset-btn px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs">
+          Full Stack & Telematics (Default)
+        </button>
+        <button onclick="applyResumePreset('ai')" id="preset-ai"
+          class="preset-btn px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs">
+          Applied AI & FastAPI Focus
+        </button>
+        <button onclick="applyResumePreset('react')" id="preset-react"
+          class="preset-btn px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs">
+          React.js & Frontend Focus
+        </button>
+      </div>
+
+      <label class="flex items-center gap-2 cursor-pointer text-slate-300 font-mono text-xs">
+        <input id="toggle-college-projects" type="checkbox" checked
+          onchange="toggleCollegeProjectsOnResume(this.checked)"
+          class="rounded border-white/20 text-emerald-500 focus:ring-0" />
+        <span>Include Academic Capstone Projects on Resume</span>
+      </label>
+    </div>
+
+    <!-- Modal Body: Scrollable Container -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-8">
+
+      <!-- TAB 1: LIVE A4 ATS RESUME PREVIEW -->
+      <div id="resume-tab-preview" class="max-w-4xl mx-auto">
+        <div id="resume-print-container"
+          class="resume-sheet rounded-lg shadow-2xl p-6 sm:p-10 mx-auto max-w-[820px] border border-slate-200">
+          <!-- Dynamically populated by renderResumeSheet() -->
+        </div>
+      </div>
+
+      <!-- TAB 2: DYNAMIC RESUME & PORTFOLIO EDITOR -->
+      <div id="resume-tab-edit" class="hidden max-w-5xl mx-auto">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/30 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div>
+              <h4 class="font-display text-xl font-bold text-white">Live Single-Source-of-Truth Editor</h4>
+              <p class="text-xs text-slate-400 mt-0.5">Any change below automatically updates your website AND your
+                downloadable PDF resume (`localStorage` persisted).</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button type="button" onclick="exportResumeJSON()"
+                class="px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-cyan-300 flex items-center gap-1.5">
+                <i data-lucide="download-cloud" class="w-3.5 h-3.5"></i>
+                <span>Export JSON</span>
+              </button>
+              <button type="button" onclick="resetPortfolioData()"
+                class="px-3 py-2 rounded-lg bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-xs font-mono text-rose-300 flex items-center gap-1.5">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                <span>Reset to Official 2026 Resume</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Personal & Contact Info -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">FULL NAME</label>
+              <input id="edit-name" type="text"
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-mono text-slate-400 mb-1">RESUME HEADLINE / TARGET TITLES</label>
+              <input id="edit-headline" type="text"
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">LOCATION</label>
+              <input id="edit-location" type="text"
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">PHONE NUMBER</label>
+              <input id="edit-phone" type="text"
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">EMAIL ADDRESS</label>
+              <input id="edit-email" type="text"
+                class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-white/15 text-white text-sm focus:border-emerald-400 focus:outline-none" />
+            </div>
+          </div>
+
+          <!-- Professional Summary -->
+          <div>
+            <label class="block text-xs font-mono text-slate-400 mb-1">PROFESSIONAL SUMMARY</label>
+            <textarea id="edit-summary" rows="3"
+              class="w-full p-3.5 rounded-lg bg-slate-900 border border-white/15 text-white text-sm leading-relaxed focus:border-emerald-400 focus:outline-none"></textarea>
+          </div>
+
+          <!-- Technical Skills Editor (ATS Resume Lines) -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Technical Skills (One Category
+                per Line: Category: Skill 1, Skill 2...)</label>
+            </div>
+            <textarea id="edit-skills-lines" rows="6"
+              class="w-full p-3.5 rounded-lg bg-slate-900 border border-white/15 text-slate-200 font-mono text-xs leading-relaxed focus:border-emerald-400 focus:outline-none"></textarea>
+          </div>
+
+          <!-- Quick Add New Project to Portfolio & Resume -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 space-y-3">
+            <div class="text-xs font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="folder-plus" class="w-4 h-4"></i>
+              <span>Add a New Project Dynamically (Appends to Resume & Portfolio)</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <input id="new-proj-title" type="text" placeholder="Project Title (e.g., EV Battery AI Predictor)"
+                class="px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs focus:outline-none" />
+              <input id="new-proj-tech" type="text" placeholder="Tech Stack (e.g., FastAPI, React.js, AWS)"
+                class="px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs focus:outline-none" />
+              <select id="new-proj-cat"
+                class="px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs focus:outline-none">
+                <option value="ai">Category: AI & Automation</option>
+                <option value="telematics">Category: Telematics & Real-Time</option>
+                <option value="security">Category: Security & Enterprise</option>
+              </select>
+            </div>
+            <textarea id="new-proj-bullets" rows="2" placeholder="Project achievement bullets (one per line)..."
+              class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-white text-xs focus:outline-none"></textarea>
+            <button type="button" onclick="addNewProjectDynamically()"
+              class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs flex items-center gap-1.5">
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Add Project to Resume & Site</span>
+            </button>
+          </div>
+
+          <!-- Save & Preview Bar -->
+          <div class="flex flex-wrap items-center justify-end gap-3 pt-4 border-t border-white/10">
+            <button type="button" onclick="saveEditorChanges(true)"
+              class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold text-sm flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <span>Save Changes & View Updated Resume</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SMART EMAIL COMPOSER MODAL -->
+  <div id="email-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="glass-card w-full max-w-xl rounded-2xl p-6 sm:p-7 border border-emerald-500/40 shadow-2xl relative">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+        <div class="flex items-center gap-2.5">
+          <div
+            class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-white text-lg leading-none">Launch Email Client</h3>
+            <p id="modal-email-to-label" class="text-xs font-mono text-slate-400 mt-1">Direct to:
+              ajithelumalai486@gmail.com</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeEmailModal()" aria-label="Close Modal"
+          class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3.5">
+        <div>
+          <label for="modal-email-subject" class="block text-xs font-mono text-slate-400 mb-1">SUBJECT</label>
+          <input id="modal-email-subject" type="text"
+            value="Interview Opportunity - Ajith Elumalai (Python Full Stack / AI Engineer)"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 focus:border-emerald-400 text-white text-xs sm:text-sm focus:outline-none" />
+        </div>
+
+        <div>
+          <label for="modal-email-body" class="block text-xs font-mono text-slate-400 mb-1">MESSAGE</label>
+          <textarea id="modal-email-body" rows="4"
+            class="w-full p-3.5 rounded-xl bg-slate-900 border border-white/15 focus:border-emerald-400 text-slate-200 text-xs sm:text-sm leading-relaxed focus:outline-none">Hi Ajith,
+
+We reviewed your portfolio and resume and were impressed by your experience in Python Full Stack (FastAPI/Django), React.js, Real-Time Telematics, and Applied AI at Switch Mobility EV.
+
+We would like to schedule an interview with you. Please share your availability.
+
+Best regards,
+Hiring Team</textarea>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-2.5 pt-2">
+          <button type="button" onclick="launchEmailAction('gmail', 'modal')"
+            class="px-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>Open in Gmail (Web)</span>
+          </button>
+
+          <button type="button" onclick="launchEmailAction('outlook', 'modal')"
+            class="px-4 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span>Open in Outlook Web</span>
+          </button>
+
+          <button type="button" onclick="launchEmailAction('mailto', 'modal')"
+            class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+            <span>OS Default Mail App</span>
+          </button>
+
+          <button type="button" onclick="launchEmailAction('whatsapp', 'modal')"
+            class="px-4 py-3 rounded-xl bg-white/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-medium text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>WhatsApp (+91 9080946720)</span>
+          </button>
+        </div>
+
+        <button type="button" onclick="launchEmailAction('copy', 'modal')"
+          class="w-full px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-mono text-xs flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="copy" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span>Copy Email Address + Message</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="relative z-10 border-t border-white/10 py-8 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>© 2026 Ajith Elumalai • Software Engineer (Python Full Stack & AI)</span>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <button onclick="downloadDynamicResumePDF()" class="text-emerald-400 hover:underline font-semibold">Download
+          Resume (PDF)</button>
+        <button onclick="openEmailModal()" class="text-slate-300 hover:underline">Quick Email</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================================
+       SINGLE SOURCE OF TRUTH DATA & DYNAMIC PORTFOLIO/RESUME ENGINE
+       ============================================================================ -->
+  <script>
+    const STORAGE_KEY = 'ajith_elumalai_portfolio_resume_v2026';
+
+    // /*__DEFAULT_DATA_START__*/
+    const DEFAULT_PORTFOLIO_DATA = {
+      name: 'AJITH ELUMALAI',
+      headline: 'Software Engineer | IT Analyst | Python Full Stack Developer | React.js | SQL',
+      location: 'Chennai, India',
+      phone: '9080946720',
+      email: 'ajithelumalai486@gmail.com',
+      heroBadge: 'Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles',
+      currentRoleCard: 'Senior Officer — Switch Mobility EV',
+      stats: {
+        exp: '3+ Yrs',
+        ai: '99%',
+        projects: '6+',
+        cgpa: '8.0'
+      },
+      careerStartDate: '2023-05-01',
+      currentRoleStartDate: '2025-06-01',
+      includeCollegeProjectsOnResume: true,
+      customPdfDataUrl: null,
+      customPdfFileName: null,
+      summary: 'Software Engineer and Python Full Stack Developer with 3+ years of experience building scalable, real-time web applications for connected-vehicle, enterprise security, and workplace-automation domains. Strong in React.js front ends, Django / FastAPI back ends, and SQL databases (PostgreSQL, MySQL, AWS Redshift). Experienced as an IT Analyst delivering REST APIs, database design and query optimization, and applied AI/ML integration. Currently building real-time telematics and AI features at Switch Mobility EV.',
+      resumeSkills: [
+        { category: 'Languages', items: 'Python, SQL, JavaScript, HTML, CSS' },
+        { category: 'Python Full Stack', items: 'Django, Django REST Framework (DRF), FastAPI, React.js, Redux, TanStack, Bootstrap' },
+        { category: 'SQL & Databases', items: 'SQL, PostgreSQL, MySQL, AWS Redshift, AWS HBase; schema design, query optimization' },
+        { category: 'Caching', items: 'Redis, Memcached, Valkey' },
+        { category: 'Cloud (AWS)', items: 'S3, Lambda, SES' },
+        { category: 'Real-Time Systems', items: 'WebSockets, Django Channels, REST APIs' },
+        { category: 'AI & Machine Learning', items: 'LLM-based AI assistants, ML classification and intelligent routing' },
+        { category: 'Tools & DevOps', items: 'Git/GitHub, Docker, Postman, Django Test Framework, LDAP' }
+      ],
+      experience: [
+        {
+          title: 'Senior Officer',
+          company: 'Switch Mobility EV',
+          roleSubtitle: 'Role: Software Engineer - Python Full Stack (Telematics & AI)',
+          period: 'June 2025 – Present',
+          accent: 'emerald',
+          bullets: [
+            'Develop and maintain a scalable, real-time telematics platform for vehicle data processing, monitoring, and fleet management using Python, Django REST Framework, React.js, and Redux.',
+            'Architect a multi-database data layer, selecting the optimal SQL/NoSQL store (PostgreSQL, AWS Redshift, AWS HBase) for each application requirement.',
+            'Implement AWS infrastructure (S3, Lambda, SES) for storage, serverless processing, and automated notifications.',
+            'Lead integration of AI and machine learning capabilities to deliver predictive insights and automate decision-making.'
+          ]
+        },
+        {
+          title: 'IT Analyst',
+          company: 'GI Scripts',
+          roleSubtitle: 'Backend Architecture & SQL Optimization',
+          period: 'Oct 2024 – May 2025',
+          accent: 'cyan',
+          bullets: [
+            'Developed and maintained backend services for multiple applications using Python, Django, and Django REST Framework.',
+            'Designed and optimized RESTful APIs for seamless frontend-backend communication.',
+            'Managed MySQL database design, SQL query optimization, and data integrity.',
+            'Ensured code reliability through unit testing with the Django Test Framework.',
+            'Integrated third-party APIs to extend application functionality.'
+          ]
+        },
+        {
+          title: 'Associate Software Engineer',
+          company: 'Trillion Thoughts Technologies',
+          roleSubtitle: 'React.js Front-End & Real-Time API Integration',
+          period: 'May 2023 – Sep 2024',
+          accent: 'indigo',
+          bullets: [
+            'Built and maintained dynamic front-end applications using React.js.',
+            'Integrated REST APIs for efficient, real-time data display.',
+            'Optimized UI components for performance and responsiveness.',
+            'Collaborated with backend engineers to enhance system functionality.'
+          ]
+        }
+      ],
+      projects: [
+        {
+          title: 'Digital Co-Worker | AI Assistant for Employees',
+          tech: 'Python, FastAPI, PostgreSQL, MS Entra ID, AWS SES',
+          badge: '99% ML Accuracy',
+          icon: 'bot',
+          category: 'ai',
+          footerLeft: 'Enterprise Applied AI',
+          footerRight: 'Zero-Downtime ML',
+          bullets: [
+            'Built an AI assistant that routes employee queries to Microsoft Entra ID, IT Helpdesk (ManageEngine), or an LLM with live web search, using a custom ML classifier with 99% routing accuracy.',
+            'Designed a pluggable backend where new systems are added as a single class with no changes to core logic.',
+            'Built a self-improving ML model that asks for clarification when uncertain, retrains in the background, and deploys the improved version with zero downtime, contingent on accuracy gains.',
+            'Integrated Microsoft Entra ID and Microsoft Graph for employee lookups, employee directory data, and meeting-room booking.',
+            'Built a natural-language reminder service on PostgreSQL with safe multi-worker concurrency and guaranteed single delivery, with notifications via AWS SES.'
+          ]
+        },
+        {
+          title: 'iON Telematic Application | Vehicle Tracking & EV Monitoring',
+          tech: 'Django REST Framework, React.js, Redux, Redis',
+          badge: 'Connected EV Fleet',
+          icon: 'compass',
+          category: 'telematics',
+          footerLeft: 'Real-Time Telemetry',
+          footerRight: 'Multi-DB + Redis',
+          bullets: [
+            'Developed a real-time application for collecting, processing, and displaying vehicle telemetry data.',
+            'Built backend REST APIs with Django REST Framework and frontend features with React.js and Redux.',
+            'Architected a multi-database system that selects the appropriate SQL/NoSQL store per business requirement.',
+            'Implemented Redis caching to reduce database load and improve response times.'
+          ]
+        },
+        {
+          title: 'Uptime Solution Center (USC) | Fleet Monitoring Platform',
+          tech: 'FastAPI, React.js, TanStack, LDAP SSO',
+          badge: 'Live Fleet Alerts',
+          icon: 'gauge',
+          category: 'telematics',
+          footerLeft: 'FastAPI + TanStack',
+          footerRight: 'Windows LDAP SSO',
+          bullets: [
+            'Developed a real-time dashboard for vehicle status with live alerts and notifications from connected vehicles.',
+            'Built high-performance backend APIs in Python FastAPI with a modern React.js frontend.',
+            'Implemented LDAP-based authentication enabling single sign-on with existing Windows credentials.'
+          ]
+        },
+        {
+          title: 'Watermark Guard | Data Loss Prevention Software',
+          tech: 'Python, WebSockets, REST APIs, Token Auth',
+          badge: 'End-to-End Creator',
+          icon: 'shield-alert',
+          category: 'security',
+          footerLeft: 'Cybersecurity DLP',
+          footerRight: 'Live WebSockets',
+          bullets: [
+            'Independently conceived and developed this enterprise DLP product end-to-end, using system-wide digital watermarking to deter and trace data leaks.',
+            'Built an admin console for device enrollment, user/device management, and centralized watermark configuration, secured with token-based authentication.',
+            'Implemented real-time device monitoring for connectivity and application health via WebSockets.',
+            'Developed backend services and REST APIs for device management, authentication, watermark configuration, and audit tracking.'
+          ]
+        },
+        {
+          title: 'Hyper Vision / Net Visioner | Network Monitoring Platform',
+          tech: 'Django REST Framework, Django Channels, SQL',
+          badge: 'Network Telemetry',
+          icon: 'network',
+          category: 'telematics',
+          footerLeft: 'Django Channels',
+          footerRight: 'SQL Optimization',
+          bullets: [
+            'Built backend APIs for network management and designed the SQL database schema for network devices, metrics, and event logs.',
+            'Implemented real-time monitoring with WebSockets and Django Channels; optimized API and database performance for scalability.'
+          ]
+        },
+        {
+          title: 'Biometric Employee Attendance Console',
+          tech: 'React.js, RESTful APIs, State Management',
+          badge: 'Workplace Automation',
+          icon: 'fingerprint',
+          category: 'security',
+          footerLeft: 'Hardware Sync',
+          footerRight: 'Access Control',
+          bullets: [
+            'Built leave-management, shift-configuration, and access-control features.',
+            'Integrated RESTful APIs for real-time attendance synchronization with biometric devices and optimized state management.'
+          ]
+        }
+      ],
+      education: {
+        degree: 'Bachelor of Engineering (B.E.), Computer Science Engineering',
+        college: 'SKP Engineering College, Tiruvannamalai',
+        year: '2023',
+        cgpa: '8.0',
+        collegeProjects: [
+          {
+            title: 'Brain Tumor Detection using MRI Scan Report',
+            badge: 'Medical AI & Computer Vision',
+            tech: 'Python • Deep Learning (CNN) • OpenCV • MRI Image Segmentation',
+            summary: 'Automated medical imaging pipeline analyzing brain MRI scan reports to segment and classify tumor anomalies using Convolutional Neural Networks.'
+          },
+          {
+            title: 'Car Resale Value Prediction',
+            badge: 'Predictive ML & Regression',
+            tech: 'Python • Scikit-Learn • Pandas • Supervised Regression',
+            summary: 'Predictive machine learning valuation engine estimating fair market resale value of pre-owned vehicles based on mileage, age, fuel type, and depreciation.'
+          }
+        ]
+      }
+    };
+    // /*__DEFAULT_DATA_END__*/
+
+    // Load from localStorage or initialize with DEFAULT_PORTFOLIO_DATA
+    let PORTFOLIO_DATA = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        PORTFOLIO_DATA = Object.assign({}, DEFAULT_PORTFOLIO_DATA, parsed);
+      }
+    } catch (e) {
+      PORTFOLIO_DATA = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+    }
+
+    function persistData() {
+      try {
+        localStorage.setItem( , JSON.stringify(PORTFOLIO_DATA));
+      } catch (e) { }
+    }
+
+    // Dynamic Experience & Tenure Calculator
+    function calculateDurationLabel(startDateStr) {
+      const start = new Date(startDateStr);
+      const now = new Date();
+      let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+      if (months < 1) months = 1;
+      const yrs = Math.floor(months / 12);
+      const remMos = months % 12;
+      if (yrs >= 1) {
+        return remMos > 0 ? `${yrs} Yr${yrs > 1 ? 's' : ''} ${remMos} Mo${remMos > 1 ? 's' : ''}` : `${yrs}+ Yrs`;
+      }
+      return `${months} Mos`;
+    }
+
+    // Render Live Portfolio Page Sections from PORTFOLIO_DATA
+    function renderPortfolioPage() {
+      // Top Nav & Hero
+      document.getElementById('nav-name').textContent = PORTFOLIO_DATA.name;
+      document.getElementById('hero-email-text').textContent = PORTFOLIO_DATA.email;
+      document.getElementById('contact-email-display').textContent = PORTFOLIO_DATA.email;
+      document.getElementById('contact-phone-display').textContent = '+91 ' + PORTFOLIO_DATA.phone;
+      document.getElementById('inline-email-to').value = PORTFOLIO_DATA.email;
+      document.getElementById('modal-email-to-label').textContent = 'Direct to: ' + PORTFOLIO_DATA.email;
+      document.getElementById('card-location').textContent = PORTFOLIO_DATA.location;
+
+      if (PORTFOLIO_DATA.heroBadge) {
+        document.getElementById('hero-badge').textContent = PORTFOLIO_DATA.heroBadge;
+      }
+      if (PORTFOLIO_DATA.currentRoleCard) {
+        document.getElementById('card-current-role').textContent = PORTFOLIO_DATA.currentRoleCard;
+      }
+
+      // Resume Card Status
+      const modePill = document.getElementById('resume-mode-pill');
+      const cardSub = document.getElementById('card-resume-sub');
+      if (PORTFOLIO_DATA.customPdfDataUrl) {
+        if (modePill) modePill.textContent = 'VERIFIED CV';
+        if (cardSub) cardSub.textContent = 'ATS-Verified • Official PDF (' + (PORTFOLIO_DATA.customPdfFileName || 'Resume.pdf') + ')';
+      } else {
+        if (modePill) modePill.textContent = 'VERIFIED CV';
+        if (cardSub) cardSub.textContent = 'ATS-Verified • Official 2026 Edition';
+      }
+
+      // Dynamic Tenure Badge
+      const switchTenure = calculateDurationLabel(PORTFOLIO_DATA.currentRoleStartDate || '2025-06-01');
+      const liveTenureEl = document.getElementById('live-tenure-badge');
+      if (liveTenureEl) liveTenureEl.textContent = `Tenure: ${switchTenure}`;
+
+      // Metrics
+      const stats = PORTFOLIO_DATA.stats || { exp: '3+ Yrs', ai: '99%', projects: PORTFOLIO_DATA.projects.length + '+', cgpa: PORTFOLIO_DATA.education.cgpa };
+      document.getElementById('metric-exp').textContent = stats.exp || '3+ Yrs';
+      const metricAi = document.getElementById('metric-ai');
+      if (metricAi) metricAi.textContent = stats.ai || '99%';
+      document.getElementById('metric-projects').textContent = stats.projects || (PORTFOLIO_DATA.projects.length + '+');
+      document.getElementById('metric-cgpa').textContent = PORTFOLIO_DATA.education.cgpa || stats.cgpa || '8.0';
+
+      // Education card updates
+      document.getElementById('edu-year-badge').textContent = 'Class of ' + PORTFOLIO_DATA.education.year;
+      document.getElementById('edu-college-name').textContent = PORTFOLIO_DATA.education.college;
+      document.getElementById('edu-cgpa-badge').textContent = 'CGPA: ' + PORTFOLIO_DATA.education.cgpa + ' / 10';
+
+      // Render College Projects Grid dynamically
+      const collegeGrid = document.getElementById('college-projects-grid');
+      if (collegeGrid && PORTFOLIO_DATA.education.collegeProjects) {
+        collegeGrid.innerHTML = PORTFOLIO_DATA.education.collegeProjects.map((cp, idx) => {
+          const isFirst = idx % 2 === 0;
+          const color = isFirst ? 'emerald' : 'indigo';
+          const icon = isFirst ? 'scan-eye' : 'car-front';
+          return `
+            <div class="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between border border-${color}-500/25">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full bg-${color}-500/15 border border-${color}-500/30 text-${color}-300 font-mono text-xs">
+                    ${cp.badge || 'Academic Capstone Project'}
+                  </span>
+                  <div class="w-10 h-10 rounded-xl bg-${color}-500/15 flex items-center justify-center text-${color}-400">
+                    <i data-lucide="${icon}" class="w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="inline-flex items-center gap-1.5 text-[11px] font-mono text-cyan-400 uppercase tracking-wider mb-1">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  <span>Featured College Capstone Project</span>
+                </div>
+                <h3 class="font-display text-xl font-bold text-white">${cp.title}</h3>
+                <p class="text-xs font-mono text-slate-400 mt-1">${cp.tech}</p>
+                <p class="text-slate-300 text-sm leading-relaxed mt-4">${cp.summary}</p>
+              </div>
+              <div class="pt-5 mt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-${color}-500/10 text-${color}-300">B.E. CSE Research</span>
+                <span class="text-slate-400">Class of ${PORTFOLIO_DATA.education.year}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Skills Grid
+      const skillsGrid = document.getElementById('skills-grid');
+      if (skillsGrid && PORTFOLIO_DATA.resumeSkills) {
+        const icons = ['code-2', 'hard-drive', 'cloud-lightning', 'radio', 'brain-circuit', 'shield-check', 'cpu', 'terminal'];
+        const colors = ['emerald', 'cyan', 'indigo', 'emerald', 'cyan', 'indigo', 'emerald', 'cyan'];
+        skillsGrid.innerHTML = PORTFOLIO_DATA.resumeSkills.map((sk, idx) => {
+          const color = colors[idx % colors.length];
+          const icon = icons[idx % icons.length];
+          const badges = (sk.items || '').split(/[,;]/).map(s => s.trim()).filter(Boolean);
+          return `
+            <div class="glass-card rounded-2xl p-6">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-display font-bold text-lg text-white">${sk.category}</h3>
+                <i data-lucide="${icon}" class="w-5 h-5 text-${color}-400"></i>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                ${badges.map(b => `<span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-${color}-300">${b}</span>`).join('')}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Experience Timeline
+      const expTimeline = document.getElementById('experience-timeline');
+      if (expTimeline && PORTFOLIO_DATA.experience) {
+        expTimeline.innerHTML = PORTFOLIO_DATA.experience.map((exp, idx) => {
+          const color = exp.accent || (idx === 0 ? 'emerald' : idx === 1 ? 'cyan' : 'indigo');
+          return `
+            <div class="relative pl-12 sm:pl-16">
+              <div class="absolute left-2 sm:left-4 top-6 w-4 h-4 rounded-full bg-${color}-400 ring-4 ring-${color}-500/20"></div>
+              <div class="glass-card rounded-2xl p-6 sm:p-8">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <div>
+                    <span class="px-3 py-1 rounded-full bg-${color}-500/15 text-${color}-300 font-mono text-xs">${exp.period}</span>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white mt-2">${exp.title} — ${exp.company}</h3>
+                    <p class="text-${color}-400 font-medium text-sm">${exp.roleSubtitle || ''}</p>
+                  </div>
+                </div>
+                <ul class="space-y-2.5 text-slate-300 text-sm leading-relaxed mt-4">
+                  ${(exp.bullets || []).map(b => `
+                    <li class="flex items-start gap-2.5">
+                      <i data-lucide="check" class="w-4 h-4 text-${color}-400 shrink-0 mt-1"></i>
+                      <span>${b}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Render Projects Grid
+      const projectsGrid = document.getElementById('projects-grid');
+      if (projectsGrid && PORTFOLIO_DATA.projects) {
+        projectsGrid.innerHTML = PORTFOLIO_DATA.projects.map((proj, idx) => {
+          const color = proj.category === 'ai' ? 'emerald' : proj.category === 'telematics' ? 'cyan' : 'indigo';
+          const icon = proj.icon || 'layers';
+          return `
+            <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="${proj.category || 'ai'}">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full bg-${color}-500/15 text-${color}-300 font-mono text-xs">${proj.badge || 'Enterprise System'}</span>
+                  <i data-lucide="${icon}" class="w-5 h-5 text-${color}-400"></i>
+                </div>
+                <h3 class="font-display text-xl font-bold text-white">${proj.title}</h3>
+                <p class="text-xs font-mono text-slate-400 mt-1">${proj.tech}</p>
+                <ul class="mt-4 space-y-2 text-sm text-slate-300 leading-relaxed">
+                  ${(proj.bullets || []).map(b => `<li>• ${b}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono text-${color}-400">
+                <span>${proj.footerLeft || 'Production System'}</span>
+                <span>${proj.footerRight || 'Full Stack'}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    // Render A4 ATS Resume Sheet inside Resume Studio Modal
+    const resumeModal = document.getElementById('resume-modal');
+
+    function renderResumeSheet() {
+      const container = document.getElementById('resume-print-container');
+      if (!container) return;
+
+      const skillsHtml = (PORTFOLIO_DATA.resumeSkills || []).map(sk => `
+        <div class="text-xs sm:text-[13px] text-slate-800 leading-snug">
+          <strong class="font-semibold text-slate-950">• ${sk.category}:</strong> ${sk.items}
+        </div>
+      `).join('');
+
+      const expHtml = (PORTFOLIO_DATA.experience || []).map(exp => `
+        <div class="mb-3.5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h4 class="font-bold text-slate-950 text-sm">${exp.title} | ${exp.company}</h4>
+            <span class="text-xs font-semibold text-slate-600">${exp.period}</span>
+          </div>
+          ${exp.roleSubtitle ? `<div class="text-xs font-semibold text-emerald-700 mb-1">${exp.roleSubtitle}</div>` : ''}
+          <ul class="list-disc list-inside space-y-1 text-xs sm:text-[13px] text-slate-800">
+            ${(exp.bullets || []).map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+
+      const projHtml = (PORTFOLIO_DATA.projects || []).map(proj => `
+        <div class="mb-3">
+          <div class="font-bold text-slate-950 text-xs sm:text-[13.5px]">
+            ${proj.title} <span class="font-normal text-slate-600">(${proj.tech})</span>
+          </div>
+          <ul class="list-disc list-inside space-y-0.5 text-xs sm:text-[12.5px] text-slate-800 mt-0.5">
+            ${(proj.bullets || []).map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+
+      const collegeProjHtml = (PORTFOLIO_DATA.includeCollegeProjectsOnResume && PORTFOLIO_DATA.education.collegeProjects && PORTFOLIO_DATA.education.collegeProjects.length > 0)
+        ? `
+          <div class="mt-2.5 pt-2 border-t border-slate-200">
+            <div class="font-bold text-xs uppercase tracking-wider text-slate-700 mb-1">Academic Capstone Projects</div>
+            <ul class="list-disc list-inside space-y-1 text-xs sm:text-[12.5px] text-slate-800">
+              ${PORTFOLIO_DATA.education.collegeProjects.map(cp => `<li><strong>${cp.title}</strong> (${cp.tech}): ${cp.summary}</li>`).join('')}
+            </ul>
+          </div>
+        `
+        : '';
+
+      container.innerHTML = `
+        <div class="border-b-2 border-slate-900 pb-3 mb-4">
+          <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950 uppercase">${PORTFOLIO_DATA.name}</h1>
+          <p class="text-xs sm:text-sm font-semibold text-emerald-700 mt-0.5">${PORTFOLIO_DATA.headline}</p>
+          <p class="text-xs text-slate-600 mt-1">${PORTFOLIO_DATA.location} &nbsp;|&nbsp; +91 ${PORTFOLIO_DATA.phone} &nbsp;|&nbsp; ${PORTFOLIO_DATA.email}</p>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-emerald-600 pb-1 mb-2">Professional Summary</h2>
+          <p class="text-xs sm:text-[13px] text-slate-800 leading-relaxed">${PORTFOLIO_DATA.summary}</p>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-emerald-600 pb-1 mb-2">Technical Skills</h2>
+          <div class="space-y-1">${skillsHtml}</div>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-emerald-600 pb-1 mb-2">Professional Experience</h2>
+          ${expHtml}
+        </div>
+
+        <div class="mb-4">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-emerald-600 pb-1 mb-2">Projects</h2>
+          ${projHtml}
+        </div>
+
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 border-b border-emerald-600 pb-1 mb-2">Education</h2>
+          <div class="flex flex-wrap items-baseline justify-between gap-2 text-xs sm:text-[13px]">
+            <strong class="text-slate-950">${PORTFOLIO_DATA.education.degree}</strong>
+            <span class="font-semibold text-slate-700">${PORTFOLIO_DATA.education.college} | ${PORTFOLIO_DATA.education.year} | CGPA: ${PORTFOLIO_DATA.education.cgpa}</span>
+          </div>
+          ${collegeProjHtml}
+        </div>
+      `;
+    }
+
+    function populateEditorForm() {
+      const nameEl = document.getElementById('edit-name');
+      if (!nameEl) return;
+      nameEl.value = PORTFOLIO_DATA.name || '';
+      document.getElementById('edit-headline').value = PORTFOLIO_DATA.headline || '';
+      document.getElementById('edit-location').value = PORTFOLIO_DATA.location || '';
+      document.getElementById('edit-phone').value = PORTFOLIO_DATA.phone || '';
+      document.getElementById('edit-email').value = PORTFOLIO_DATA.email || '';
+      document.getElementById('edit-summary').value = PORTFOLIO_DATA.summary || '';
+      document.getElementById('edit-skills-lines').value = (PORTFOLIO_DATA.resumeSkills || [])
+        .map(s => `${s.category}: ${s.items}`)
+        .join('\n');
+    }
+
+    function openResumeModal(tab = 'preview') {
+      if (!isAdminUnlocked) {
+        showToast('Preview CV is restricted to Owner Admin. Opening Admin login...');
+        switchViewMode('admin');
+        return;
+      }
+      renderResumeSheet();
+      populateEditorForm();
+      resumeModal.classList.remove('hidden');
+      resumeModal.classList.add('flex');
+      switchResumeTab(tab);
+      lucide.createIcons();
+    }
+
+    function closeResumeModal() {
+      resumeModal.classList.add('hidden');
+      resumeModal.classList.remove('flex');
+    }
+
+    function switchResumeTab(tab) {
+      const previewTab = document.getElementById('resume-tab-preview');
+      const editTab = document.getElementById('resume-tab-edit');
+      const btnPreview = document.getElementById('tab-btn-preview');
+      const btnEdit = document.getElementById('tab-btn-edit');
+
+      if (tab === 'edit') {
+        previewTab.classList.add('hidden');
+        editTab.classList.remove('hidden');
+        btnEdit.className = 'px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500 text-slate-950 transition-all';
+        btnPreview.className = 'px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-300 hover:text-white transition-all';
+        populateEditorForm();
+      } else {
+        editTab.classList.add('hidden');
+        previewTab.classList.remove('hidden');
+        btnPreview.className = 'px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-emerald-500 text-slate-950 transition-all';
+        btnEdit.className = 'px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold text-slate-300 hover:text-white transition-all';
+        renderResumeSheet();
+      }
+    }
+
+    function applyResumePreset(preset) {
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.className = 'preset-btn px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-mono text-xs';
+      });
+      const activeBtn = document.getElementById('preset-' + preset);
+      if (activeBtn) {
+        activeBtn.className = 'preset-btn px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-mono text-xs';
+      }
+
+      if (preset === 'ai') {
+        PORTFOLIO_DATA.headline = 'Applied AI & Python Backend Engineer | FastAPI | LLM Routing | Machine Learning | SQL';
+      } else if (preset === 'react') {
+        PORTFOLIO_DATA.headline = 'React.js & Python Full Stack Engineer | Redux | TanStack | Django REST | Real-Time UI';
+      } else {
+        PORTFOLIO_DATA.headline = DEFAULT_PORTFOLIO_DATA.headline;
+      }
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      showToast('Applied resume preset: ' + preset.toUpperCase());
+    }
+
+    function toggleCollegeProjectsOnResume(checked) {
+      PORTFOLIO_DATA.includeCollegeProjectsOnResume = checked;
+      persistData();
+      renderResumeSheet();
+    }
+
+    function saveEditorChanges(switchToPreview) {
+      PORTFOLIO_DATA.name = document.getElementById('edit-name').value.trim() || PORTFOLIO_DATA.name;
+      PORTFOLIO_DATA.headline = document.getElementById('edit-headline').value.trim() || PORTFOLIO_DATA.headline;
+      PORTFOLIO_DATA.location = document.getElementById('edit-location').value.trim() || PORTFOLIO_DATA.location;
+      PORTFOLIO_DATA.phone = document.getElementById('edit-phone').value.trim() || PORTFOLIO_DATA.phone;
+      PORTFOLIO_DATA.email = document.getElementById('edit-email').value.trim() || PORTFOLIO_DATA.email;
+      PORTFOLIO_DATA.summary = document.getElementById('edit-summary').value.trim() || PORTFOLIO_DATA.summary;
+
+      const skillLines = document.getElementById('edit-skills-lines').value.split('\n').map(l => l.trim()).filter(Boolean);
+      if (skillLines.length > 0) {
+        PORTFOLIO_DATA.resumeSkills = skillLines.map(line => {
+          const colonIdx = line.indexOf(':');
+          if (colonIdx !== -1) {
+            return {
+              category: line.slice(0, colonIdx).trim(),
+              items: line.slice(colonIdx + 1).trim()
+            };
+          }
+          return { category: 'Skills', items: line };
+        });
+      }
+
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      showToast('Resume & Portfolio updated dynamically!');
+      if (switchToPreview) switchResumeTab('preview');
+    }
+
+    function addNewProjectDynamically() {
+      const title = document.getElementById('new-proj-title').value.trim();
+      const tech = document.getElementById('new-proj-tech').value.trim();
+      const cat = document.getElementById('new-proj-cat').value;
+      const bulletsRaw = document.getElementById('new-proj-bullets').value.trim();
+
+      if (!title) {
+        showToast('Please enter a project title.');
+        return;
+      }
+
+      const bullets = bulletsRaw ? bulletsRaw.split('\n').map(b => b.trim()).filter(Boolean) : ['Built and deployed scalable production features.'];
+      PORTFOLIO_DATA.projects.unshift({
+        title,
+        tech: tech || 'Python, FastAPI, React.js',
+        badge: 'New System',
+        icon: 'rocket',
+        category: cat || 'ai',
+        footerLeft: 'Enterprise Platform',
+        footerRight: 'Full Stack',
+        bullets
+      });
+
+      document.getElementById('new-proj-title').value = '';
+      document.getElementById('new-proj-tech').value = '';
+      document.getElementById('new-proj-bullets').value = '';
+
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      showToast(`Added "${title}" to Portfolio & PDF Resume!`);
+    }
+
+    function exportResumeJSON() {
+      const blob = new Blob([JSON.stringify(PORTFOLIO_DATA, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ajith_portfolio_resume_backup.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Exported JSON backup file!');
+    }
+
+    function resetPortfolioData() {
+      PORTFOLIO_DATA = JSON.parse(JSON.stringify(DEFAULT_PORTFOLIO_DATA));
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      populateEditorForm();
+      if (!document.getElementById('admin-cms-view').classList.contains('hidden')) {
+        renderAdminForms();
+      }
+      showToast('Reset to official 2026 Resume & Portfolio defaults!');
+    }
+
+    // Instant PDF Resume Download (Bulletproof Programmatic jsPDF Vector Engine + Custom PDF Override)
+    function downloadDynamicResumePDF() {
+      renderResumeSheet();
+
+      // 1. If user uploaded a custom PDF override in Admin CMS, download that directly
+      if (PORTFOLIO_DATA.customPdfDataUrl) {
+        const a = document.createElement('a');
+        a.href = PORTFOLIO_DATA.customPdfDataUrl;
+        a.download = PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume_2026.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast('Downloaded Custom PDF Resume (' + (PORTFOLIO_DATA.customPdfFileName || 'Ajith_E_Resume_2026.pdf') + ')!');
+        return;
+      }
+
+      // 2. Programmatic Vector PDF Generation using jsPDF
+      if (window.jspdf && window.jspdf.jsPDF) {
+        try {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+          const pageW = doc.internal.pageSize.getWidth();
+          const pageH = doc.internal.pageSize.getHeight();
+          const margin = 13;
+          const contentW = pageW - margin * 2;
+          let y = 15;
+
+          function checkPageBreak(neededHeight) {
+            if (y + neededHeight > pageH - 12) {
+              doc.addPage();
+              y = 15;
+            }
+          }
+
+          function drawSectionHeader(title) {
+            checkPageBreak(12);
+            y += 2;
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10.5);
+            doc.setTextColor(15, 23, 42);
+            doc.text(title.toUpperCase(), margin, y);
+            y += 1.5;
+            doc.setDrawColor(16, 185, 129);
+            doc.setLineWidth(0.45);
+            doc.line(margin, y, pageW - margin, y);
+            y += 4.5;
+          }
+
+          // Header: Name
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(19);
+          doc.setTextColor(15, 23, 42);
+          doc.text((PORTFOLIO_DATA.name || 'AJITH ELUMALAI').toUpperCase(), margin, y);
+          y += 5.5;
+
+          // Headline
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(9.5);
+          doc.setTextColor(5, 150, 105);
+          const headlineLines = doc.splitTextToSize(PORTFOLIO_DATA.headline || '', contentW);
+          doc.text(headlineLines, margin, y);
+          y += headlineLines.length * 4.2;
+
+          // Contact Line
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(71, 85, 105);
+          const contactLine = `${PORTFOLIO_DATA.location}  |  +91 ${PORTFOLIO_DATA.phone}  |  ${PORTFOLIO_DATA.email}`;
+          doc.text(contactLine, margin, y);
+          y += 3.5;
+
+          doc.setDrawColor(15, 23, 42);
+          doc.setLineWidth(0.6);
+          doc.line(margin, y, pageW - margin, y);
+          y += 5;
+
+          // 1. Professional Summary
+          drawSectionHeader('Professional Summary');
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9.2);
+          doc.setTextColor(30, 41, 59);
+          const summaryLines = doc.splitTextToSize(PORTFOLIO_DATA.summary || '', contentW);
+          checkPageBreak(summaryLines.length * 4.2 + 2);
+          doc.text(summaryLines, margin, y);
+          y += summaryLines.length * 4.2 + 2;
+
+          // 2. Technical Skills
+          drawSectionHeader('Technical Skills');
+          PORTFOLIO_DATA.resumeSkills.forEach(sk => {
+            const prefix = `• ${sk.category}: `;
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9);
+            const prefixW = doc.getTextWidth(prefix);
+
+            doc.setFont('helvetica', 'normal');
+            const wrapped = doc.splitTextToSize(prefix + sk.items, contentW);
+            checkPageBreak(wrapped.length * 4.1 + 1);
+
+            // Render category bold + items normal
+            doc.setFont('helvetica', 'bold');
+            doc.setTextColor(15, 23, 42);
+            doc.text(prefix, margin, y);
+
+            doc.setFont('helvetica', 'normal');
+            doc.setTextColor(30, 41, 59);
+            const firstLineRemainder = wrapped[0].slice(prefix.length);
+            doc.text(firstLineRemainder, margin + prefixW, y);
+
+            for (let i = 1; i < wrapped.length; i++) {
+              y += 4;
+              doc.text(wrapped[i], margin + 3, y);
+            }
+            y += 4.3;
+          });
+
+          // 3. Professional Experience
+          drawSectionHeader('Professional Experience');
+          PORTFOLIO_DATA.experience.forEach(exp => {
+            checkPageBreak(14);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(15, 23, 42);
+            doc.text(`${exp.title} | ${exp.company}`, margin, y);
+
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9);
+            doc.setTextColor(71, 85, 105);
+            doc.text(exp.period || '', pageW - margin, y, { align: 'right' });
+            y += 4.2;
+
+            if (exp.roleSubtitle) {
+              doc.setFont('helvetica', 'italic');
+              doc.setFontSize(8.8);
+              doc.setTextColor(5, 150, 105);
+              doc.text(exp.roleSubtitle, margin, y);
+              y += 4.2;
+            }
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+            doc.setTextColor(30, 41, 59);
+            exp.bullets.forEach(b => {
+              const bLines = doc.splitTextToSize(`• ${b}`, contentW - 3);
+              checkPageBreak(bLines.length * 4 + 1);
+              doc.text(bLines, margin + 2, y);
+              y += bLines.length * 4 + 0.6;
+            });
+            y += 2.2;
+          });
+
+          // 4. Projects
+          drawSectionHeader('Projects');
+          PORTFOLIO_DATA.projects.forEach(proj => {
+            checkPageBreak(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.6);
+            doc.setTextColor(15, 23, 42);
+            const projHeader = `${proj.title} (${proj.tech})`;
+            const headerLines = doc.splitTextToSize(projHeader, contentW);
+            doc.text(headerLines, margin, y);
+            y += headerLines.length * 4.1;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8.9);
+            doc.setTextColor(30, 41, 59);
+            proj.bullets.forEach(b => {
+              const bLines = doc.splitTextToSize(`• ${b}`, contentW - 3);
+              checkPageBreak(bLines.length * 3.9 + 1);
+              doc.text(bLines, margin + 2, y);
+              y += bLines.length * 3.9 + 0.5;
+            });
+            y += 2;
+          });
+
+          // 5. Education & Academic Capstone Projects
+          drawSectionHeader('Education');
+          checkPageBreak(12);
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(9.6);
+          doc.setTextColor(15, 23, 42);
+          doc.text(PORTFOLIO_DATA.education.degree || '', margin, y);
+          y += 4.2;
+
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(51, 65, 85);
+          doc.text(`${PORTFOLIO_DATA.education.college}  |  Graduated: ${PORTFOLIO_DATA.education.year}  |  CGPA: ${PORTFOLIO_DATA.education.cgpa}`, margin, y);
+          y += 5;
+
+          if (PORTFOLIO_DATA.includeCollegeProjectsOnResume && PORTFOLIO_DATA.education.collegeProjects && PORTFOLIO_DATA.education.collegeProjects.length > 0) {
+            checkPageBreak(10);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.2);
+            doc.setTextColor(15, 23, 42);
+            doc.text('Academic Capstone Projects:', margin, y);
+            y += 4.2;
+
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8.9);
+            doc.setTextColor(30, 41, 59);
+            PORTFOLIO_DATA.education.collegeProjects.forEach(cp => {
+              const cpLine = `• ${cp.title} (${cp.tech}): ${cp.summary}`;
+              const cpWrapped = doc.splitTextToSize(cpLine, contentW - 3);
+              checkPageBreak(cpWrapped.length * 3.9 + 1);
+              doc.text(cpWrapped, margin + 2, y);
+              y += cpWrapped.length * 3.9 + 0.8;
+            });
+          }
+
+          // Save PDF cleanly with fallback Blob download
+          try {
+            doc.save('Ajith_E_Resume_2026.pdf');
+          } catch (saveErr) {
+            const blob = doc.output('blob');
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Ajith_E_Resume_2026.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          }
+          showToast('Downloaded Ajith_E_Resume_2026.pdf (Updated Live PDF)!');
+          return;
+        } catch (err) {
+          console.error('jsPDF generation error:', err);
+        }
+      }
+
+      // Fallback if CDN blocked
+      downloadStandaloneHTMLResume();
+    }
+
+    // Alias for backward compatibility
+    function downloadResumePDF() {
+      downloadDynamicResumePDF();
+    }
+
+    // ============================================================================
+    // PRIVATE OWNER-ONLY ADMIN CMS CONTROLLER (HIDDEN FROM PUBLIC VISITORS)
+    // ============================================================================
+    let isAdminUnlocked = false;
+    let secretLogoTapCount = 0;
+    let secretLogoTapTimer = null;
+
+    function getOwnerPin() {
+      return PORTFOLIO_DATA.ownerPin || '2026';
+    }
+
+    // Secret Trigger 1: Click top-left "AE" logo 5 times within 2.5 seconds
+    function handleSecretLogoTap(e) {
+      secretLogoTapCount++;
+      if (secretLogoTapTimer) clearTimeout(secretLogoTapTimer);
+      if (secretLogoTapCount >= 5) {
+        e.preventDefault();
+        secretLogoTapCount = 0;
+        switchViewMode('admin');
+        return;
+      }
+      secretLogoTapTimer = setTimeout(() => {
+        secretLogoTapCount = 0;
+      }, 2500);
+    }
+
+    // Secret Trigger 2: Keyboard shortcut Ctrl + Shift + A (or Cmd + Shift + A)
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+        e.preventDefault();
+        switchViewMode('admin');
+      }
+    });
+
+    // Secret Trigger 3: URL hash #admin or #cms
+    function checkSecretUrlHash() {
+      const hash = (window.location.hash || '').toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      if (hash === '#admin' || hash === '#cms' || params.get('admin') === '1') {
+        switchViewMode('admin');
+      }
+    }
+    window.addEventListener('hashchange', checkSecretUrlHash);
+
+    function switchViewMode(mode) {
+      const publicView = document.getElementById('public-portfolio-view');
+      const adminView = document.getElementById('admin-cms-view');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+
+      if (mode === 'admin') {
+        publicView.classList.add('hidden');
+        adminView.classList.remove('hidden');
+        const pinError = document.getElementById('admin-pin-error');
+        if (pinError) pinError.classList.add('hidden');
+
+        if (isAdminUnlocked) {
+          document.getElementById('admin-login-gate').classList.add('hidden');
+          document.getElementById('admin-workspace').classList.remove('hidden');
+          document.getElementById('admin-top-actions').classList.remove('hidden');
+          document.getElementById('admin-top-actions').classList.add('flex');
+          renderAdminForms();
+        } else {
+          document.getElementById('admin-login-gate').classList.remove('hidden');
+          document.getElementById('admin-workspace').classList.add('hidden');
+          document.getElementById('admin-top-actions').classList.add('hidden');
+          document.getElementById('admin-top-actions').classList.remove('flex');
+          const pinInput = document.getElementById('admin-pin-input');
+          if (pinInput) {
+            pinInput.value = '';
+            setTimeout(() => pinInput.focus(), 100);
+          }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        adminView.classList.add('hidden');
+        publicView.classList.remove('hidden');
+        if (window.location.hash === '#admin' || window.location.hash === '#cms') {
+          history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+        renderPortfolioPage();
+      }
+      lucide.createIcons();
+    }
+
+    function handleAdminPinSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('admin-pin-input').value.trim();
+      const pinError = document.getElementById('admin-pin-error');
+      if (input === getOwnerPin()) {
+        if (pinError) pinError.classList.add('hidden');
+        unlockAdminDirectly();
+      } else {
+        if (pinError) pinError.classList.remove('hidden');
+        showToast('Access Denied: Incorrect owner passcode.');
+      }
+    }
+
+    function unlockAdminDirectly() {
+      isAdminUnlocked = true;
+      document.getElementById('admin-login-gate').classList.add('hidden');
+      document.getElementById('admin-workspace').classList.remove('hidden');
+      document.getElementById('admin-top-actions').classList.remove('hidden');
+      document.getElementById('admin-top-actions').classList.add('flex');
+      renderAdminForms();
+      showToast('Owner verified! Welcome back, Ajith.');
+      lucide.createIcons();
+    }
+
+    function lockAndExitAdmin() {
+      isAdminUnlocked = false;
+      const pinInput = document.getElementById('admin-pin-input');
+      if (pinInput) pinInput.value = '';
+      switchViewMode('public');
+      showToast('Admin session locked.');
+    }
+
+    function updateOwnerPin() {
+      const newPin = document.getElementById('adm-new-pin')?.value.trim();
+      if (!newPin || newPin.length < 4) {
+        showToast('Please enter a passcode of at least 4 characters.');
+        return;
+      }
+      PORTFOLIO_DATA.ownerPin = newPin;
+      document.getElementById('adm-new-pin').value = '';
+      persistData();
+      showToast('Secret Owner Passcode updated! Remember to export index.html for permanent hosting.');
+    }
+
+    function switchAdminSection(sec) {
+      document.querySelectorAll('.adm-sec').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('adm-sec-' + sec);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.adm-nav-btn').forEach(btn => {
+        btn.className = 'adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-medium flex items-center gap-2.5 text-slate-300 hover:bg-white/5 transition-all';
+      });
+      const activeBtn = document.getElementById('adm-nav-' + sec);
+      if (activeBtn) {
+        activeBtn.className = 'adm-nav-btn w-full px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold flex items-center gap-2.5 bg-emerald-500 text-slate-950 transition-all';
+      }
+      lucide.createIcons();
+    }
+
+    function renderAdminForms() {
+      // 1. Profile & Hero Stats
+      document.getElementById('adm-name').value = PORTFOLIO_DATA.name || '';
+      document.getElementById('adm-headline').value = PORTFOLIO_DATA.headline || '';
+      document.getElementById('adm-location').value = PORTFOLIO_DATA.location || '';
+      document.getElementById('adm-phone').value = PORTFOLIO_DATA.phone || '';
+      document.getElementById('adm-email').value = PORTFOLIO_DATA.email || '';
+      document.getElementById('adm-badge').value = PORTFOLIO_DATA.heroBadge || 'Senior Officer @ Switch Mobility EV • Ready for High-Impact Roles';
+      document.getElementById('adm-current-role').value = PORTFOLIO_DATA.currentRoleCard || 'Senior Officer — Switch Mobility EV';
+      document.getElementById('adm-summary').value = PORTFOLIO_DATA.summary || '';
+
+      const stats = PORTFOLIO_DATA.stats || { exp: '3+ Yrs', ai: '99%', projects: PORTFOLIO_DATA.projects.length + '+', cgpa: PORTFOLIO_DATA.education.cgpa };
+      document.getElementById('adm-stat-exp').value = stats.exp || '3+ Yrs';
+      document.getElementById('adm-stat-ai').value = stats.ai || '99%';
+      document.getElementById('adm-stat-proj').value = stats.projects || '6+';
+      document.getElementById('adm-stat-cgpa').value = stats.cgpa || PORTFOLIO_DATA.education.cgpa || '8.0';
+
+      // 2. Skills List
+      const skillsList = document.getElementById('adm-skills-list');
+      skillsList.innerHTML = PORTFOLIO_DATA.resumeSkills.map((sk, idx) => `
+        <div class="grid sm:grid-cols-12 gap-2.5 items-center p-3 rounded-xl bg-slate-900/90 border border-white/10">
+          <div class="sm:col-span-4">
+            <input type="text" data-sk-cat="${idx}" value="${sk.category.replace(/"/g, '&quot;')}" placeholder="Category Name" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+          </div>
+          <div class="sm:col-span-7">
+            <input type="text" data-sk-items="${idx}" value="${sk.items.replace(/"/g, '&quot;')}" placeholder="Comma-separated skills" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+          </div>
+          <div class="sm:col-span-1 flex justify-end">
+            <button type="button" onclick="deleteAdminSkillRow(${idx})" class="p-2 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // 3. Experience List
+      const expList = document.getElementById('adm-experience-list');
+      expList.innerHTML = PORTFOLIO_DATA.experience.map((exp, idx) => `
+        <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+          <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+            <span class="font-mono text-xs text-emerald-400 font-semibold">ROLE #${idx + 1}: ${exp.company}</span>
+            <button type="button" onclick="deleteAdminExperienceCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              <span>Delete Role</span>
+            </button>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">JOB TITLE</label>
+              <input type="text" data-exp-title="${idx}" value="${(exp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">COMPANY NAME</label>
+              <input type="text" data-exp-company="${idx}" value="${(exp.company || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">DATE PERIOD</label>
+              <input type="text" data-exp-period="${idx}" value="${(exp.period || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">ROLE SUBTITLE</label>
+              <input type="text" data-exp-sub="${idx}" value="${(exp.roleSubtitle || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] font-mono text-slate-400 mb-1">ACHIEVEMENT BULLETS (ONE PER LINE)</label>
+            <textarea rows="4" data-exp-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(exp.bullets || []).join('\n')}</textarea>
+          </div>
+        </div>
+      `).join('');
+
+      // 4. Projects List
+      const projList = document.getElementById('adm-projects-list');
+      projList.innerHTML = PORTFOLIO_DATA.projects.map((proj, idx) => `
+        <div class="p-4 sm:p-5 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+          <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+            <span class="font-mono text-xs text-cyan-400 font-semibold">PROJECT #${idx + 1}: ${proj.title}</span>
+            <button type="button" onclick="deleteAdminProjectCard(${idx})" class="px-2.5 py-1 rounded-lg bg-rose-500/15 hover:bg-rose-500/30 text-rose-300 text-xs font-mono flex items-center gap-1">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              <span>Delete</span>
+            </button>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="sm:col-span-2">
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
+              <input type="text" data-proj-title="${idx}" value="${(proj.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">HIGHLIGHT BADGE</label>
+              <input type="text" data-proj-badge="${idx}" value="${(proj.badge || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-emerald-300 font-mono text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">FILTER CATEGORY</label>
+              <select data-proj-cat="${idx}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs">
+                <option value="ai" ${proj.category === 'ai' ? 'selected' : ''}>AI & Automation</option>
+                <option value="telematics" ${proj.category === 'telematics' ? 'selected' : ''}>Telematics & Real-Time</option>
+                <option value="security" ${proj.category === 'security' ? 'selected' : ''}>Security & Enterprise</option>
+              </select>
+            </div>
+            <div class="sm:col-span-4">
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
+              <input type="text" data-proj-tech="${idx}" value="${(proj.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT BULLETS (ONE PER LINE)</label>
+            <textarea rows="3" data-proj-bullets="${idx}" class="w-full p-3 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs leading-relaxed">${(proj.bullets || []).join('\n')}</textarea>
+          </div>
+        </div>
+      `).join('');
+
+      // 5. Education & College Capstone Projects
+      document.getElementById('adm-edu-degree').value = PORTFOLIO_DATA.education.degree || '';
+      document.getElementById('adm-edu-year').value = PORTFOLIO_DATA.education.year || '';
+      document.getElementById('adm-edu-cgpa').value = PORTFOLIO_DATA.education.cgpa || '';
+      document.getElementById('adm-edu-college').value = PORTFOLIO_DATA.education.college || '';
+
+      const cpList = document.getElementById('adm-college-projects-list');
+      cpList.innerHTML = (PORTFOLIO_DATA.education.collegeProjects || []).map((cp, idx) => `
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-white/10 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs text-emerald-400">CAPSTONE PROJECT #${idx + 1}</span>
+            <button type="button" onclick="deleteAdminCollegeProject(${idx})" class="px-2 py-1 rounded bg-rose-500/15 text-rose-300 text-xs font-mono">Remove</button>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT TITLE</label>
+              <input type="text" data-cp-title="${idx}" value="${(cp.title || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-white text-xs" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono text-slate-400 mb-1">TECH STACK</label>
+              <input type="text" data-cp-tech="${idx}" value="${(cp.tech || '').replace(/"/g, '&quot;')}" class="w-full px-3 py-2 rounded-lg bg-slate-950 border border-white/15 text-cyan-300 font-mono text-xs" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] font-mono text-slate-400 mb-1">PROJECT SUMMARY</label>
+            <textarea rows="2" data-cp-summary="${idx}" class="w-full p-2.5 rounded-lg bg-slate-950 border border-white/15 text-slate-200 text-xs">${cp.summary || ''}</textarea>
+          </div>
+        </div>
+      `).join('');
+
+      // 6. Custom PDF Upload Status
+      const statusEl = document.getElementById('custom-pdf-status');
+      if (statusEl) {
+        statusEl.textContent = PORTFOLIO_DATA.customPdfDataUrl
+          ? `Active Mode: Custom Uploaded PDF (${PORTFOLIO_DATA.customPdfFileName || 'Resume.pdf'})`
+          : 'Active Mode: Dynamic Auto-Generated Vector PDF (Synced with Admin fields)';
+      }
+
+      lucide.createIcons();
+    }
+
+    function syncAdminDOMToData() {
+      // Profile
+      const nameVal = document.getElementById('adm-name')?.value.trim();
+      if (nameVal) PORTFOLIO_DATA.name = nameVal;
+      PORTFOLIO_DATA.headline = document.getElementById('adm-headline')?.value.trim() || PORTFOLIO_DATA.headline;
+      PORTFOLIO_DATA.location = document.getElementById('adm-location')?.value.trim() || PORTFOLIO_DATA.location;
+      PORTFOLIO_DATA.phone = document.getElementById('adm-phone')?.value.trim() || PORTFOLIO_DATA.phone;
+      PORTFOLIO_DATA.email = document.getElementById('adm-email')?.value.trim() || PORTFOLIO_DATA.email;
+      PORTFOLIO_DATA.heroBadge = document.getElementById('adm-badge')?.value.trim() || PORTFOLIO_DATA.heroBadge;
+      PORTFOLIO_DATA.currentRoleCard = document.getElementById('adm-current-role')?.value.trim() || PORTFOLIO_DATA.currentRoleCard;
+      PORTFOLIO_DATA.summary = document.getElementById('adm-summary')?.value.trim() || PORTFOLIO_DATA.summary;
+
+      PORTFOLIO_DATA.stats = {
+        exp: document.getElementById('adm-stat-exp')?.value.trim() || '3+ Yrs',
+        ai: document.getElementById('adm-stat-ai')?.value.trim() || '99%',
+        projects: document.getElementById('adm-stat-proj')?.value.trim() || (PORTFOLIO_DATA.projects.length + '+'),
+        cgpa: document.getElementById('adm-stat-cgpa')?.value.trim() || '8.0'
+      };
+
+      // Skills
+      const skCats = document.querySelectorAll('[data-sk-cat]');
+      if (skCats.length > 0) {
+        const updatedSkills = [];
+        skCats.forEach(catInput => {
+          const idx = catInput.getAttribute('data-sk-cat');
+          const itemsInput = document.querySelector(`[data-sk-items="${idx}"]`);
+          if (catInput.value.trim() || itemsInput?.value.trim()) {
+            updatedSkills.push({
+              category: catInput.value.trim() || 'Skills',
+              items: itemsInput ? itemsInput.value.trim() : ''
+            });
+          }
+        });
+        PORTFOLIO_DATA.resumeSkills = updatedSkills;
+      }
+
+      // Experience
+      const expTitles = document.querySelectorAll('[data-exp-title]');
+      if (expTitles.length > 0) {
+        const accents = ['emerald', 'cyan', 'indigo'];
+        const updatedExp = [];
+        expTitles.forEach((tInput, i) => {
+          const idx = tInput.getAttribute('data-exp-title');
+          const comp = document.querySelector(`[data-exp-company="${idx}"]`)?.value.trim() || '';
+          const period = document.querySelector(`[data-exp-period="${idx}"]`)?.value.trim() || '';
+          const sub = document.querySelector(`[data-exp-sub="${idx}"]`)?.value.trim() || '';
+          const bulletsRaw = document.querySelector(`[data-exp-bullets="${idx}"]`)?.value || '';
+          const bullets = bulletsRaw.split('\n').map(b => b.trim()).filter(Boolean);
+          updatedExp.push({
+            title: tInput.value.trim() || 'Software Engineer',
+            company: comp,
+            period: period,
+            roleSubtitle: sub,
+            accent: accents[i % accents.length],
+            bullets: bullets
+          });
+        });
+        PORTFOLIO_DATA.experience = updatedExp;
+      }
+
+      // Projects
+      const projTitles = document.querySelectorAll('[data-proj-title]');
+      if (projTitles.length > 0) {
+        const updatedProj = [];
+        projTitles.forEach(tInput => {
+          const idx = tInput.getAttribute('data-proj-title');
+          const existing = PORTFOLIO_DATA.projects[idx] || {};
+          const badge = document.querySelector(`[data-proj-badge="${idx}"]`)?.value.trim() || 'Production System';
+          const cat = document.querySelector(`[data-proj-cat="${idx}"]`)?.value || 'ai';
+          const tech = document.querySelector(`[data-proj-tech="${idx}"]`)?.value.trim() || '';
+          const bulletsRaw = document.querySelector(`[data-proj-bullets="${idx}"]`)?.value || '';
+          const bullets = bulletsRaw.split('\n').map(b => b.trim()).filter(Boolean);
+          updatedProj.push({
+            title: tInput.value.trim() || 'Enterprise Project',
+            tech: tech,
+            badge: badge,
+            icon: existing.icon || 'code',
+            category: cat,
+            footerLeft: existing.footerLeft || 'Enterprise System',
+            footerRight: existing.footerRight || 'Full Stack',
+            bullets: bullets
+          });
+        });
+        PORTFOLIO_DATA.projects = updatedProj;
+      }
+
+      // Education & Capstones
+      PORTFOLIO_DATA.education.degree = document.getElementById('adm-edu-degree')?.value.trim() || PORTFOLIO_DATA.education.degree;
+      PORTFOLIO_DATA.education.year = document.getElementById('adm-edu-year')?.value.trim() || PORTFOLIO_DATA.education.year;
+      PORTFOLIO_DATA.education.cgpa = document.getElementById('adm-edu-cgpa')?.value.trim() || PORTFOLIO_DATA.education.cgpa;
+      PORTFOLIO_DATA.education.college = document.getElementById('adm-edu-college')?.value.trim() || PORTFOLIO_DATA.education.college;
+
+      const cpTitles = document.querySelectorAll('[data-cp-title]');
+      if (cpTitles.length > 0) {
+        const updatedCp = [];
+        cpTitles.forEach(tInput => {
+          const idx = tInput.getAttribute('data-cp-title');
+          const tech = document.querySelector(`[data-cp-tech="${idx}"]`)?.value.trim() || '';
+          const summary = document.querySelector(`[data-cp-summary="${idx}"]`)?.value.trim() || '';
+          updatedCp.push({
+            title: tInput.value.trim() || 'Academic Capstone Project',
+            badge: 'Academic ML & AI Research',
+            tech: tech,
+            summary: summary
+          });
+        });
+        PORTFOLIO_DATA.education.collegeProjects = updatedCp;
+      }
+    }
+
+    function saveAllAdminChanges() {
+      syncAdminDOMToData();
+      persistData();
+      renderPortfolioPage();
+      renderResumeSheet();
+      populateEditorForm();
+      renderAdminForms();
+      showToast('All Admin CMS changes saved! Live Portfolio & PDF Resume updated.');
+    }
+
+    function addAdminSkillRow() {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.resumeSkills.push({ category: 'New Category', items: 'Skill 1, Skill 2, Skill 3' });
+      renderAdminForms();
+    }
+
+    function deleteAdminSkillRow(idx) {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.resumeSkills.splice(idx, 1);
+      persistData();
+      renderAdminForms();
+    }
+
+    function addAdminExperienceCard() {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.experience.unshift({
+        title: 'Senior Software Engineer',
+        company: 'New Company Name',
+        roleSubtitle: 'Python Full Stack & Applied AI',
+        period: '2026 – Present',
+        accent: 'emerald',
+        bullets: [
+          'Architected high-concurrency backend microservices and responsive React.js dashboards.',
+          'Optimized SQL/NoSQL queries and cloud infrastructure on AWS.'
+        ]
+      });
+      renderAdminForms();
+      showToast('Added new role at top of Experience list!');
+    }
+
+    function deleteAdminExperienceCard(idx) {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.experience.splice(idx, 1);
+      persistData();
+      renderAdminForms();
+    }
+
+    function addAdminProjectCard() {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.projects.unshift({
+        title: 'New Enterprise Full-Stack Platform',
+        tech: 'Python, FastAPI, React.js, PostgreSQL, AWS',
+        badge: 'New System',
+        icon: 'sparkles',
+        category: 'ai',
+        footerLeft: 'Enterprise Architecture',
+        footerRight: 'Production Ready',
+        bullets: [
+          'Designed and deployed end-to-end full stack system with real-time telemetry and AI automation.'
+        ]
+      });
+      renderAdminForms();
+      showToast('Added new project card!');
+    }
+
+    function deleteAdminProjectCard(idx) {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.projects.splice(idx, 1);
+      persistData();
+      renderAdminForms();
+    }
+
+    function addAdminCollegeProject() {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.education.collegeProjects.push({
+        title: 'New Academic Research Project',
+        badge: 'Academic Research',
+        tech: 'Python • Machine Learning • Data Science',
+        summary: 'Designed and trained predictive machine learning models for automated analysis.'
+      });
+      renderAdminForms();
+    }
+
+    function deleteAdminCollegeProject(idx) {
+      syncAdminDOMToData();
+      PORTFOLIO_DATA.education.collegeProjects.splice(idx, 1);
+      persistData();
+      renderAdminForms();
+    }
+
+    // Custom PDF Upload Override Handler
+    function handleCustomPDFUpload(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        PORTFOLIO_DATA.customPdfDataUrl = e.target.result;
+        PORTFOLIO_DATA.customPdfFileName = file.name;
+        persistData();
+        renderPortfolioPage();
+        renderAdminForms();
+        showToast(`Uploaded Custom PDF: ${file.name}! All Download buttons now serve this file.`);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function clearCustomUploadedPDF() {
+      PORTFOLIO_DATA.customPdfDataUrl = null;
+      PORTFOLIO_DATA.customPdfFileName = null;
+      persistData();
+      renderPortfolioPage();
+      renderAdminForms();
+      showToast('Switched to Dynamic Auto-Generated Vector PDF mode!');
+    }
+
+    // Export Complete Self-Contained index.html with Updated Admin Data Permanently Baked In
+    function exportUpdatedIndexHTML() {
+      syncAdminDOMToData();
+      persistData();
+      let fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const startMarker = '// /*__DEFAULT_DATA_START__*/';
+      const endMarker = '// /*__DEFAULT_DATA_END__*/';
+      const sIdx = fullHtml.indexOf(startMarker);
+      const eIdx = fullHtml.indexOf(endMarker);
+
+      if (sIdx !== -1 && eIdx !== -1) {
+        const replacement = `${startMarker}\n    const DEFAULT_PORTFOLIO_DATA = ${JSON.stringify(PORTFOLIO_DATA, null, 2)};\n    `;
+        fullHtml = fullHtml.slice(0, sIdx) + replacement + fullHtml.slice(eIdx);
+      }
+
+      const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded updated index.html! Ready to upload to Netlify / GitHub Pages.');
+    }
+
+    function importResumeJSON(event) {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          PORTFOLIO_DATA = Object.assign({}, DEFAULT_PORTFOLIO_DATA, imported);
+          persistData();
+          renderPortfolioPage();
+          renderResumeSheet();
+          renderAdminForms();
+          showToast('Successfully restored portfolio & resume from JSON backup!');
+        } catch (err) {
+          showToast('Invalid JSON backup file.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function printResumeSheet() {
+      renderResumeSheet();
+      if (resumeModal.classList.contains('hidden')) {
+        openResumeModal('preview');
+      }
+      setTimeout(() => {
+        window.print();
+      }, 250);
+    }
+
+    function downloadStandaloneHTMLResume() {
+      renderResumeSheet();
+      const resumeInner = document.getElementById('resume-print-container').innerHTML;
+      const standaloneHtml = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${PORTFOLIO_DATA.name} - Resume 2026</title>
+<script src="https://cdn.tailwindcss.com"><\/script>
+<style>body { font-family: Arial, sans-serif; padding: 32px; max-width: 850px; margin: 0 auto; color: #0f172a; }</style>
+</head>
+<body>${resumeInner}</body>
+</html>`;
+      const blob = new Blob([standaloneHtml], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Ajith_E_Resume_2026.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded Ajith_E_Resume_2026.html!');
+    }
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Reliable Copy to Clipboard + Toast Notification
+    let toastTimer = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 3200);
+    }
+
+    function copyText(text, message) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      } catch (err) {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text);
+        }
+      }
+      showToast(message || 'Copied to clipboard!');
+    }
+
+    // Smart Email Modal Controls
+    const emailModal = document.getElementById('email-modal');
+    function openEmailModal() {
+      if (mobileMenu) mobileMenu.classList.add('hidden');
+      emailModal.classList.remove('hidden');
+      emailModal.classList.add('flex');
+    }
+
+    function closeEmailModal() {
+      emailModal.classList.add('hidden');
+      emailModal.classList.remove('flex');
+    }
+
+    emailModal.addEventListener('click', (e) => {
+      if (e.target === emailModal) closeEmailModal();
+    });
+
+    // Multi-Channel Email & Messaging Launcher
+    function launchEmailAction(method, source) {
+      const emailTo = PORTFOLIO_DATA.email || 'ajithelumalai486@gmail.com';
+      const subjectEl = document.getElementById(source === 'modal' ? 'modal-email-subject' : 'inline-email-subject');
+      const bodyEl = document.getElementById(source === 'modal' ? 'modal-email-body' : 'inline-email-body');
+
+      const subject = subjectEl ? subjectEl.value.trim() : 'Interview Opportunity - Ajith Elumalai';
+      const body = bodyEl ? bodyEl.value.trim() : 'Hi Ajith, we would like to schedule an interview with you.';
+
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(body);
+
+      if (method === 'gmail') {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${encodedSubject}&body=${encodedBody}`;
+        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+        showToast('Opening Gmail Web Composer in a new tab...');
+      } else if (method === 'outlook') {
+        const outlookUrl = `https://outlook.office.com/mail/deeplink/compose?to=${emailTo}&subject=${encodedSubject}&body=${encodedBody}`;
+        window.open(outlookUrl, '_blank', 'noopener,noreferrer');
+        showToast('Opening Outlook Web Composer in a new tab...');
+      } else if (method === 'whatsapp') {
+        const waText = encodeURIComponent(`${subject}\n\n${body}`);
+        const waUrl = `https://wa.me/91${PORTFOLIO_DATA.phone}?text=${waText}`;
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+        showToast(`Opening WhatsApp chat with Ajith (+91 ${PORTFOLIO_DATA.phone})...`);
+      } else if (method === 'mailto') {
+        const mailtoUrl = `mailto:${emailTo}?subject=${encodedSubject}&body=${encodedBody}`;
+        copyText(emailTo, 'Launching OS Mail App (Email also copied to clipboard!)');
+        try {
+          const link = document.createElement('a');
+          link.href = mailtoUrl;
+          link.target = '_top';
+          link.rel = 'noopener noreferrer';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } catch (e) {
+          window.location.href = mailtoUrl;
+        }
+      } else if (method === 'copy') {
+        const fullPackage = `To: ${emailTo}\nSubject: ${subject}\n\n${body}`;
+        copyText(fullPackage, 'Full Email + Subject + Message copied to clipboard!');
+      }
+    }
+
+    // Project Filtering
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.proj-filter');
+
+      buttons.forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.className = 'proj-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold bg-emerald-500 text-slate-950 transition-all';
+        } else {
+          btn.className = 'proj-filter px-4 py-2 rounded-xl text-xs font-mono font-semibold glass-card text-slate-300 hover:text-white transition-all';
+        }
+      });
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Interactive Recruiter CLI Terminal
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalForm = document.getElementById('terminal-form');
+    const terminalInput = document.getElementById('terminal-input');
+
+    function getCommandResponses() {
+      return {
+        help: `Available commands:
+  • <span class="text-emerald-400">resume</span>     — Download Ajith's official PDF resume (Ajith_E_Resume_2026.pdf)
+  • <span class="text-emerald-400">skills</span>     — View full-stack, DB, cloud & AI capabilities
+  • <span class="text-cyan-400">projects</span>   — Inspect ${PORTFOLIO_DATA.projects.length} enterprise production systems
+  • <span class="text-emerald-200">education</span>  — View B.E. CSE degree & college ML/AI projects
+  • <span class="text-indigo-400">hire</span>       — Why Ajith is a top-1% engineering hire
+  • <span class="text-amber-400">contact</span>    — Get direct phone & email details
+  • <span class="text-rose-400">clear</span>      — Clear terminal buffer`,
+        resume: `[DOWNLOADING RESUME: Ajith_E_Resume_2026.pdf]
+  • Candidate: ${PORTFOLIO_DATA.name} (${PORTFOLIO_DATA.headline})
+  • Format: ATS-Verified Multi-Page PDF
+  • Action: Triggering instant PDF download...`,
+        skills: `[TECH STACK VERIFIED]
+${PORTFOLIO_DATA.resumeSkills.map(s => `  • ${s.category}: ${s.items}`).join('\n')}`,
+        projects: `[${PORTFOLIO_DATA.projects.length} PRODUCTION SYSTEMS DEPLOYED]
+${PORTFOLIO_DATA.projects.map((p, i) => `  ${i + 1}. ${p.title} (${p.tech})`).join('\n')}`,
+        education: `[ACADEMIC FOUNDATION & COLLEGE CAPSTONE PROJECTS]
+  • Degree: ${PORTFOLIO_DATA.education.degree} (${PORTFOLIO_DATA.education.year}) — CGPA: ${PORTFOLIO_DATA.education.cgpa} / 10
+  • Institution: ${PORTFOLIO_DATA.education.college}
+  • College Project 1: Brain Tumor Detection using MRI Scan Report (Deep Learning / CNN medical image segmentation & tumor classification)
+  • College Project 2: Car Resale Value Prediction (Supervised Machine Learning regression model for accurate pre-owned vehicle valuation)`,
+        hire: `[RECRUITER SUMMARY]
+  ✔ 3+ years shipping real-time production systems (Currently Senior Officer @ Switch Mobility EV)
+  ✔ Bridges backend database/API architecture (FastAPI/Django/Redshift) with modern React.js UIs
+  ✔ Proven track record of building end-to-end products independently (Watermark Guard DLP & AI Co-Worker)`,
+        contact: `[DIRECT CONTACT]
+  • Location: ${PORTFOLIO_DATA.location}
+  • Email: ${PORTFOLIO_DATA.email}
+  • Phone / WhatsApp: +91 ${PORTFOLIO_DATA.phone}`
+      };
+    }
+
+    function runCommand(cmd) {
+      const clean = cmd.trim().toLowerCase();
+      if (!clean) return;
+
+      if (clean === 'clear') {
+        terminalOutput.innerHTML = '<div class="text-slate-400">Terminal buffer cleared. Type <span class="text-emerald-400">help</span> for commands.</div>';
+        return;
+      }
+
+      // Secret owner-only CLI trigger
+      if (clean === 'sudo admin' || clean === 'owner') {
+        switchViewMode('admin');
+        return;
+      }
+
+      const responses = getCommandResponses();
+      const userLine = document.createElement('div');
+      userLine.innerHTML = `<span class="text-emerald-400">ajith@dev:~$</span> <span class="text-white">${clean}</span>`;
+      terminalOutput.appendChild(userLine);
+
+      const respLine = document.createElement('div');
+      respLine.className = 'text-slate-300 whitespace-pre-line pl-3 border-l-2 border-emerald-500/40';
+      respLine.innerHTML = responses[clean] || `Command not recognized: "${clean}". Type <span class="text-emerald-400">help</span> for available commands.`;
+      terminalOutput.appendChild(respLine);
+
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+      if (clean === 'resume') {
+        setTimeout(() => downloadDynamicResumePDF(), 300);
+      }
+    }
+
+    terminalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      runCommand(terminalInput.value);
+      terminalInput.value = '';
+    });
+
+    // Scroll Reveal Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Interactive Telematics Particle Network Canvas
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.45;
+        this.vy = (Math.random() - 0.5) * 0.45;
+        this.radius = Math.random() * 1.8 + 0.8;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(16, 185, 129, 0.45)';
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.min(55, Math.floor(window.innerWidth / 24));
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 135) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(6, 182, 212, ${0.14 * (1 - dist / 135)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCanvas);
+    }
+
+    window.onload = function () {
+      renderPortfolioPage();
+      renderResumeSheet();
+      initParticles();
+      animateCanvas();
+      checkSecretUrlHash();
+    };
+  </script>
+</body>
+
+</html>
